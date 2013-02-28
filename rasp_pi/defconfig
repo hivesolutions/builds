@@ -1,2 +1,3 @@
+CT_PREFIX_DIR="/opt/${CT_TARGET}"
 CT_ARCH_arm=y
 CT_KERNEL_linux=y
