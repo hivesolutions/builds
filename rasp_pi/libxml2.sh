@@ -6,5 +6,6 @@ rm -f "libxml2-$VERSION.tar.gz"
 cd libxml2-$VERSION
 
 export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
+export CFLAGS="-O3"
 ./configure --host=arm-unknown-linux-gnueabi --build=arm --prefix=/opt/arm-unknown-linux-gnueabi
 make && make install
