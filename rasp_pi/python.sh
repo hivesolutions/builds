@@ -17,7 +17,6 @@ patch -p1 < Python-$VERSION-xcompile.patch
 rm -f "Python-$VERSION-xcompile.patch"
 
 export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-export CFLAGS="-O3"
 
 CC=arm-unknown-linux-gnueabi-gcc CXX=arm-unknown-linux-gnueabi-g++\
     AR=arm-unknown-linux-gnueabi-ar RANLIB=arm-unknown-linux-gnueabi-ranlib\

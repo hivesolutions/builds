@@ -6,7 +6,6 @@ rm -f "pcre-$VERSION.tar.gz"
 cd pcre-$VERSION
 
 export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-export CFLAGS="-O3"
 ./configure --host=arm-unknown-linux-gnueabi --build=arm --prefix=/opt/arm-unknown-linux-gnueabi\
     --disable-shared --enable-static --disable-cpp
 make && make install

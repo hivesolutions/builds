@@ -6,7 +6,7 @@ rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
 
 export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-export CFLAGS="-O3 -I/opt/arm-unknown-linux-gnueabi/include\
+export CFLAGS="$CFLAGS -I/opt/arm-unknown-linux-gnueabi/include\
     -L/opt/arm-unknown-linux-gnueabi/lib\
     -R/opt/arm-unknown-linux-gnueabi/lib\
     -L/opt/arm-unknown-linux-gnueabi/usr/lib\

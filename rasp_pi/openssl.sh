@@ -7,7 +7,6 @@ cd openssl-$VERSION
 
 export cross=arm-unknown-linux-
 export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-export CFLAGS="-O3"
 ./config --prefix=/opt/arm-unknown-linux-gnueabi
 ./Configure dist --prefix=/opt/arm-unknown-linux-gnueabi
 make CC="arm-unknown-linux-gnueabi-gcc" AR="arm-unknown-linux-gnueabi-ar r"\
