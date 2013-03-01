@@ -5,3 +5,6 @@ cd build
 ../pcre.sh
 ../php.sh
 ../python.sh
+../ncurses.sh
+../readline.sh
+../lua.sh
