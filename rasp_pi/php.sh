@@ -6,9 +6,14 @@ rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
 
 export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-export LDFLAGS="-ldl"
+export CFLAGS="-I/opt/arm-unknown-linux-gnueabi/include\
+    -L/opt/arm-unknown-linux-gnueabi/lib\
+    -R/opt/arm-unknown-linux-gnueabi/lib\
+    -L/opt/arm-unknown-linux-gnueabi/usr/lib\
+    -R/opt/arm-unknown-linux-gnueabi/usr/lib\
+    -L/opt/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib\
+    -R/opt/arm-unknown-linux-gnueabi/arm-unknown-linux-gnueabi/sysroot/usr/lib"
 ./configure --host=arm-unknown-linux-gnueabi --build=arm --prefix=/opt/arm-unknown-linux-gnueabi\
-    -enable-embed=static --disable-libxml --disable-dom --disable-simplexml --disable-xml\
-    --disable-xmlreader --disable-xmlwriter --disable-phar --without-pear --without-iconv\
+    -enable-embed=static --with-openssl --enable-bcmath --disable-phar --without-pear --without-iconv\
     --with-config-file-path=/usr/lib
 make && make install
