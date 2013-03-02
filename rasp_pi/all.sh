@@ -1,10 +1,11 @@
-export CFLAGS="-O3"
-
 rm -rf build
 mkdir build
 cd build
 
 ../cross.sh
+
+export CFLAGS="-O3"
+
 ../openssl.sh
 ../pcre.sh
 ../ncurses.sh
