@@ -9,10 +9,9 @@ wget -q "https://raw.github.com/hivesolutions/patches/master/lua/lua-$VERSION-xc
 patch -p1 < lua-$VERSION-xcompile.patch
 rm -f "lua-$VERSION-xcompile.patch"
 
-export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH 
-make linux CC="arm-unknown-linux-gnueabi-gcc" AR="arm-unknown-linux-gnueabi-ar rcu"\
-    RANLIB="arm-unknown-linux-gnueabi-ranlib" CFLAGS="-I/opt/arm-unknown-linux-gnueabi/include\
-    -L/opt/arm-unknown-linux-gnueabi/lib -R/opt/arm-unknown-linux-gnueabi/lib"
-make install INSTALL_TOP=/opt/arm-unknown-linux-gnueabi
-ln -sf liblua5.1.so.0.0.0 /opt/arm-unknown-linux-gnueabi/lib/liblua5.1.so.0
-ln -sf liblua5.1.so.0 /opt/arm-unknown-linux-gnueabi/lib/liblua5.1.so
+export PATH=$PREFIX/bin:$PATH 
+make linux CC="$HOST-gcc" AR="$HOST-ar rcu" RANLIB="$HOST-ranlib"\
+    CFLAGS="-I$HOST/include -L$HOST/lib -R$HOST/lib"
+make install INSTALL_TOP=$PREFIX
+ln -sf liblua5.1.so.0.0.0 $PREFIX/lib/liblua5.1.so.0
+ln -sf liblua5.1.so.0 $PREFIX/lib/liblua5.1.so
