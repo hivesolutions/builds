@@ -5,6 +5,6 @@ tar -zxf "ncurses-$VERSION.tar.gz"
 rm -f "ncurses-$VERSION.tar.gz"
 cd ncurses-$VERSION
 
-export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-./configure --host=arm-unknown-linux-gnueabi --build=arm --prefix=/opt/arm-unknown-linux-gnueabi
+export PATH=$PREFIX/bin:$PATH
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
 make && make install
