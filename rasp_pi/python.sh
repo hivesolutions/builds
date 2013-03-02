@@ -16,17 +16,16 @@ wget -q "https://raw.github.com/hivesolutions/patches/master/python/Python-$VERS
 patch -p1 < Python-$VERSION-xcompile.patch
 rm -f "Python-$VERSION-xcompile.patch"
 
-export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
+export PATH=$PREFIX/bin:$PATH
 
-CC=arm-unknown-linux-gnueabi-gcc CXX=arm-unknown-linux-gnueabi-g++\
-    AR=arm-unknown-linux-gnueabi-ar RANLIB=arm-unknown-linux-gnueabi-ranlib\
-    ./configure --host=arm-unknown-linux-gnueabi --build=arm --prefix=/opt/arm-unknown-linux-gnueabi --enable-shared 
+CC=$HOST-gcc CXX=$HOST-g++ AR=$HOST-ar RANLIB=$HOST-ranlib\
+    ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX --enable-shared 
 
-make HOSTPYTHON=./hostpython HOSTPGEN=./Parser/hostpgen BLDSHARED="arm-unknown-linux-gnueabi-gcc -shared"\
-    CROSS_COMPILE=arm-unknown-linux-gnueabi- CROSS_COMPILE_TARGET=yes HOSTARCH=arm-unknown-linux-gnueabi BUILDARCH=arm
+make HOSTPYTHON=./hostpython HOSTPGEN=./Parser/hostpgen BLDSHARED="$HOST-gcc -shared"\
+    CROSS_COMPILE=$HOST- CROSS_COMPILE_TARGET=yes HOSTARCH=$HOST BUILDARCH=$BUILD
 
-make install HOSTPYTHON=./hostpython BLDSHARED="arm-unknown-linux-gcc -shared"\
-    CROSS_COMPILE=arm-unknown-linux-gnueabi- CROSS_COMPILE_TARGET=yes prefix=/opt/arm-unknown-linux-gnueabi
+make install HOSTPYTHON=./hostpython BLDSHARED="$HOST -shared"\
+    CROSS_COMPILE=$HOST- CROSS_COMPILE_TARGET=yes prefix=$PREFIX
 
 rm -rf Parser
 rm -f python
