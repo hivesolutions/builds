@@ -5,6 +5,6 @@ tar -zxf "libxml2-$VERSION.tar.gz"
 rm -f "libxml2-$VERSION.tar.gz"
 cd libxml2-$VERSION
 
-export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-./configure --host=arm-unknown-linux-gnueabi --build=arm --prefix=/opt/arm-unknown-linux-gnueabi
+export PATH=$PREFIX/bin:$PATH
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
 make && make install
