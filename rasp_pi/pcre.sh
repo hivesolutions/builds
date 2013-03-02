@@ -5,7 +5,7 @@ tar -zxf "pcre-$VERSION.tar.gz"
 rm -f "pcre-$VERSION.tar.gz"
 cd pcre-$VERSION
 
-export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-./configure --host=arm-unknown-linux-gnueabi --build=arm --prefix=/opt/arm-unknown-linux-gnueabi\
+export PATH=$PREFIX/bin:$PATH
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --disable-shared --enable-static --disable-cpp
 make && make install
