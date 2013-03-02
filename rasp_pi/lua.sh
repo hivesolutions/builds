@@ -14,4 +14,4 @@ make linux CC="arm-unknown-linux-gnueabi-gcc" AR="arm-unknown-linux-gnueabi-ar r
     RANLIB="arm-unknown-linux-gnueabi-ranlib" CFLAGS="-I/opt/arm-unknown-linux-gnueabi/include\
     -L/opt/arm-unknown-linux-gnueabi/lib -R/opt/arm-unknown-linux-gnueabi/lib"
 make install INSTALL_TOP=/opt/arm-unknown-linux-gnueabi
-ln -sf /opt/arm-unknown-linux-gnueabi/lib/liblua5.1.so.0 /opt/arm-unknown-linux-gnueabi/lib/liblua5.1.so
+ln -sf /opt/arm-unknown-linux-gnueabi/lib/liblua5.1.so.0 liblua5.1.so
