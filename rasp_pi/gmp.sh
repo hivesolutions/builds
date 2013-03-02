@@ -6,5 +6,5 @@ rm -f "gmp-$VERSION.tar.bz2"
 cd gmp-$VERSION
 
 export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-./configure --host=arm-unknown-linux-gnueabi --build=arm --prefix=/opt/arm-unknown-linux-gnueabi
+./configure --host=arm-rasp-linux-gnueabi --build=arm --prefix=/opt/arm-rasp-linux-gnueabi
 make && make install
