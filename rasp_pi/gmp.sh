@@ -5,6 +5,6 @@ tar -jxf "gmp-$VERSION.tar.bz2"
 rm -f "gmp-$VERSION.tar.bz2"
 cd gmp-$VERSION
 
-export PATH=/opt/arm-unknown-linux-gnueabi/bin:$PATH
-./configure --host=arm-rasp-linux-gnueabi --build=arm --prefix=/opt/arm-rasp-linux-gnueabi
+export PATH=$PREFIX/bin:$PATH
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
 make && make install
