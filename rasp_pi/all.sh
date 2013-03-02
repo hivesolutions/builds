@@ -9,8 +9,8 @@ cd build
 ../pcre.sh
 ../ncurses.sh
 ../readline.sh
-../libxml2.sh
 ../gmp.sh
-../php.sh
 ../python.sh
 ../lua.sh
+../libxml2.sh
+../php.sh
