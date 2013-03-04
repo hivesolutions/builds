@@ -10,6 +10,7 @@ export CROSS="arm-rasp-linux-"
 export BUILD="arm"
 export PREFIX=/opt/$HOST
 
+../bin.sh
 ../openssl.sh
 ../pcre.sh
 ../ncurses.sh
