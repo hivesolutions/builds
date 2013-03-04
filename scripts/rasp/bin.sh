@@ -1,6 +1,8 @@
 git clone git://github.com/hivesolutions/builds.git
-cd builds/bin
+cd builds/bin/rasp
 
 cp *.tar.gz $PREFIX
 cd $PREFIX
-tar -zcvf *.tar.gz
+for file in *.gz; do
+    tar -zxvf $file
+done
