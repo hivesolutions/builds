@@ -1,9 +1,9 @@
-VERSION="1.2.50"
+VERSION_="1.2.50"
 
-wget -q "http://prdownloads.sourceforge.net/libpng/libpng-$VERSION.tar.gz?download" "--output-document=libpng-$VERSION.tar.gz"
-tar -zxf "libpng-$VERSION.tar.gz"
-rm -f "libpng-$VERSION.tar.gz"
-cd libpng-$VERSION
+wget -q "http://prdownloads.sourceforge.net/libpng/libpng-$VERSION_.tar.gz?download" "--output-document=libpng-$VERSION_.tar.gz"
+tar -zxf "libpng-$VERSION_.tar.gz"
+rm -f "libpng-$VERSION_.tar.gz"
+cd libpng-$VERSION_
 
 export PATH=$PREFIX/bin:$PATH
 export CFLAGS="$CFLAGS -I$PREFIX/include\
