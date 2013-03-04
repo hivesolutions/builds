@@ -24,7 +24,7 @@ CC=$HOST-gcc CXX=$HOST-g++ AR=$HOST-ar RANLIB=$HOST-ranlib\
 make HOSTPYTHON=./hostpython HOSTPGEN=./Parser/hostpgen BLDSHARED="$HOST-gcc -shared"\
     CROSS_COMPILE=$HOST- CROSS_COMPILE_TARGET=yes HOSTARCH=$HOST BUILDARCH=$BUILD
 
-make install HOSTPYTHON=./hostpython BLDSHARED="$HOST -shared"\
+make install HOSTPYTHON=./hostpython BLDSHARED="$HOST-gcc -shared"\
     CROSS_COMPILE=$HOST- CROSS_COMPILE_TARGET=yes prefix=$PREFIX
 
 rm -rf Parser
