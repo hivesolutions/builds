@@ -21,9 +21,9 @@ phpize
 cd -
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     -enable-embed=static --enable-bcmath --enable-mysqlnd\
-    --disable-phar --with-mysql --with-mysqli --with-gd --without-pear\
-    --without-iconv --with-mysql=mysqlnd --with-pdo-mysql=mysqlnd\
-    --with-config-file-path=/usr/lib --with-zip=$PREFIX --with-bz2=$PREFIX\
-    --with-zlib-dir=$PREFIX --with-freetype-dir=$PREFIX --with-png-dir=$PREFIX\
-    --with-jpeg-dir=$PREFIX
+    --disable-phar --with-mysql --with-mysqli --with-gd --with-imap\
+    --with-openssl --without-pear --without-iconv --with-mysql=mysqlnd\
+    --with-pdo-mysql=mysqlnd --with-config-file-path=/usr/lib\
+    --with-zip=$PREFIX --with-bz2=$PREFIX --with-zlib-dir=$PREFIX\
+    --with-freetype-dir=$PREFIX --with-png-dir=$PREFIX --with-jpeg-dir=$PREFIX
 make && make install
