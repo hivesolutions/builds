@@ -14,6 +14,7 @@ export PREFIX=/opt/$HOST
 ../openssl.sh
 ../pcre.sh
 ../zlib.sh
+../libpng.sh
 ../ncurses.sh
 ../readline.sh
 ../gmp.sh
