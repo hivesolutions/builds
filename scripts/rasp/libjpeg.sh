@@ -1,0 +1,11 @@
+VERSION="8d"
+
+wget -q "http://www.ijg.org/files/jpegsrc.v$VERSION.tar.gz"
+tar -zxf "jpeg-$VERSION.tar.gz"
+rm -f "jpeg-$VERSION.tar.gz"
+cd jpeg-$VERSION
+
+export PATH=$PREFIX/bin:$PATH
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
+    --disable-shared
+make && make install
