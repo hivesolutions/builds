@@ -14,6 +14,7 @@ export PREFIX=/opt/$HOST
 ../openssl.sh
 ../pcre.sh
 ../zlib.sh
+../zip.sh
 ../libpng.sh
 ../libjpeg.sh
 ../freetype.sh
