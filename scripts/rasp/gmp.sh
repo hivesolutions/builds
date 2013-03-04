@@ -6,5 +6,6 @@ rm -f "gmp-$VERSION.tar.bz2"
 cd gmp-$VERSION
 
 export PATH=$PREFIX/bin:$PATH
-./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
+    --disable-shared
 make && make install

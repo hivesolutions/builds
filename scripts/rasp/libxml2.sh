@@ -6,5 +6,6 @@ rm -f "libxml2-$VERSION.tar.gz"
 cd libxml2-$VERSION
 
 export PATH=$PREFIX/bin:$PATH
-./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
+    --disable-shared
 make && make install
