@@ -21,7 +21,7 @@ phpize
 cd -
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     -enable-embed=static --enable-bcmath --enable-mysqlnd\
-    --disable-phar --with-mysql --with-mysqli --without-pear\
+    --disable-phar --with-mysql --with-mysqli --with-gd --without-pear\
     --without-iconv --with-mysql=mysqlnd --with-pdo-mysql=mysqlnd\
     --with-config-file-path=/usr/lib
 make && make install
