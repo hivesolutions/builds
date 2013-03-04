@@ -13,8 +13,15 @@ export CFLAGS="$CFLAGS -I$PREFIX/include\
     -R$PREFIX/usr/lib\
     -L$PREFIX/$HOST/sysroot/usr/lib\
     -R$PREFIX/$HOST/sysroot/usr/lib"
+cd ext/mysqlnd
+mv config9.m4 config.m4
+sed -ie "s{<ext/mysqlnd/php_mysqlnd_config.h>{\"config.h\"{" mysqlnd_portability.h
+phpize
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
+cd -
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
-    -enable-embed=static --enable-bcmath --disable-phar\
-    --with-mysql --with-mysqli --without-pear --without-iconv\
+    -enable-embed=static --enable-bcmath --enable-mysqlnd\
+    --disable-phar --with-mysql --with-mysqli --without-pear\
+    --without-iconv --with-mysql=mysqlnd --with-pdo-mysql=mysqlnd\
     --with-config-file-path=/usr/lib
 make && make install
