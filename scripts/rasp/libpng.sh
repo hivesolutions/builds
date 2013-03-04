@@ -13,5 +13,5 @@ export CFLAGS="$CFLAGS -I$PREFIX/include\
     -R$PREFIX/usr/lib\
     -L$PREFIX/$HOST/sysroot/usr/lib\
     -R$PREFIX/$HOST/sysroot/usr/lib"
-./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX --disable-shared
 make && make install
