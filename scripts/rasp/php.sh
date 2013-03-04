@@ -15,5 +15,6 @@ export CFLAGS="$CFLAGS -I$PREFIX/include\
     -R$PREFIX/$HOST/sysroot/usr/lib"
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     -enable-embed=static --enable-bcmath --disable-phar\
-    --without-pear --without-iconv --with-config-file-path=/usr/lib
+    --with-mysql --with-mysqli --without-pear --without-iconv\
+    --with-config-file-path=/usr/lib
 make && make install
