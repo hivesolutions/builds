@@ -10,6 +10,6 @@ make && make install
 
 mkdir config
 cd config
-wget -q "https://raw.github.com/hivesolutions/builds/master/rasp_pi/defconfig"
+wget -q "https://raw.github.com/hivesolutions/builds/master/scripts/rasp/defconfig"
 ct-ng olddefconfig
 ct-ng build
