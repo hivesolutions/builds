@@ -5,7 +5,7 @@ tar -zxf "zlib-$VERSION.tar.gz"
 rm -f "zlib-$VERSION.tar.gz"
 cd zlib-$VERSION
 
-export PATH=/opt/arm-rasp-linux-gnueabi/bin:$PATH
-export CC=arm-rasp-linux-gnueabi-gcc
-./configure --prefix=/opt/arm-rasp-linux-gnueabi --static
+export PATH=$PREFIX/bin:$PATH
+export CC=$HOST-gcc
+./configure --prefix=$PREFIX --static
 make && make install
