@@ -5,7 +5,7 @@ tar -zxf "Python-$VERSION.tgz"
 rm -f "Python-$VERSION.tgz"
 cd Python-$VERSION
 
-./configure
+CFLAGS="-O2" ./configure 
 mkdir Parser
 make python Parser/pgen
 mv python hostpython
