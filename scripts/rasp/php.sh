@@ -20,7 +20,7 @@ phpize
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
 cd -
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
-    -enable-embed=static --enable-bcmath --enable-mysqlnd\
+    -enable-embed=static --enable-bcmath --enable-mysqlnd --enable-sockets\
     --disable-phar --with-mysql --with-mysqli --with-gd --with-openssl\
     --without-pear --without-iconv --with-mysql=mysqlnd --with-pdo-mysql=mysqlnd\
     --with-config-file-path=/usr/lib --with-curl=$PREFIX --with-gmp=$PREFIX\
