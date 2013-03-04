@@ -13,6 +13,7 @@ export PREFIX=/opt/$HOST
 ../bin.sh
 ../openssl.sh
 ../pcre.sh
+../zlib.sh
 ../ncurses.sh
 ../readline.sh
 ../gmp.sh
