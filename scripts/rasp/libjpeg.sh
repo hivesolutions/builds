@@ -1,7 +1,7 @@
 VERSION="8d"
 
 wget -q "http://www.ijg.org/files/jpegsrc.v$VERSION.tar.gz"
-tar -zxf "jpeg-$VERSION.tar.gz"
+tar -zxf "jpegsrc.v$VERSION.tar.gz"
 rm -f "jpeg-$VERSION.tar.gz"
 cd jpeg-$VERSION
 
