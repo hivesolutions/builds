@@ -22,6 +22,7 @@ export PREFIX=/opt/$HOST
 ../ncurses.sh
 ../readline.sh
 ../gmp.sh
+../curl.sh
 ../python.sh
 ../lua.sh
 ../libxml2.sh
