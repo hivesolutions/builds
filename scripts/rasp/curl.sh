@@ -7,5 +7,5 @@ cd curl-$VERSION
 
 export PATH=$PREFIX/bin:$PATH
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
-    --disable-shared
+    --disable-shared --enable-ipv6 --with-ssl
 make && make install
