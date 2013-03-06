@@ -508,7 +508,6 @@ cd ..
 rm -rf glibc-build
 rm -rf glibc-$VERSION
 
-
 ##### ADJUSTING TOOLCHAIN 6.10
 
 mv -v /tools/bin/{ld,ld-old}
@@ -534,3 +533,22 @@ gcc -dumpspecs | sed -e 's@/tools@@g'\
 ../bin/sed.sh
 ../bin/bzip2.sh
 ../bin/pkg-config.sh
+../bin/ncurses.sh
+../bin/util-unix.sh
+../bin/psmisc.sh
+../bin/procps-ng.sh
+../bin/e2fsprogs.sh
+../bin/shadow.sh
+../bin/coreutils.sh
+../bin/iana-etc.sh
+../bin/m4.sh
+../bin/bison.sh
+../bin/grep.sh
+../bin/readline.sh
+../bin/bash.sh
+../bin/libtool.sh
+../bin/gdbm.sh
+../bin/inetutils.sh
+../bin/perl.sh
+../bin/autoconf.sh
+
