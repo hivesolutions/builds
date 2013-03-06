@@ -522,12 +522,15 @@ gcc -dumpspecs | sed -e 's@/tools@@g'\
     `dirname $(gcc --print-libgcc-file-name)`/specs
 
 
-## 
+## The user mode tools to be instaled in the system
     
 ../bin/zlib.sh
 ../bin/file.sh
 ../bin/binutils.sh
-
-
-    
-    
+../bin/gmp.sh
+../bin/mpfr.sh
+../bin/mpc.sh
+../bin/gcc.sh
+../bin/sed.sh
+../bin/bzip2.sh
+../bin/pkg-config.sh
