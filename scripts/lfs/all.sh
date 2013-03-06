@@ -262,7 +262,6 @@ ln -sv gcc /tools/bin/cc
 ../tar.sh
 ../texinfo.sh
 ../xz.sh
-../wget.sh
 
 strip --strip-debug /tools/lib/*
 strip --strip-unneeded /tools/{,s}bin/*
