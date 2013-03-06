@@ -239,29 +239,29 @@ ln -sv gcc /tools/bin/cc
 
 #### ----------------------------------------------------
 
-../tcl.sh
-../expect.sh
-../dejagnu.sh
-../check.sh
-../ncurses.sh
-../bash.sh
-../bzip2.sh
-../coreutils.sh
-../diffutils.sh
-../file.sh
-../findutils.sh
-../gawk.sh
-../gettext.sh
-../grep.sh
-../gzip.sh
-../m4.sh
-../make.sh
-../patch.sh
-../perl.sh
-../sed.sh
-../tar.sh
-../texinfo.sh
-../xz.sh
+../tools/tcl.sh
+../tools/expect.sh
+../tools/dejagnu.sh
+../tools/check.sh
+../tools/ncurses.sh
+../tools/bash.sh
+../tools/bzip2.sh
+../tools/coreutils.sh
+../tools/diffutils.sh
+../tools/file.sh
+../tools/findutils.sh
+../tools/gawk.sh
+../tools/gettext.sh
+../tools/grep.sh
+../tools/gzip.sh
+../tools/m4.sh
+../tools/make.sh
+../tools/patch.sh
+../tools/perl.sh
+../tools/sed.sh
+../tools/tar.sh
+../tools/texinfo.sh
+../tools/xz.sh
 
 strip --strip-debug /tools/lib/*
 strip --strip-unneeded /tools/{,s}bin/*
@@ -490,8 +490,6 @@ cp -v zone.tab iso3166.tab $ZONEINFO
 zic -d $ZONEINFO -p America/New_York
 unset ZONEINFO
 
-
-
 cat > /etc/ld.so.conf << "EOF"
 # Begin /etc/ld.so.conf
 /usr/local/lib
@@ -505,7 +503,6 @@ include /etc/ld.so.conf.d/*.conf
 
 EOF
 mkdir /etc/ld.so.conf.d
-
 
 cd ..
 rm -rf glibc-build
@@ -524,4 +521,13 @@ gcc -dumpspecs | sed -e 's@/tools@@g'\
     -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' >\
     `dirname $(gcc --print-libgcc-file-name)`/specs
 
+
+## 
+    
+../bin/zlib.sh
+../bin/file.sh
+../bin/binutils.sh
+
+
+    
     
