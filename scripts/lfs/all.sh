@@ -551,4 +551,11 @@ gcc -dumpspecs | sed -e 's@/tools@@g'\
 ../bin/inetutils.sh
 ../bin/perl.sh
 ../bin/autoconf.sh
+../bin/automake.sh
+../bin/autoconf.sh
+../bin/diffutils.sh
+../bin/gawk.sh
+../bin/findutils.sh
+../bin/flex.sh
+../bin/gettext.sh
 
