@@ -36,10 +36,10 @@ chroot $SCUDUM /usr/bin/env -i\
 
 cd /
 
-umount $SCUDUM/sys
-umount $SCUDUM/proc
-umount $SCUDUM/dev/pts
-umount $SCUDUM/dev
+umount -v $SCUDUM/sys
+umount -v $SCUDUM/proc
+umount -v $SCUDUM/dev/pts
+umount -v $SCUDUM/dev
 
-umount $SCUDUM/boot && rm -rf $SCUDUM/boot
-umount $SCUDUM && rm -rf $SCUDUM
+umount -v $SCUDUM/boot && rm -rvf $SCUDUM/boot
+umount -v $SCUDUM && rm -rvf $SCUDUM
