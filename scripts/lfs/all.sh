@@ -679,6 +679,9 @@ cp -v .config /boot/config-$VERSION
 
 ### GRUB (requires configuration)
 
+## URGENTE para instalar o grub tenho de ter o dev file system instalado
+
+
 grub-install /dev/sdb
 
 cat > /boot/grub/grub.cfg << "EOF"
