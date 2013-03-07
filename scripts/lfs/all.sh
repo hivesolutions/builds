@@ -656,7 +656,6 @@ EOF
 
 #### /etc/fstab   (must be customized)
 
-
 cat > /etc/fstab << "EOF"
 # Begin /etc/fstab
 
