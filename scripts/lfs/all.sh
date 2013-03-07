@@ -66,7 +66,7 @@ rm -f "gcc-4.7.2.tar.bz2"
 cd gcc-4.7.2
 
 # downloads all the requirements for the current gcc builds
-# should 
+# should
 ./contrib/download_prerequisites
 
 for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
@@ -189,7 +189,7 @@ rm -f "gcc-4.7.2.tar.bz2"
 cd gcc-4.7.2
 
 # downloads all the requirements for the current gcc builds
-# should 
+# should
 ./contrib/download_prerequisites
 
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
@@ -231,7 +231,7 @@ CC=$LFS_TGT-gcc AR=$LFS_TGT-ar RANLIB=$LFS_TGT-ranlib ../gcc-4.7.2/configure\
     --disable-multilib\
     --disable-bootstrap\
     --disable-libgomp
-    
+
 make && make install
 
 ln -sv gcc /tools/bin/cc
@@ -521,7 +521,7 @@ gcc -dumpspecs | sed -e 's@/tools@@g'\
 
 
 ## The user mode tools to be instaled in the system
-    
+
 ../bin/zlib.sh
 ../bin/file.sh
 ../bin/binutils.sh
@@ -588,7 +588,7 @@ chroot $LFS /tools/bin/env -i\
 
 /tools/bin/find /{,usr/}{bin,lib,sbin} -type f\
     -exec /tools/bin/strip --strip-debug '{}' ';'
-	
+
 #### removal of the /tools directory
 
 logout
@@ -672,5 +672,3 @@ devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
 
 # End /etc/fstab
 EOF
-
-

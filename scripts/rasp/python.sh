@@ -5,7 +5,7 @@ tar -zxf "Python-$VERSION.tgz"
 rm -f "Python-$VERSION.tgz"
 cd Python-$VERSION
 
-CFLAGS="-O2" ./configure 
+CFLAGS="-O2" ./configure
 mkdir Parser
 make python Parser/pgen
 mv python hostpython
@@ -19,7 +19,7 @@ rm -f "Python-$VERSION-xcompile.patch"
 export PATH=$PREFIX/bin:$PATH
 
 CC=$HOST-gcc CXX=$HOST-g++ AR=$HOST-ar RANLIB=$HOST-ranlib\
-    ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX --enable-shared 
+    ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX --enable-shared
 
 make HOSTPYTHON=./hostpython HOSTPGEN=./Parser/hostpgen BLDSHARED="$HOST-gcc -shared"\
     CROSS_COMPILE=$HOST- CROSS_COMPILE_TARGET=yes HOSTARCH=$HOST BUILDARCH=$BUILD

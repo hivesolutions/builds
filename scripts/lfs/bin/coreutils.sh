@@ -11,7 +11,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure\
 make
 make NON_ROOT_USERNAME=nobody check-root
 echo "dummy:x:1000:nobody" >> /etc/group
-chown -Rv nobody . 
+chown -Rv nobody .
 
 su nobody -s /bin/bash \
     -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"
