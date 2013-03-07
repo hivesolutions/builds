@@ -11,7 +11,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure\
 make
 test $TEST && make check
 make install
-make -C doc install-html docdir=/usr/share/doc/tar-1.26
+make -C doc install-html docdir=/usr/share/doc/tar-$VERSION
 
 cd ..
 rm -rf tar-$VERSION

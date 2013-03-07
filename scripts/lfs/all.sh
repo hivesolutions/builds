@@ -573,3 +573,30 @@ gcc -dumpspecs | sed -e 's@/tools@@g'\
 ../bin/sysklogd.sh
 ../bin/sysvinit.sh
 ../bin/tar.sh
+../bin/texinfo.sh
+../bin/udev.sh
+../bin/vim.sh
+../bin/nano.sh
+
+##### final stateges  (6.64. Stripping Again)
+
+logout
+
+chroot $LFS /tools/bin/env -i\
+    HOME=/root TERM=$TERM PS1='\u:\w\$ '\
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+    /tools/bin/bash --login
+
+/tools/bin/find /{,usr/}{bin,lib,sbin} -type f\
+    -exec /tools/bin/strip --strip-debug '{}' ';'
+	
+#### removal of the /tools directory
+
+logout
+
+chroot "$LFS" /usr/bin/env -i\
+    HOME=/root TERM="$TERM" PS1='\u:\w\$ '\
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+    /bin/bash --login
+
+rm -rf /tools
