@@ -14,10 +14,10 @@ mkfs.ext2 "$DRIVE"1
 mkfs.ext3 "$DRIVE"3
 mkswap "$DRIVE"2
 
-mkdir -p $SCUDUM
-mount "$DRIVE"3 $SCUDUM
-mkdir -p $SCUDUM/boot
-mount "$DRIVE"1 $SCUDUM/boot
+mkdir -pv $SCUDUM
+mount -v "$DRIVE"3 $SCUDUM
+mkdir -pv $SCUDUM/boot
+mount -v "$DRIVE"1 $SCUDUM/boot
 
 cd $SCUDUM
 
