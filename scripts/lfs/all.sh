@@ -652,8 +652,9 @@ cat > /etc/fstab << "EOF"
 # file system  mount-point  type     options             dump  fsck
 #                                                              order
 
-/dev/sda3      /            ext3     defaults            1     1
-/dev/sda2      swap         swap     pri=1               0     0
+/dev/sda1      /boot        ext2     noauto,noatime      1     2
+/dev/sda3      /            ext3     defaults,noatime    0     1
+/dev/sda2      none         swap     pri=1               0     0
 proc           /proc        proc     nosuid,noexec,nodev 0     0
 sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
 devpts         /dev/pts     devpts   gid=5,mode=620      0     0
@@ -685,7 +686,7 @@ set default=0
 set timeout=5
 
 insmod ext2
-set root=(hd0,0)
+set root=(hd0,1)
 
 menuentry "GNU/Linux, Linux 3.8.2" {
     linux /vmlinuz-3.8.2 root=/dev/sda3 ro
