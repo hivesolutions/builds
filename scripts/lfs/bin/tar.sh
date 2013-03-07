@@ -4,10 +4,11 @@ cd tar-$VERSION
 
 sed -i -e '/gets is a/d' gnu/stdio.in.h
 
-FORCE_UNSAFE_CONFIGURE=1 ./configure\
+FORCE_UNSAFE_CONFIGURE=1\
+    ./configure\
     --prefix=/usr\
     --bindir=/bin\
-	--libexecdir=/usr/sbin
+    --libexecdir=/usr/sbin
 make
 test $TEST && make check
 make install
