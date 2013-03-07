@@ -25,5 +25,5 @@ cd -
     --without-pear --without-iconv --with-mysql=mysqlnd --with-pdo-mysql=mysqlnd\
     --with-config-file-path=/usr/lib --with-curl=$PREFIX --with-gmp=$PREFIX\
     --with-bz2=$PREFIX --with-zlib-dir=$PREFIX --with-freetype-dir=$PREFIX\
-    --with-png-dir=$PREFIX --with-jpeg-dir=$PREFIX
+    --with-png-dir=$PREFIX --with-jpeg-dir=$PREFIX --with-xml2-dir=$PREFIX
 make && make install
