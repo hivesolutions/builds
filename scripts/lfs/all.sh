@@ -454,8 +454,6 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030
 make localedata/install-locales
 
 cat > /etc/nsswitch.conf << "EOF"
-# Begin /etc/nsswitch.conf
-
 passwd: files
 group: files
 shadow: files
@@ -468,7 +466,6 @@ services: files
 ethers: files
 rpc: files
 
-# End /etc/nsswitch.conf
 EOF
 
 #timezone related stuff (still for glibc)
@@ -490,7 +487,6 @@ zic -d $ZONEINFO -p America/New_York
 unset ZONEINFO
 
 cat > /etc/ld.so.conf << "EOF"
-# Begin /etc/ld.so.conf
 /usr/local/lib
 /opt/lib
 
@@ -593,7 +589,7 @@ chroot $LFS /tools/bin/env -i\
 
 logout
 
-chroot "$LFS" /usr/bin/env -i\
+chroot $LFS /usr/bin/env -i\
     HOME=/root TERM="$TERM" PS1='\u:\w\$ '\
     PATH=/bin:/usr/bin:/sbin:/usr/sbin\
     /bin/bash --login
@@ -606,8 +602,6 @@ rm -rf /tools
 
 
 cat > /etc/inittab << "EOF"
-# Begin /etc/inittab
-
 id:3:initdefault:
 
 si::sysinit:/etc/rc.d/init.d/rc S
@@ -631,7 +625,6 @@ su:S016:once:/sbin/sulogin
 5:2345:respawn:/sbin/agetty tty5 9600
 6:2345:respawn:/sbin/agetty tty6 9600
 
-# End /etc/inittab
 EOF
 
 ### hostname
@@ -641,15 +634,14 @@ echo "HOSTNAME=scudum" > /etc/sysconfig/network
 ### clock
 
 cat > /etc/sysconfig/clock << "EOF"
-# Begin /etc/sysconfig/clock
-
+# Sets the clock to the UTC timezone by default, this should
+# be the default configuration for most of the systems
 UTC=1
 
 # Set this to any options you might need to give to hwclock,
 # such as machine hardware clock type for Alphas.
 CLOCKPARAMS=
 
-# End /etc/sysconfig/clock
 EOF
 
 #### console (ignored)
@@ -657,8 +649,6 @@ EOF
 #### /etc/fstab   (must be customized)
 
 cat > /etc/fstab << "EOF"
-# Begin /etc/fstab
-
 # file system  mount-point  type     options             dump  fsck
 #                                                              order
 
@@ -669,6 +659,44 @@ sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
 devpts         /dev/pts     devpts   gid=5,mode=620      0     0
 tmpfs          /run         tmpfs    defaults            0     0
 devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
-
-# End /etc/fstab
 EOF
+
+
+### KERNEL
+
+
+make mrproper
+make menuconfig
+make
+
+VERSION="3.8.2"
+
+cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-$VERSION
+cp -v System.map /boot/System.map-$VERSION
+cp -v .config /boot/config-$VERSION
+
+
+### GRUB (requires configuration)
+
+grub-install /dev/sdb
+
+cat > /boot/grub/grub.cfg << "EOF"
+set default=0
+set timeout=5
+
+insmod ext2
+set root=(hd0,0)
+
+menuentry "GNU/Linux, Linux 3.8.2" {
+    linux /vmlinuz-3.8.2 root=/dev/sda3 ro
+}
+
+EOF
+
+#### remove temporary files
+
+cd /tmp
+rm -rf .[^.]* ..?*
+
+cd /root
+rm -rf .[^.]* ..?*

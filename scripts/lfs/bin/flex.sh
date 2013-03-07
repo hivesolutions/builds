@@ -14,11 +14,9 @@ make install
 ln -sv libfl.a /usr/lib/libl.a
 cat > /usr/bin/lex << "EOF"
 #!/bin/sh
-# Begin /usr/bin/lex
 
 exec /usr/bin/flex -l "$@"
 
-# End /usr/bin/lex
 EOF
 chmod -v 755 /usr/bin/lex
 

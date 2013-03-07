@@ -18,8 +18,6 @@ done
 ln -sv ../vim/vim$VERSION_L/doc /usr/share/doc/vim-$VERSION
 
 cat > /etc/vimrc << "EOF"
-" Begin /etc/vimrc
-
 set nocompatible
 set backspace=2
 syntax on
@@ -27,7 +25,6 @@ if (&term == "iterm") || (&term == "putty")
   set background=dark
 endif
 
-" End /etc/vimrc
 EOF
 
 cd ..
