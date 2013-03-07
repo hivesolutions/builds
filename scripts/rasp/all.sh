@@ -2,6 +2,7 @@ rm -rf build
 mkdir build
 cd build
 
+../deps.sh
 ../cross.sh
 
 source ../base.sh
