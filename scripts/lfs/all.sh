@@ -20,7 +20,6 @@ export LC_ALL=POSIX
 export LFS_TGT=$(uname -m)-lfs-linux-gnu
 export PATH=/tools/bin:/bin:/usr/bin
 export PREFIX=/tools
-export LFS LC_ALL LFS_TGT PATH
 
 # exports the unsafe configuration flag so that
 # a root user may configure all the packages

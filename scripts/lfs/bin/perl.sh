@@ -2,7 +2,7 @@ VERSION="5.16.2"
 tar -jxf "perl-$VERSION.tar.bz2"
 cd perl-$VERSION
 
-echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
+echo "127.0.0.1 localhost" > /etc/hosts
 
 sed -i -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|"\
     -e "s|INCLUDE\s*= ./zlib-src|INCLUDE    = /usr/include|"\
