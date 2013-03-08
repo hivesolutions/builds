@@ -1,23 +1,17 @@
-DRIVE=${DRIVE-/dev/sdb}
-BOOT_SIZE=${BOOT_SIZE-+1G}
-SWAP_SIZE=${SWAP_SIZE-+2G}
+DEV_NAME=${DEV_NAME-/dev/null}
+DEV_BOOT=${DEV_BOOT-/dev/null}
+DEV_SWAP=${DEV_SWAP-/dev/null}
+DEV_ROOT=${DEV_ROOT-/dev/null}
 SCUDUM=${SCUDUM-/tmp/scudum}
 
-(echo n; echo p; echo 1; echo ; echo $BOOT_SIZE; echo a; echo 1; echo w) | fdisk $DRIVE
-sleep 1
-(echo n; echo p; echo 2; echo ; echo $SWAP_SIZE; echo t; echo 2; echo 82; echo w) | fdisk $DRIVE
-sleep 1
-(echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk $DRIVE
-sleep 1
-
-mkfs.ext2 "$DRIVE"1
-mkfs.ext3 "$DRIVE"3
-mkswap "$DRIVE"2
+mkfs.ext2 $DEV_BOOT
+mkfs.ext3 $DEV_ROOT
+mkswap $DEV_SWAP
 
 mkdir -pv $SCUDUM
-mount -v "$DRIVE"3 $SCUDUM
+mount -v $DEV_ROOT $SCUDUM
 mkdir -pv $SCUDUM/boot
-mount -v "$DRIVE"1 $SCUDUM/boot
+mount -v $DEV_BOOT $SCUDUM/boot
 
 cd $SCUDUM
 
@@ -32,7 +26,7 @@ mount -vt sysfs sysfs $SCUDUM/sys
 
 chroot $SCUDUM /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-    DRIVE=$DRIVE grub-install $DRIVE
+    DEV_NAME=$DEV_NAME grub-install $DEV_NAME
 
 cd /
 
