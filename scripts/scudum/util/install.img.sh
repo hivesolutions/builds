@@ -1,50 +1,12 @@
 FILE=${FILE-scudum.img}
-SIZE=${SIZE-4294967296}
-OFFSET=${OFFSET-1048576}
-BLOCK_SIZE=${BLOCK_SIZE-1024}
-BOOT_SIZE=${BOOT_SIZE-1073741824}
-SWAP_SIZE=${SWAP_SIZE-2147483648}
-BOOT_SIZE_F=${BOOT_SIZE_F-+1G}
-SWAP_SIZE_F=${SWAP_SIZE_F-+2G}
-SLEEP_TIME=3
+DEV_NAME=${DEV_NAME-/dev/null}
+BOOT_SIZE=${BOOT_SIZE-+1G}
+SWAP_SIZE=${SWAP_SIZE-+2G}
 
-SIZE_B=$(expr $SIZE / $BLOCK_SIZE)
 DIR=$(dirname $(readlink -f $0))
 
-echo "Creating raw file '$FILE' with $SIZE_B blocks..."
+FILE=$FILE DEV_NAME=$DEV_NAME BOOT_SIZE=$BOOT_SIZE\
+    SWAP_SIZE=$SWAP_SIZE $DIR/install.sh
 
-dd if=/dev/zero of=$FILE bs=$BLOCK_SIZE count=$SIZE_B
-
-echo "Creating and allocating partitions..."
-
-(echo n; echo p; echo 1; echo ; echo $BOOT_SIZE_F; echo a; echo 1; echo w) | fdisk $FILE
-sleep $SLEEP_TIME
-(echo n; echo p; echo 2; echo ; echo $SWAP_SIZE_F; echo t; echo 2; echo 82; echo w) | fdisk $FILE
-sleep $SLEEP_TIME
-(echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk $FILE
-sleep $SLEEP_TIME
-
-DEV_NAME=$(losetup -f --show $FILE)
-DEV_INDEX=${DEV_NAME:${#DEV_NAME} - 1}
-DEV_BOOT=/dev/loop$(expr $DEV_INDEX + 1)
-DEV_SWAP=/dev/loop$(expr $DEV_INDEX + 2)
-DEV_ROOT=/dev/loop$(expr $DEV_INDEX + 3)
-
-BOOT_OFFSET=$(expr $OFFSET)
-SWAP_OFFSET=$(expr $BOOT_OFFSET + $BOOT_SIZE)
-ROOT_OFFSET=$(expr $SWAP_OFFSET + $SWAP_SIZE)
-
-losetup -o $BOOT_OFFSET $DEV_BOOT $DEV_NAME
-losetup -o $SWAP_OFFSET $DEV_SWAP $DEV_NAME
-losetup -o $ROOT_OFFSET $DEV_ROOT $DEV_NAME
-
-echo "Created raw file and set device at '$DEV_NAME'"
-
-DEV_NAME=$DEV_NAME DEV_BOOT=$DEV_BOOT DEV_SWAP=$DEV_SWAP DEV_ROOT=$DEV_ROOT $DIR/install.sh
-
-losetup -d $DEV_ROOT
-losetup -d $DEV_SWAP
-losetup -d $DEV_BOOT
-sleep $SLEEP_TIME
-
-losetup -d $DEV_NAME
+dd if=$DEV_NAME of=$FILE bs=1M
+dd if=/dev/zero of=$DEV_NAME bs=1M
