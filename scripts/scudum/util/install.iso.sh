@@ -1,6 +1,6 @@
 apt-get -y install kpartx
 
-FILE=${FILE-scudum.raw}
+FILE=${FILE-scudum.img}
 SIZE=${SIZE-4294967296}
 OFFSET=${OFFSET-1048576}
 BLOCK_SIZE=${BLOCK_SIZE-4096}
