@@ -12,7 +12,7 @@ DIR=$(dirname $(readlink -f $0))
 DEV_NAME=$DEV_NAME DEV_BOOT=$DEV_BOOT DEV_SWAP=$DEV_SWAP\
     FILE=$FILE $DIR/build.sh
 
-cp -r $FILE $TARGET
+mv -fv $FILE $TARGET
 
 cd $TARGET
 rm -fv $LATEST
