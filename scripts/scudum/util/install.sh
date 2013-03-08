@@ -22,8 +22,8 @@ mount -v "$DRIVE"1 $SCUDUM/boot
 cd $SCUDUM
 
 wget -q "http://hole1.hive:9090/extra/scudum/scudum-latest.tar.gz"
-tar -zxvf scudum-v3.tar.gz
-rm -v scudum-v3.tar.gz
+tar -zxvf scudum-latest.tar.gz
+rm -v scudum-latest.tar.gz
 
 mount -v --bind /dev $SCUDUM/dev
 mount -vt devpts devpts $SCUDUM/dev/pts
