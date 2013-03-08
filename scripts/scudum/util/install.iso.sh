@@ -1,5 +1,3 @@
-apt-get -y install kpartx
-
 FILE=${FILE-scudum.img}
 SIZE=${SIZE-4294967296}
 OFFSET=${OFFSET-1048576}
@@ -22,8 +20,6 @@ DEV_INDEX=${DEV_NAME:${#DEV_NAME} - 1}
 DEV_BOOT=/dev/loop$(expr $DEV_INDEX + 1)
 DEV_SWAP=/dev/loop$(expr $DEV_INDEX + 2)
 DEV_ROOT=/dev/loop$(expr $DEV_INDEX + 3)
-
-#kpartx -a $DEV_NAME
 
 echo "Creating and allocating partitions..."
 
@@ -50,8 +46,5 @@ losetup -d $DEV_ROOT
 losetup -d $DEV_SWAP
 losetup -d $DEV_BOOT
 sleep $SLEEP_TIME
-
-#kpartx -d $DEV_NAME
-#sleep $SLEEP_TIME
 
 losetup -d $DEV_NAME
