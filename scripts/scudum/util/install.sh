@@ -1,7 +1,7 @@
-DRIVE=/dev/sdb
-BOOT_SIZE=+1G
-SWAP_SIZE=+2G
-SCUDUM=/tmp/scudum
+DRIVE=${DRIVE-/dev/sdb}
+BOOT_SIZE=${BOOT_SIZE-+1G}
+SWAP_SIZE=${SWAP_SIZE-+2G}
+SCUDUM=${SCUDUM-/tmp/scudum}
 
 (echo n; echo p; echo 1; echo ; echo $BOOT_SIZE; echo a; echo 1; echo w) | fdisk $DRIVE
 sleep 1
