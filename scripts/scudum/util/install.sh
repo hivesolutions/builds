@@ -1,7 +1,7 @@
-export DRIVE=/dev/sdb
-export BOOT_SIZE=+1G
-export SWAP_SIZE=+2G
-export SCUDUM=/tmp/scudum
+DRIVE=/dev/sdb
+BOOT_SIZE=+1G
+SWAP_SIZE=+2G
+SCUDUM=/tmp/scudum
 
 (echo n; echo p; echo 1; echo ; echo $BOOT_SIZE; echo a; echo 1; echo w) | fdisk $DRIVE
 sleep 1
