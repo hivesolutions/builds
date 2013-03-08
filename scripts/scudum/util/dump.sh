@@ -1,5 +1,6 @@
 DEV_NAME=${DEV_NAME-/dev/null}
 FILE=${FILE-scudum.img}
 BUFFER=${BUFFER-1M}
+BLOCK_SIZE=${BLOCK_SIZE-4096}
 
-dd bs=$BUFFER if=$FILE of=$DEV_NAME
+dd bs=$BUFFER if=$FILE of=$DEV_NAME bs=$BLOCK_SIZE
