@@ -23,7 +23,7 @@ DEV_BOOT=/dev/loop$(expr $DEV_INDEX + 1)
 DEV_SWAP=/dev/loop$(expr $DEV_INDEX + 2)
 DEV_ROOT=/dev/loop$(expr $DEV_INDEX + 3)
 
-kpartx -a $DEV_NAME
+#kpartx -a $DEV_NAME
 
 echo "Creating and allocating partitions..."
 
@@ -51,7 +51,7 @@ losetup -d $DEV_SWAP
 losetup -d $DEV_BOOT
 sleep $SLEEP_TIME
 
-kpartx -d $DEV_NAME
-sleep $SLEEP_TIME
+#kpartx -d $DEV_NAME
+#sleep $SLEEP_TIME
 
 losetup -d $DEV_NAME
