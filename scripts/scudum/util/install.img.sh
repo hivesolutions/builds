@@ -5,6 +5,8 @@ SWAP_SIZE=${SWAP_SIZE-+2G}
 
 DIR=$(dirname $(readlink -f $0))
 
+dd if=/dev/zero of=$DEV_NAME bs=1M
+
 FILE=$FILE DEV_NAME=$DEV_NAME BOOT_SIZE=$BOOT_SIZE\
     SWAP_SIZE=$SWAP_SIZE $DIR/install.sh
 
