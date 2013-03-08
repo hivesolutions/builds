@@ -23,11 +23,11 @@ DEV_ROOT=/dev/loop$(expr $DEV_INDEX + 3)
 
 echo "Creating and allocating partitions..."
 
-(echo n; echo p; echo 1; echo ; echo $BOOT_SIZE_F; echo a; echo 1; echo w) | fdisk $DEV_NAME
+(echo n; echo p; echo 1; echo ; echo $BOOT_SIZE_F; echo a; echo 1; echo w) | fdisk $FILE
 sleep $SLEEP_TIME
-(echo n; echo p; echo 2; echo ; echo $SWAP_SIZE_F; echo t; echo 2; echo 82; echo w) | fdisk $DEV_NAME
+(echo n; echo p; echo 2; echo ; echo $SWAP_SIZE_F; echo t; echo 2; echo 82; echo w) | fdisk $FILE
 sleep $SLEEP_TIME
-(echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk $DEV_NAME
+(echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk $FILE
 sleep $SLEEP_TIME
 
 BOOT_OFFSET=$(expr $OFFSET)
