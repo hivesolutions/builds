@@ -15,12 +15,6 @@ echo "Creating raw file '$FILE' with $SIZE_B blocks..."
 
 dd if=/dev/zero of=$FILE bs=$BLOCK_SIZE count=$SIZE_B
 
-DEV_NAME=$(losetup -f --show $FILE)
-DEV_INDEX=${DEV_NAME:${#DEV_NAME} - 1}
-DEV_BOOT=/dev/loop$(expr $DEV_INDEX + 1)
-DEV_SWAP=/dev/loop$(expr $DEV_INDEX + 2)
-DEV_ROOT=/dev/loop$(expr $DEV_INDEX + 3)
-
 echo "Creating and allocating partitions..."
 
 (echo n; echo p; echo 1; echo ; echo $BOOT_SIZE_F; echo a; echo 1; echo w) | fdisk $FILE
@@ -29,6 +23,12 @@ sleep $SLEEP_TIME
 sleep $SLEEP_TIME
 (echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk $FILE
 sleep $SLEEP_TIME
+
+DEV_NAME=$(losetup -f --show $FILE)
+DEV_INDEX=${DEV_NAME:${#DEV_NAME} - 1}
+DEV_BOOT=/dev/loop$(expr $DEV_INDEX + 1)
+DEV_SWAP=/dev/loop$(expr $DEV_INDEX + 2)
+DEV_ROOT=/dev/loop$(expr $DEV_INDEX + 3)
 
 BOOT_OFFSET=$(expr $OFFSET)
 SWAP_OFFSET=$(expr $BOOT_OFFSET + $BOOT_SIZE)
