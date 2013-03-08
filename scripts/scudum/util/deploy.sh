@@ -6,7 +6,7 @@ VERSION=${VERSION-0.0.0}
 FILE=${FILE-$NAME-$VERSION.tar.gz}
 TARGET=${TARGET-/mnt/extra/$NAME}
 
-LATEST=$FILE-latest.tar.gz
+LATEST=$NAME-latest.tar.gz
 DIR=$(dirname $(readlink -f $0))
 
 DEV_NAME=$DEV_NAME DEV_BOOT=$DEV_BOOT DEV_SWAP=$DEV_SWAP\
