@@ -6,9 +6,9 @@ OFFSET=${OFFSET-1048576}
 BLOCK_SIZE=${BLOCK_SIZE-4096}
 BOOT_SIZE=${BOOT_SIZE-1073741824}
 SWAP_SIZE=${SWAP_SIZE-2147483648}
-
 BOOT_SIZE_F=${BOOT_SIZE_F-+1G}
 SWAP_SIZE_F=${SWAP_SIZE_F-+2G}
+SLEEP_TIME=3
 
 SIZE_B=$(expr $SIZE / $BLOCK_SIZE)
 DIR=$(dirname $(readlink -f $0))
@@ -28,11 +28,11 @@ kpartx -a $DEV_NAME
 echo "Creating and allocating partitions..."
 
 (echo n; echo p; echo 1; echo ; echo $BOOT_SIZE_F; echo a; echo 1; echo w) | fdisk $DEV_NAME
-sleep 3
+sleep $SLEEP_TIME
 (echo n; echo p; echo 2; echo ; echo $SWAP_SIZE_F; echo t; echo 2; echo 82; echo w) | fdisk $DEV_NAME
-sleep 3
+sleep $SLEEP_TIME
 (echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk $DEV_NAME
-sleep 3
+sleep $SLEEP_TIME
 
 BOOT_OFFSET=$(expr $OFFSET)
 SWAP_OFFSET=$(expr $BOOT_OFFSET + $BOOT_SIZE)
