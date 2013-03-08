@@ -49,6 +49,9 @@ DEV_NAME=$DEV_NAME DEV_BOOT=$DEV_BOOT DEV_SWAP=$DEV_SWAP DEV_ROOT=$DEV_ROOT $DIR
 losetup -d $DEV_ROOT
 losetup -d $DEV_SWAP
 losetup -d $DEV_BOOT
+sleep $SLEEP_TIME
 
 kpartx -d $DEV_NAME
+sleep $SLEEP_TIME
+
 losetup -d $DEV_NAME
