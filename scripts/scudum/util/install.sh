@@ -24,9 +24,18 @@ mount -vt devpts devpts $SCUDUM/dev/pts
 mount -vt proc proc $SCUDUM/proc
 mount -vt sysfs sysfs $SCUDUM/sys
 
+#chroot $SCUDUM /usr/bin/env -i\
+#    HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+#    DEV_NAME=$DEV_NAME grub-install $DEV_NAME
+
 chroot $SCUDUM /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-    DEV_NAME=$DEV_NAME grub-install $DEV_NAME
+    DEV_NAME=$DEV_NAME extlinux --install /boot
+
+chroot $SCUDUM /usr/bin/env -i\
+    HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+    DEV_NAME=$DEV_NAME dd if=/usr/lib/syslinux/mbr.bin\
+    conv=notrunc bs=440 count=1 of=$DEV_NAME
 
 cd /
 
