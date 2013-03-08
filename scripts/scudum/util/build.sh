@@ -7,6 +7,8 @@ FILE=${FILE-scudum-$VERSION.tar.gz}
 
 BASE=$(pwd)
 
+rm -fv $FILE
+
 mkdir -pv $SCUDUM
 mount -v $DEV_ROOT $SCUDUM
 mkdir -pv $SCUDUM/boot
