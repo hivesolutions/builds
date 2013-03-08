@@ -23,5 +23,7 @@ rm -rf .*
 cd $SCUDUM
 tar -zcvf $BASE/$FILE *
 
+cd $BASE
+
 umount -v $SCUDUM/boot && rm -rvf $SCUDUM/boot
 umount -v $SCUDUM && rm -rvf $SCUDUM
