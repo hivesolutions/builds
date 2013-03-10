@@ -15,3 +15,7 @@ scudum customization.
 
 * `DEV_NAME=/dev/sdb chroot.sh`
 * `DEV_NAME=/dev/sdb make.vdi.sh`
+
+### Links
+
+Initramfs on LFS http://www.linuxfromscratch.org/blfs/view/svn/postlfs/initramfs.html
