@@ -10,3 +10,8 @@ Custom linux distribution that aims at providing an easy to use system for
 
 There are a series of [scripts](scripts/scudum/util) that aim at providing a simple to use toolchain for
 scudum customization.
+
+### Examples
+
+* `DEV_NAME=/dev/sdb chroot.sh`
+* `DEV_NAME=/dev/sdb make.vdi.sh`
