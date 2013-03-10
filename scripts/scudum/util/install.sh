@@ -36,7 +36,7 @@ case $LOADER in
 		    DEV_NAME=$DEV_NAME grub-install $DEV_NAME
 		;;
 
-    extlinux )
+    extlinux)
 		chroot $SCUDUM /usr/bin/env -i\
 			HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
 			DEV_NAME=$DEV_NAME extlinux --install /boot
