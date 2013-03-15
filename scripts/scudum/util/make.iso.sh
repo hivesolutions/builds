@@ -4,8 +4,8 @@ BOOT_SIZE=${BOOT_SIZE-+1G}
 SWAP_SIZE=${SWAP_SIZE-+2G}
 SCUDUM=${SCUDUM-/tmp/scudum}
 TARGET=${TARGET-/mnt/extra/$FILE}
-REBUILD=${SCUDUM-0}
-DEPLOY=${SCUDUM-1}
+REBUILD=${REBUILD-0}
+DEPLOY=${DEPLOY-1}
 
 DEV_BOOT="$DEV_NAME"1
 DEV_SWAP="$DEV_NAME"2
@@ -55,7 +55,7 @@ cd $SCUDUM
 tar -zcf images/root.tar.gz root
 tar -zcf images/dev.tar.gz dev
 tar -zcf images/etc.tar.gz etc
-cd ..
+cd $DIR
 
 mkisofs -r -o $FILE \
    -b isolinux/isolinux.bin -c isolinux/boot.cat \
