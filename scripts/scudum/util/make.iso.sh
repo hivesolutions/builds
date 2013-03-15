@@ -60,7 +60,7 @@ cd $DIR
 mkisofs -r -o $FILE \
    -b isolinux/isolinux.bin -c isolinux/boot.cat \
    -no-emul-boot -boot-load-size 4 -boot-info-table \
-   $SCUDUM
+   $SCUDUM > /dev/null
 
 rm -v $SCUDUM/images/root.tar.gz
 rm -v $SCUDUM/images/dev.tar.gz
