@@ -60,7 +60,9 @@ cd $DIR
 mkisofs -r -o $FILE \
    -b isolinux/isolinux.bin -c isolinux/boot.cat \
    -no-emul-boot -boot-load-size 4 -boot-info-table \
-   $SCUDUM > /dev/null
+   $SCUDUM
+
+echo "Created media ISO image '$FILE'"
 
 rm -v $SCUDUM/images/root.tar.gz
 rm -v $SCUDUM/images/dev.tar.gz
