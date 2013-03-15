@@ -2,18 +2,15 @@ FILE=${FILE-scudum.iso}
 DEV_NAME=${DEV_NAME-/dev/null}
 BOOT_SIZE=${BOOT_SIZE-+1G}
 SWAP_SIZE=${SWAP_SIZE-+2G}
+NAME=${NAME-scudum}
 SCUDUM=${SCUDUM-/tmp/scudum}
-TARGET=${TARGET-/mnt/extra/$FILE}
+TARGET=${TARGET-/mnt/extra/$NAME}
 REBUILD=${REBUILD-0}
 DEPLOY=${DEPLOY-1}
 
 DEV_BOOT="$DEV_NAME"1
 DEV_SWAP="$DEV_NAME"2
 DEV_ROOT="$DEV_NAME"3
-
-if [ "$DEPLOY" == "1" ]; then
-    FILE=$TARGET
-fi
 
 DIR=$(dirname $(readlink -f $0))
 
@@ -62,7 +59,9 @@ mkisofs -r -o $FILE \
    -no-emul-boot -boot-load-size 4 -boot-info-table \
    $SCUDUM
 
-echo "Created media ISO image '$FILE'"
+if [ "$DEPLOY" == "1" ]; then
+    mv $FILE $TARGET
+fi
 
 rm -v $SCUDUM/images/root.tar.gz
 rm -v $SCUDUM/images/dev.tar.gz
