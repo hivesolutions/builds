@@ -10,5 +10,5 @@ DIR=$(dirname $(readlink -f $0))
 FILE=$FILE_IN DEV_NAME=$DEV_NAME BOOT_SIZE=$BOOT_SIZE\
     SWAP_SIZE=$SWAP_SIZE REBUILD=$REBUILD $DIR/make.img.sh
 
-VBoxManage convertdd $FILE_IN $FILE_OUT
+VBoxManage convertfromraw --format VDI $FILE_IN $FILE_OUT
 rm -v $FILE_IN
