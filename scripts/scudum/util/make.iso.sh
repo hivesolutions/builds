@@ -3,7 +3,13 @@ DEV_NAME=${DEV_NAME-/dev/null}
 BOOT_SIZE=${BOOT_SIZE-+1G}
 SWAP_SIZE=${SWAP_SIZE-+2G}
 SCUDUM=${SCUDUM-/tmp/scudum}
+TARGET=${TARGET-/mnt/extra/$FILE}
 REBUILD=${SCUDUM-0}
+DEPLOY=${SCUDUM-1}
+
+if [ "$DEPLOY" == "1" ]; then
+    FILE=$TARGET
+fi
 
 DIR=$(dirname $(readlink -f $0))
 
@@ -47,7 +53,7 @@ tar -zcf images/dev.tar.gz dev
 tar -zcf images/etc.tar.gz etc
 cd ..
 
-mkisofs -r -o /mnt/extra/scudum/scudum.iso \
+mkisofs -r -o $FILE \
    -b isolinux/isolinux.bin -c isolinux/boot.cat \
    -no-emul-boot -boot-load-size 4 -boot-info-table \
    $DEV_ROOT
