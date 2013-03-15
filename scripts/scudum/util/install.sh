@@ -7,6 +7,8 @@ ROOT_FS=${ROOT_FS-ext3}
 LOADER=${LOADER-grub}
 SCUDUM=${SCUDUM-/tmp/scudum}
 
+if [ $DEV_ROOT == $DEV_BOOT ]; then BOOT_FS=$ROOT_FS fi
+
 if [ $DEV_BOOT != /dev/null ]; then mkfs.$BOOT_FS $DEV_BOOT; fi
 if [ $DEV_ROOT != /dev/null ]; then mkfs.$ROOT_FS $DEV_ROOT; fi
 if [ $DEV_SWAP != /dev/null ]; then mkswap $DEV_SWAP; fi
@@ -44,7 +46,8 @@ case $LOADER in
             echo "/dev/disk/by-uuid/$BOOT_UUID /boot $BOOT_FS noauto,noatime 1 2"
         fi
 
-        cat $SCUDUM/boot/grub/grub.cfg.tpl | sed -e "s/\${ROOT}/$ROOT_UUID/" > $SCUDUM/boot/grub/grub.cfg
+        cat $SCUDUM/boot/grub/grub.cfg.tpl | sed -e "s/\${BOOT_FS}/$BOOT_FS/"\
+            -e "s/\${ROOT_UUID}/$ROOT_UUID/" > $SCUDUM/boot/grub/grub.cfg
 
         chroot $SCUDUM /usr/bin/env -i\
             HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
