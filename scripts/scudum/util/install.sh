@@ -11,6 +11,13 @@ if [ $DEV_BOOT != /dev/null ]; then mkfs.$BOOT_FS $DEV_BOOT; fi
 if [ $DEV_ROOT != /dev/null ]; then mkfs.$ROOT_FS $DEV_ROOT; fi
 if [ $DEV_SWAP != /dev/null ]; then mkswap $DEV_SWAP; fi
 
+eval $(blkid -o export $DEV_BOOT)
+BOOT_UUID=$UUID
+eval $(blkid -o export $DEV_ROOT)
+ROOT_UUID=$UUID
+eval $(blkid -o export $DEV_SWAP)
+SWAP_UUID=$UUID
+
 mkdir -pv $SCUDUM
 mount -v $DEV_ROOT $SCUDUM
 if [ $DEV_ROOT != $DEV_BOOT ]; then
@@ -31,6 +38,12 @@ mount -vt sysfs sysfs $SCUDUM/sys
 
 case $LOADER in
     grub)
+        echo "/dev/disk/by-uuid/$ROOT_UUID / $ROOT_FS defaults,noatime 0 1"
+        echo "/dev/disk/by-uuid/$SWAP_UUID none swap pri=1 0 0"
+        if [ $DEV_ROOT != $DEV_BOOT ]; then
+            echo "/dev/disk/by-uuid/$BOOT_UUID /boot $BOOT_FS noauto,noatime 1 2"
+        fi
+
         chroot $SCUDUM /usr/bin/env -i\
             HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
             DEV_NAME=$DEV_NAME grub-install $DEV_NAME
@@ -48,6 +61,8 @@ case $LOADER in
         ;;
 
     isolinux)
+        echo "tmpfs / tmpfs defaults 0 0" >> $SCUDUM/etc/fstab
+
         chroot $SCUDUM /usr/bin/env -i\
             HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
             DEV_NAME=$DEV_NAME extlinux --install /boot
