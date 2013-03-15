@@ -54,7 +54,7 @@ tar -zcf images/dev.tar.gz dev
 tar -zcf images/etc.tar.gz etc
 cd $DIR
 
-mkisofs -r -J -R -U --joliet --joliet-long -o $FILE \
+mkisofs -r -J -R -U -joliet -joliet-long -o $FILE \
    -b isolinux/isolinux.bin -c isolinux/boot.cat \
    -no-emul-boot -boot-load-size 4 -boot-info-table \
    $SCUDUM
