@@ -40,18 +40,18 @@ mkdir -p /mnt/loop1
 
 mount /dev/loop1 /mnt/loop1 
 rm -rf /mnt/loop1/lost+found 
-cp -dpR $DEV_ROOT/initrd/* /mnt/loop1/
+cp -dpR $SCUDUM/initrd/* /mnt/loop1/
 
 umount /mnt/loop1
 losetup -d /dev/loop1
 
 rm -rf /mnt/loop1
 
-gzip -9 -c ramdisk > $DEV_ROOT/isolinux/initrd.img
+gzip -9 -c ramdisk > $SCUDUM/isolinux/initrd.img
 
 rm -rf ramdisk
 
-cd $DEV_ROOT
+cd $SCUDUM
 tar -zcf images/root.tar.gz root
 tar -zcf images/dev.tar.gz dev
 tar -zcf images/etc.tar.gz etc
@@ -60,11 +60,11 @@ cd ..
 mkisofs -r -o $FILE \
    -b isolinux/isolinux.bin -c isolinux/boot.cat \
    -no-emul-boot -boot-load-size 4 -boot-info-table \
-   $DEV_ROOT
+   $SCUDUM
 
-rm -v $DEV_ROOT/images/root.tar.gz
-rm -v $DEV_ROOT/images/dev.tar.gz
-rm -v $DEV_ROOT/images/etc.tar.gz
+rm -v $SCUDUM/images/root.tar.gz
+rm -v $SCUDUM/images/dev.tar.gz
+rm -v $SCUDUM/images/etc.tar.gz
 
 if [ $DEV_ROOT != $DEV_BOOT ]; then
     umount -v $SCUDUM/boot && rm -rvf $SCUDUM/boot
