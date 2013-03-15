@@ -7,7 +7,7 @@ ROOT_FS=${ROOT_FS-ext3}
 LOADER=${LOADER-grub}
 SCUDUM=${SCUDUM-/tmp/scudum}
 
-if [ $DEV_ROOT == $DEV_BOOT ]; then BOOT_FS=$ROOT_FS fi
+if [ $DEV_ROOT == $DEV_BOOT ]; then BOOT_FS=$ROOT_FS; fi
 
 if [ $DEV_BOOT != /dev/null ]; then mkfs.$BOOT_FS $DEV_BOOT; fi
 if [ $DEV_ROOT != /dev/null ]; then mkfs.$ROOT_FS $DEV_ROOT; fi
