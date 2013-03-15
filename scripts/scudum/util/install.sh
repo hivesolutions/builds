@@ -40,10 +40,10 @@ mount -vt sysfs sysfs $SCUDUM/sys
 
 case $LOADER in
     grub)
-        echo "/dev/disk/by-uuid/$ROOT_UUID / $ROOT_FS defaults,noatime 0 1"
-        echo "/dev/disk/by-uuid/$SWAP_UUID none swap pri=1 0 0"
+        echo "UUID=$ROOT_UUID / $ROOT_FS defaults,noatime 0 1"
+        echo "UUID=$SWAP_UUID none swap pri=1 0 0"
         if [ $DEV_ROOT != $DEV_BOOT ]; then
-            echo "/dev/disk/by-uuid/$BOOT_UUID /boot $BOOT_FS noauto,noatime 1 2"
+            echo "UUID=$BOOT_UUID /boot $BOOT_FS noauto,noatime 1 2"
         fi
 
         cat $SCUDUM/boot/grub/grub.cfg.tpl | sed -e "s/\${BOOT_FS}/$BOOT_FS/"\
