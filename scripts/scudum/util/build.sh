@@ -27,7 +27,7 @@ rm -f $SCUDUM/grub/grub.cfg
 rm -f $SCUDUM/etc/fstab
 cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
 
-cat "" > $SCUDUM/etc/resolv.conf
+echo "" > $SCUDUM/etc/resolv.conf
 
 cd $SCUDUM
 tar -zcvf $BASE/$FILE *
