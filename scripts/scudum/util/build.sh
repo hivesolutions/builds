@@ -22,6 +22,10 @@ cd $SCUDUM/tmp
 rm -rf *
 rm -rf .*
 
+rm -f $SCUDUM/grub/grub.cfg
+rm -f $SCUDUM/etc/fstab
+cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
+
 cd $SCUDUM
 tar -zcvf $BASE/$FILE *
 
