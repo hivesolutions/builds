@@ -33,6 +33,8 @@ wget "http://hole1.hive:9090/extra/scudum/scudum-latest.tar.gz"
 tar -zxf scudum-latest.tar.gz
 rm -v scudum-latest.tar.gz
 
+cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
+
 mount -v --bind /dev $SCUDUM/dev
 mount -vt devpts devpts $SCUDUM/dev/pts
 mount -vt proc proc $SCUDUM/proc
