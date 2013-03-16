@@ -15,12 +15,10 @@ mkdir -pv $SCUDUM/boot
 mount -v $DEV_BOOT $SCUDUM/boot
 
 cd $SCUDUM/root
-rm -rf *
-rm -rf .*
+rm -rf .[^.] .??* *
 
 cd $SCUDUM/tmp
-rm -rf *
-rm -rf .*
+rm -rf .[^.] .??* *
 
 rm -rf $SCUDUM/sources
 rm -f $SCUDUM/grub/grub.cfg
