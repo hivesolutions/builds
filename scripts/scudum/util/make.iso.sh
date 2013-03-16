@@ -5,6 +5,7 @@ SWAP_SIZE=${SWAP_SIZE-+2G}
 NAME=${NAME-scudum}
 SCUDUM=${SCUDUM-/tmp/scudum}
 TARGET=${TARGET-/mnt/extra/$NAME}
+LOADER=${LOADER-isolinux}
 REBUILD=${REBUILD-0}
 DEPLOY=${DEPLOY-1}
 
@@ -18,7 +19,7 @@ if [ "$REBUILD" == "1" ]; then
     dd if=/dev/zero of=$DEV_NAME bs=1M
 
     DEV_NAME=$DEV_NAME BOOT_SIZE=$BOOT_SIZE SWAP_SIZE=$SWAP_SIZE\
-        SCUDUM=$SCUDUM $DIR/install.dev.sh
+        SCUDUM=$SCUDUM LOADER=$LOADER $DIR/install.dev.sh
 fi
 
 mkdir -pv $SCUDUM
