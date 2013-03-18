@@ -8,6 +8,7 @@ TARGET=${TARGET-/mnt/extra/$NAME}
 LOADER=${LOADER-isolinux}
 REBUILD=${REBUILD-0}
 DEPLOY=${DEPLOY-1}
+SQUASH=${SQUASH-1}
 
 DEV_BOOT="$DEV_NAME"1
 DEV_SWAP="$DEV_NAME"2
@@ -34,7 +35,7 @@ dd if=/dev/zero of=ramdisk bs=1k count=32768
 losetup /dev/loop1 ramdisk
 
 mke2fs /dev/loop1
-mkdir -p /mnt/loop1
+mkdir -pv /mnt/loop1
 
 mount /dev/loop1 /mnt/loop1 
 rm -rf /mnt/loop1/lost+found 
@@ -55,16 +56,26 @@ tar -zcf images/dev.tar.gz dev
 tar -zcf images/etc.tar.gz etc
 cd $DIR
 
-mksquashfs $SCUDUM $NAME.sqfs
+if [ "$SQUASH" == "1" ]; then
+    ISO_DIR=/tmp/$NAME.iso.dir
 
-mkdir /tmp/$NAME.iso.dir
-cp -rp $SCUDUM/boot $SCUDUM/initrd /tmp/$NAME.iso.dir
-mv $NAME.sqfs /tmp/$NAME.iso.dir
+    mksquashfs $SCUDUM $NAME.sqfs
+
+    mkdir -pv $ISO_DIR
+    cp -rp $SCUDUM/boot $SCUDUM/initrd /tmp/$NAME.iso.dir
+    mv $NAME.sqfs $ISO_DIR
+else
+    ISO_DIR=$SCUDUM
+fi
 
 mkisofs -r -J -R -U -joliet -joliet-long -o $FILE \
    -b isolinux/isolinux.bin -c isolinux/boot.cat \
    -no-emul-boot -boot-load-size 4 -boot-info-table \
-   /tmp/$NAME.iso.dir
+   $ISO_DIR
+
+if [ "$SQUASH" == "1" ]; then
+    rm -rf $ISO_DIR
+fi
 
 if [ "$DEPLOY" == "1" ]; then
     mv $FILE $TARGET
