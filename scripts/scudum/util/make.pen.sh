@@ -71,7 +71,7 @@ chroot $SCUDUM_PEN /usr/bin/env -i\
 
 chroot $SCUDUM_PEN /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-    DEV_NAME=$PEN_NAME syslinux --install /dev/sda1
+    DEV_NAME=$PEN_NAME syslinux --install $PEN_ROOT
 
 umount -v $SCUDUM_PEN
 
