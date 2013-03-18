@@ -58,7 +58,7 @@ PEN_ROOT="$PEN_NAME"1
 (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 sleep $SLEEP_TIME
 
-mkfs.ext3 $PEN_ROOT
+mkfs.ntfs $PEN_ROOT
 
 mkdir -pv $SCUDUM_PEN
 mount $PEN_ROOT $SCUDUM_PEN
@@ -66,12 +66,12 @@ cp -rp $ISO_DIR/* $SCUDUM_PEN
 
 chroot $SCUDUM_PEN /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-    DEV_NAME=$PEN_NAME extlinux --install /boot
+    DEV_NAME=$PEN_NAME dd if=/usr/lib/syslinux/mbr.bin\
+    conv=notrunc bs=440 count=1 of=$PEN_NAME
 
 chroot $SCUDUM_PEN /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-    DEV_NAME=$PEN_NAME dd if=/usr/lib/syslinux/mbr.bin\
-    conv=notrunc bs=440 count=1 of=$PEN_NAME
+    DEV_NAME=$PEN_NAME syslinux --install /dev/sda1
 
 umount $SCUDUM_PEN
 
