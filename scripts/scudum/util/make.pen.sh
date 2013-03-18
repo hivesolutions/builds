@@ -1,5 +1,5 @@
 FILE=${FILE-scudum.img}
-PEN_NAME=${PEN_NAME-/dev/sdf}
+PEN_NAME=${PEN_NAME-/dev/sdc}
 DEV_NAME=${DEV_NAME-/dev/null}
 BOOT_SIZE=${BOOT_SIZE-+1G}
 SWAP_SIZE=${SWAP_SIZE-+2G}
