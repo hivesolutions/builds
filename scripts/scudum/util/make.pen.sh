@@ -11,6 +11,7 @@ LOADER=${LOADER-isolinux}
 REBUILD=${REBUILD-0}
 DEPLOY=${DEPLOY-1}
 SQUASH=${SQUASH-0}
+WINDOWS=${WINDOWS-1}
 SLEEP_TIME=3
 
 PEN_ROOT="$PEN_NAME"1
@@ -57,7 +58,11 @@ fi
 (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 sleep $SLEEP_TIME
 
-mkfs.ext4 $PEN_ROOT
+if [ "$WINDOWS" == "1" ]; then
+    mkfs.vfat $PEN_ROOT
+else
+    mkfs.ext4 $PEN_ROOT
+fi
 
 mkdir -pv $SCUDUM_PEN
 mount -v $PEN_ROOT $SCUDUM_PEN
@@ -73,9 +78,15 @@ chroot $SCUDUM_PEN /usr/bin/env -i\
     DEV_NAME=$PEN_NAME dd if=/usr/lib/syslinux/mbr.bin\
     conv=notrunc bs=440 count=1 of=$PEN_NAME
 
-chroot $SCUDUM_PEN /usr/bin/env -i\
-    HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-    DEV_NAME=$PEN_NAME extlinux --install /boot
+if [ "$WINDOWS" == "1" ]; then
+    chroot $SCUDUM_PEN /usr/bin/env -i\
+        HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+        DEV_NAME=$PEN_NAME syslinux -s $PEN_ROOT
+else
+    chroot $SCUDUM_PEN /usr/bin/env -i\
+        HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+        DEV_NAME=$PEN_NAME extlinux --install /boot
+fi
 
 umount -v $SCUDUM_PEN/sys
 umount -v $SCUDUM_PEN/proc
