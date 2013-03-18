@@ -54,13 +54,14 @@ fi
 #### TENHO DE COPIAR OS DIRECTORIO TODOS E DEPOIS INSTALAR BOOT FILE
 SLEEP_TIME=3
 PEN_NAME=/dev/sdc
+PEN_ROOT="$DEV_NAME"1
 (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 sleep $SLEEP_TIME
 
-mkfs.ext4 "$PEN_NAME"1
+mkfs.ext4 $PEN_ROOT
 
 mkdir -pv $SCUDUM_PEN
-mount $PEN_NAME1 $SCUDUM_PEN
+mount $PEN_ROOT $SCUDUM_PEN
 cp -rp $ISO_DIR/* $SCUDUM_PEN
 
 chroot $SCUDUM_PEN /usr/bin/env -i\
