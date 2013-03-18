@@ -56,18 +56,7 @@ case $LOADER in
             DEV_NAME=$DEV_NAME grub-install $DEV_NAME
         ;;
 
-    extlinux)
-        chroot $SCUDUM /usr/bin/env -i\
-            HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-            DEV_NAME=$DEV_NAME dd if=/usr/lib/syslinux/mbr.bin\
-            conv=notrunc bs=440 count=1 of=$DEV_NAME
-    
-        chroot $SCUDUM /usr/bin/env -i\
-            HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-            DEV_NAME=$DEV_NAME extlinux --install /boot
-        ;;
-
-    isolinux)
+    extlinux|isolinux)
         echo "tmpfs / tmpfs defaults 0 0" >> $SCUDUM/etc/fstab
 
         chroot $SCUDUM /usr/bin/env -i\
