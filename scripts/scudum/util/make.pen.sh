@@ -55,7 +55,11 @@ else
     ISO_DIR=$SCUDUM
 fi
 
-(echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
+if [ "$WINDOWS" == "1" ]; then
+    (echo n; echo p; echo 1; echo ; echo ; echo t; echo 1; echo b; echo w) | fdisk $PEN_NAME
+else
+    (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
+fi
 sleep $SLEEP_TIME
 
 if [ "$WINDOWS" == "1" ]; then
