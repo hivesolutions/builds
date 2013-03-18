@@ -56,14 +56,14 @@ else
 fi
 
 if [ "$WINDOWS" == "1" ]; then
-    (echo n; echo p; echo 1; echo 63; echo ; echo a; echo 1; echo t; echo c; echo w) | fdisk $PEN_NAME
+    (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo t; echo c; echo w) | fdisk $PEN_NAME
 else
     (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 fi
 sleep $SLEEP_TIME
 
 if [ "$WINDOWS" == "1" ]; then
-    mkfs.vfat -F 32 -i viriatum $PEN_ROOT
+    mkfs.vfat -F 32 $PEN_ROOT
 else
     mkfs.ext4 $PEN_ROOT
 fi
