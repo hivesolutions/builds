@@ -1,11 +1,11 @@
-FILE=${FILE-scudum.iso}
+FILE=${FILE-scudum.img}
 DEV_NAME=${DEV_NAME-/dev/null}
 BOOT_SIZE=${BOOT_SIZE-+1G}
 SWAP_SIZE=${SWAP_SIZE-+2G}
 NAME=${NAME-scudum}
 SCUDUM=${SCUDUM-/tmp/scudum}
 TARGET=${TARGET-/mnt/extra/$NAME}
-LOADER=${LOADER-isolinux}
+LOADER=${LOADER-grubt}
 REBUILD=${REBUILD-0}
 DEPLOY=${DEPLOY-1}
 SQUASH=${SQUASH-1}
@@ -49,10 +49,7 @@ else
     ISO_DIR=$SCUDUM
 fi
 
-mkisofs -r -J -R -U -joliet -joliet-long -o $FILE \
-   -b isolinux/isolinux.bin -c isolinux/boot.cat \
-   -no-emul-boot -boot-load-size 4 -boot-info-table \
-   $ISO_DIR
+dd if=$DEV_NAME of=$FILE bs=1M
 
 if [ "$SQUASH" == "1" ]; then
     rm -rf $ISO_DIR

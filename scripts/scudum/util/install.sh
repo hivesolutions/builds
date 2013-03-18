@@ -56,6 +56,17 @@ case $LOADER in
             DEV_NAME=$DEV_NAME grub-install $DEV_NAME
         ;;
 
+    grubt)
+        echo "tmpfs / tmpfs defaults 0 0" >> $SCUDUM/etc/fstab
+
+        cat $SCUDUM/boot/grub/grub.cfg.tpl | sed -e "s/\${BOOT_FS}/$BOOT_FS/"\
+            -e "s/\${ROOT_UUID}/$ROOT_UUID/" > $SCUDUM/boot/grub/grub.cfg
+
+        chroot $SCUDUM /usr/bin/env -i\
+            HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+            DEV_NAME=$DEV_NAME grub-install $DEV_NAME
+        ;;
+
     extlinux)
         chroot $SCUDUM /usr/bin/env -i\
             HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
