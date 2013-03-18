@@ -53,8 +53,11 @@ fi
 
 #### TENHO DE COPIAR OS DIRECTORIO TODOS E DEPOIS INSTALAR BOOT FILE
 SLEEP_TIME=3
-(echo n; echo p; echo 1; echo ; echo $BOOT_SIZE; echo a; echo 1; echo w) | fdisk /dev/sdc
+(echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk /dev/sdc
 sleep $SLEEP_TIME
+
+mkfs.ext4 /dev/sdc1 
+
 mkdir -pv $SCUDUM_PEN
 mount /dev/sdc1 $SCUDUM_PEN
 cp -rp $ISO_DIR/* $SCUDUM_PEN
