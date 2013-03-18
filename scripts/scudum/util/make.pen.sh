@@ -56,7 +56,7 @@ else
 fi
 
 if [ "$WINDOWS" == "1" ]; then
-    (echo n; echo p; echo 1; echo ; echo ; echo t; echo 1; echo b; echo w) | fdisk $PEN_NAME
+    (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo t; echo b; echo w) | fdisk $PEN_NAME
 else
     (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 fi
