@@ -62,6 +62,7 @@ mkfs.ntfs $PEN_ROOT
 
 mkdir -pv $SCUDUM_PEN
 mount -v $PEN_ROOT $SCUDUM_PEN
+mount -v --bind /dev $SCUDUM_PEN/dev
 cp -rp $ISO_DIR/* $SCUDUM_PEN
 
 chroot $SCUDUM_PEN /usr/bin/env -i\
@@ -73,6 +74,7 @@ chroot $SCUDUM_PEN /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
     DEV_NAME=$PEN_NAME syslinux --install $PEN_ROOT
 
+umount -v $SCUDUM_PEN/dev
 umount -v $SCUDUM_PEN
 
 dd if=$PEN_NAME of=$FILE bs=1M
