@@ -61,7 +61,7 @@ sleep $SLEEP_TIME
 mkfs.ntfs $PEN_ROOT
 
 mkdir -pv $SCUDUM_PEN
-mount $PEN_ROOT $SCUDUM_PEN
+mount -v $PEN_ROOT $SCUDUM_PEN
 cp -rp $ISO_DIR/* $SCUDUM_PEN
 
 chroot $SCUDUM_PEN /usr/bin/env -i\
@@ -73,7 +73,7 @@ chroot $SCUDUM_PEN /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
     DEV_NAME=$PEN_NAME syslinux --install /dev/sda1
 
-umount $SCUDUM_PEN
+umount -v $SCUDUM_PEN
 
 dd if=$PEN_NAME of=$FILE bs=1M
 ############
