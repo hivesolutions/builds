@@ -20,6 +20,9 @@ rm -rf .[^.] .??* *
 cd $SCUDUM/tmp
 rm -rf .[^.] .??* *
 
+cd $SCUDUM/images
+rm -rf .[^.] .??* *
+
 rm -rf $SCUDUM/sources
 rm -f $SCUDUM/grub/grub.cfg
 rm -f $SCUDUM/etc/fstab
