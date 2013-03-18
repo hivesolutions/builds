@@ -31,7 +31,7 @@ if [ $DEV_ROOT != $DEV_BOOT ]; then
     mount -v $DEV_BOOT $SCUDUM/boot
 fi
 
-SCUDUM=$SCUDUM $DIR/initrd.sh
+SCUDUM=$SCUDUM PATH=/isolinux $DIR/initrd.sh
 
 cd $SCUDUM
 tar -zcf images/root.tar.gz root
@@ -44,7 +44,7 @@ if [ "$SQUASH" == "1" ]; then
 
     mksquashfs $SCUDUM $NAME.sqfs
     mkdir -pv $ISO_DIR
-    cp -rp $SCUDUM/boot $SCUDUM/isolinux $SCUDUM/initrd $ISO_DIR
+    cp -rp $SCUDUM/boot $SCUDUM/isolinux $ISO_DIR
     mv $NAME.sqfs $ISO_DIR
 else
     ISO_DIR=$SCUDUM
