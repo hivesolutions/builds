@@ -4,6 +4,7 @@ BOOT_SIZE=${BOOT_SIZE-+1G}
 SWAP_SIZE=${SWAP_SIZE-+2G}
 NAME=${NAME-scudum}
 SCUDUM=${SCUDUM-/tmp/scudum}
+SCUDUM_PEN=${SCUDUM_PEN-/tmp/scudum-pen}
 TARGET=${TARGET-/mnt/drop/$NAME}
 LOADER=${LOADER-grubt}
 REBUILD=${REBUILD-0}
@@ -50,7 +51,18 @@ else
     ISO_DIR=$SCUDUM
 fi
 
-dd if=$DEV_NAME of=$FILE bs=1M
+#### TENHO DE COPIAR OS DIRECTORIO TODOS E DEPOIS INSTALAR BOOT FILE
+SLEEP_TIME=3
+(echo n; echo p; echo 1; echo ; echo $BOOT_SIZE; echo a; echo 1; echo w) | fdisk /dev/sdc
+sleep $SLEEP_TIME
+mkdir -pv $SCUDUM_PEN
+mount /dev/sdc1 $SCUDUM_PEN
+cp -rp $ISO_DIR/* $SCUDUM_PEN
+umount $SCUDUM_PEN
+
+dd if=/dev/sdc of=$FILE bs=1M
+############
+
 
 if [ "$SQUASH" == "1" ]; then
     rm -rf $ISO_DIR
