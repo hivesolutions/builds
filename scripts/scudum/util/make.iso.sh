@@ -14,6 +14,7 @@ DEV_BOOT="$DEV_NAME"1
 DEV_SWAP="$DEV_NAME"2
 DEV_ROOT="$DEV_NAME"3
 
+CUR=$(pwd)
 DIR=$(dirname $(readlink -f $0))
 
 if [ "$REBUILD" == "1" ]; then
@@ -36,7 +37,7 @@ cd $SCUDUM
 tar -zcf images/root.tar.gz root
 tar -zcf images/dev.tar.gz dev
 tar -zcf images/etc.tar.gz etc
-cd $DIR
+cd $CUR
 
 if [ "$SQUASH" == "1" ]; then
     ISO_DIR=/tmp/$NAME.iso.dir
