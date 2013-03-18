@@ -27,6 +27,8 @@ cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
 
 echo "" > $SCUDUM/etc/resolv.conf
 
+find $SCUDUM/{,usr/,initrd/}{bin,lib,sbin} -type f -exec strip --strip-debug "{}" ";"
+
 cd $SCUDUM
 tar -zcvf $BASE/$FILE *
 
