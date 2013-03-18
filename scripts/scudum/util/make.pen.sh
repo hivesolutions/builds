@@ -58,12 +58,14 @@ PEN_ROOT="$PEN_NAME"1
 (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 sleep $SLEEP_TIME
 
-mkfs.ntfs $PEN_ROOT
+#mkfs.ntfs $PEN_ROOT
+mkfs.ext4 $PEN_ROOT
 
 mkdir -pv $SCUDUM_PEN
 mount -v $PEN_ROOT $SCUDUM_PEN
-mount -v --bind /dev $SCUDUM_PEN/dev
 cp -rp $ISO_DIR/* $SCUDUM_PEN
+
+mount -v --bind /dev $SCUDUM_PEN/dev
 
 chroot $SCUDUM_PEN /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
@@ -72,7 +74,7 @@ chroot $SCUDUM_PEN /usr/bin/env -i\
 
 chroot $SCUDUM_PEN /usr/bin/env -i\
     HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-    DEV_NAME=$PEN_NAME syslinux --install $PEN_ROOT
+    DEV_NAME=$PEN_NAME extlinux --install /boot
 
 umount -v $SCUDUM_PEN/dev
 umount -v $SCUDUM_PEN
