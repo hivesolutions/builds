@@ -29,7 +29,7 @@ fi
 
 cd $SCUDUM
 
-wget "http://hole1.hive:9090/extra/scudum/scudum-latest.tar.gz"
+wget "http://hole1.hive:9090/drop/scudum/scudum-latest.tar.gz"
 tar -zxf scudum-latest.tar.gz
 rm -v scudum-latest.tar.gz
 
