@@ -54,7 +54,7 @@ fi
 #### TENHO DE COPIAR OS DIRECTORIO TODOS E DEPOIS INSTALAR BOOT FILE
 SLEEP_TIME=3
 PEN_NAME=/dev/sdc
-PEN_ROOT="$DEV_NAME"1
+PEN_ROOT="$PEN_NAME"1
 (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 sleep $SLEEP_TIME
 
