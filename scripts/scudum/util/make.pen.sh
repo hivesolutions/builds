@@ -53,17 +53,28 @@ fi
 
 #### TENHO DE COPIAR OS DIRECTORIO TODOS E DEPOIS INSTALAR BOOT FILE
 SLEEP_TIME=3
-(echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk /dev/sdc
+PEN_NAME=/dev/sdc
+(echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 sleep $SLEEP_TIME
 
-mkfs.ext4 /dev/sdc1 
+mkfs.ext4 "$PEN_NAME"1
 
 mkdir -pv $SCUDUM_PEN
-mount /dev/sdc1 $SCUDUM_PEN
+mount $PEN_NAME1 $SCUDUM_PEN
 cp -rp $ISO_DIR/* $SCUDUM_PEN
+
+chroot $SCUDUM_PEN /usr/bin/env -i\
+    HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+    DEV_NAME=$PEN_NAME extlinux --install /boot
+
+chroot $SCUDUM_PEN /usr/bin/env -i\
+    HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
+    DEV_NAME=$PEN_NAME dd if=/usr/lib/syslinux/mbr.bin\
+    conv=notrunc bs=440 count=1 of=$PEN_NAME
+
 umount $SCUDUM_PEN
 
-dd if=/dev/sdc of=$FILE bs=1M
+dd if=$PEN_NAME of=$FILE bs=1M
 ############
 
 
