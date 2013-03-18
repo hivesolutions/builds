@@ -72,16 +72,16 @@ mkdir -pv $SCUDUM_PEN
 mount -v $PEN_ROOT $SCUDUM_PEN
 cp -rp $ISO_DIR/* $SCUDUM_PEN
 
-mount -v --bind /dev $SCUDUM_PEN/dev
-mount -vt devpts devpts $SCUDUM_PEN/dev/pts
-mount -vt proc proc $SCUDUM_PEN/proc
-mount -vt sysfs sysfs $SCUDUM_PEN/sys
-
 if [ "$WINDOWS" == "1" ]; then
     dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
         bs=440 count=1 of=$PEN_NAME
     syslinux -s $PEN_ROOT
 else
+    mount -v --bind /dev $SCUDUM_PEN/dev
+    mount -vt devpts devpts $SCUDUM_PEN/dev/pts
+    mount -vt proc proc $SCUDUM_PEN/proc
+    mount -vt sysfs sysfs $SCUDUM_PEN/sys
+
     chroot $SCUDUM_PEN /usr/bin/env -i\
         HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
         DEV_NAME=$PEN_NAME dd if=/usr/lib/syslinux/mbr.bin\
@@ -90,13 +90,13 @@ else
     chroot $SCUDUM_PEN /usr/bin/env -i\
         HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
         DEV_NAME=$PEN_NAME extlinux --install /boot
-fi
 
-umount -v $SCUDUM_PEN/sys
-umount -v $SCUDUM_PEN/proc
-umount -v $SCUDUM_PEN/dev/pts
-umount -v $SCUDUM_PEN/dev
-umount -v $SCUDUM_PEN
+    umount -v $SCUDUM_PEN/sys
+    umount -v $SCUDUM_PEN/proc
+    umount -v $SCUDUM_PEN/dev/pts
+    umount -v $SCUDUM_PEN/dev
+    umount -v $SCUDUM_PEN
+fi
 
 dd if=$PEN_NAME of=$FILE bs=1M
 
