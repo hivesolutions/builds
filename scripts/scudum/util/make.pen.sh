@@ -32,7 +32,7 @@ if [ $DEV_ROOT != $DEV_BOOT ]; then
     mount -v $DEV_BOOT $SCUDUM/boot
 fi
 
-SCUDUM=$SCUDUM PATH=/boot $DIR/initrd.sh
+SCUDUM=$SCUDUM TARGET=/boot $DIR/initrd.sh
 
 cd $SCUDUM
 tar -zcf images/root.tar.gz root

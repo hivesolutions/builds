@@ -31,7 +31,7 @@ if [ $DEV_ROOT != $DEV_BOOT ]; then
     mount -v $DEV_BOOT $SCUDUM/boot
 fi
 
-SCUDUM=$SCUDUM PATH=/isolinux $DIR/initrd.sh
+SCUDUM=$SCUDUM TARGET=/isolinux $DIR/initrd.sh
 
 cd $SCUDUM
 tar -zcf images/root.tar.gz root
