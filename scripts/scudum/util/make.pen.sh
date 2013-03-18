@@ -75,7 +75,7 @@ cp -rp $ISO_DIR/* $SCUDUM_PEN
 if [ "$WINDOWS" == "1" ]; then
     dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
         bs=440 count=1 of=$PEN_NAME
-    syslinux -s $PEN_ROOT
+    syslinux --stupid --directory /boot $PEN_ROOT
 else
     mount -v --bind /dev $SCUDUM_PEN/dev
     mount -vt devpts devpts $SCUDUM_PEN/dev/pts
