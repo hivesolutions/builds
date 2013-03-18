@@ -55,10 +55,16 @@ tar -zcf images/dev.tar.gz dev
 tar -zcf images/etc.tar.gz etc
 cd $DIR
 
+mksquashfs $SCUDUM $NAME.sqfs
+
+mkdir /tmp/$NAME.iso.dir
+cp -rp $SCUDUM/boot $SCUDUM/initrd /tmp/$NAME.iso.dir
+mv $NAME.sqfs /tmp/$NAME.iso.dir
+
 mkisofs -r -J -R -U -joliet -joliet-long -o $FILE \
    -b isolinux/isolinux.bin -c isolinux/boot.cat \
    -no-emul-boot -boot-load-size 4 -boot-info-table \
-   $SCUDUM
+   /tmp/$NAME.iso.dir
 
 if [ "$DEPLOY" == "1" ]; then
     mv $FILE $TARGET
