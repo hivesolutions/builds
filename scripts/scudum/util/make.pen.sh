@@ -10,7 +10,7 @@ TARGET=${TARGET-/mnt/drop/$NAME}
 LOADER=${LOADER-isolinux}
 REBUILD=${REBUILD-0}
 DEPLOY=${DEPLOY-1}
-SQUASH=${SQUASH-0}
+SQUASH=${SQUASH-1}
 WINDOWS=${WINDOWS-1}
 SLEEP_TIME=3
 
@@ -77,16 +77,16 @@ mount -vt devpts devpts $SCUDUM_PEN/dev/pts
 mount -vt proc proc $SCUDUM_PEN/proc
 mount -vt sysfs sysfs $SCUDUM_PEN/sys
 
-chroot $SCUDUM_PEN /usr/bin/env -i\
-    HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-    DEV_NAME=$PEN_NAME dd if=/usr/lib/syslinux/mbr.bin\
-    conv=notrunc bs=440 count=1 of=$PEN_NAME
-
 if [ "$WINDOWS" == "1" ]; then
+    dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
+        bs=440 count=1 of=$PEN_NAME
+    syslinux -s $PEN_ROOT
+else
     chroot $SCUDUM_PEN /usr/bin/env -i\
         HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-        DEV_NAME=$PEN_NAME syslinux -s $PEN_ROOT
-else
+        DEV_NAME=$PEN_NAME dd if=/usr/lib/syslinux/mbr.bin\
+        conv=notrunc bs=440 count=1 of=$PEN_NAME
+
     chroot $SCUDUM_PEN /usr/bin/env -i\
         HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
         DEV_NAME=$PEN_NAME extlinux --install /boot
