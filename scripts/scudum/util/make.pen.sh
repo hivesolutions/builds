@@ -58,7 +58,7 @@ PEN_ROOT="$PEN_NAME"1
 (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk $PEN_NAME
 sleep $SLEEP_TIME
 
-mkfs.ext4 $PEN_ROOT
+mkfs.ext3 $PEN_ROOT
 
 mkdir -pv $SCUDUM_PEN
 mount $PEN_ROOT $SCUDUM_PEN
@@ -77,7 +77,6 @@ umount $SCUDUM_PEN
 
 dd if=$PEN_NAME of=$FILE bs=1M
 ############
-
 
 if [ "$SQUASH" == "1" ]; then
     rm -rf $ISO_DIR
