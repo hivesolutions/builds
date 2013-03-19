@@ -79,20 +79,9 @@ if [ "$WINDOWS" == "1" ]; then
         bs=440 count=1 of=$PEN_NAME
     syslinux --stupid --directory /boot $PEN_ROOT
 else
-    mount -v --bind /dev $SCUDUM_PEN/dev
-    mount -vt devpts devpts $SCUDUM_PEN/dev/pts
-    mount -vt proc proc $SCUDUM_PEN/proc
-    mount -vt sysfs sysfs $SCUDUM_PEN/sys
-
     dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
         bs=440 count=1 of=$PEN_NAME
     extlinux --install $SCUDUM_PEN/boot
-
-    sync
-    umount -v $SCUDUM_PEN/sys
-    umount -v $SCUDUM_PEN/proc
-    umount -v $SCUDUM_PEN/dev/pts
-    umount -v $SCUDUM_PEN/dev
 fi
 
 sync
