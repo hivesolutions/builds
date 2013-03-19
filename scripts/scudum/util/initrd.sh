@@ -13,14 +13,11 @@ rm -rf /mnt/loop1/lost+found
 cp -dpR $SCUDUM/initrd/* /mnt/loop1/
 
 sync
-ls -la /mnt/loop1
 umount /mnt/loop1
 losetup -d /dev/loop1
 
 rm -rf /mnt/loop1
 
 gzip -9 -c ramdisk > $SCUDUM$TARGET/initrd.img
-
-ls -la ramdisk
 
 rm -rf ramdisk
