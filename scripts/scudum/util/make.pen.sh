@@ -65,9 +65,9 @@ fi
 sleep $SLEEP_TIME
 
 if [ "$WINDOWS" == "1" ]; then
-    mkfs.vfat -F 32 -n scudum $PEN_ROOT && rm -rf "$PEN_ROOT/lost+found" 
+    mkfs.vfat -F 32 -n scudum $PEN_ROOT && rm -rf $PEN_ROOT/lost+found
 else
-    mkfs.ext4 $PEN_ROOT && rm -rf "$PEN_ROOT/lost+found" 
+    mkfs.ext4 $PEN_ROOT && rm -rf $PEN_ROOT/lost+found
 fi
 
 mkdir -pv $SCUDUM_PEN

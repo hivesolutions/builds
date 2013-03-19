@@ -24,6 +24,8 @@ cd $SCUDUM/images
 rm -rf .[^.] .??* *
 
 rm -rf $SCUDUM/sources
+rm -rf $SCUDUM/lost+found
+rm -rf $SCUDUM/boot/lost+found
 rm -f $SCUDUM/boot/initrd.img
 rm -f $SCUDUM/isolinux/initrd.img
 rm -f $SCUDUM/grub/grub.cfg
