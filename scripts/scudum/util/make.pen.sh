@@ -101,13 +101,12 @@ fi
 
 umount -v $SCUDUM_PEN
 
-dd if=$PEN_NAME of=$FILE bs=1M
-
 if [ "$SQUASH" == "1" ]; then
     rm -rf $ISO_DIR
 fi
 
 if [ "$DEPLOY" == "1" ]; then
+    dd if=$PEN_NAME of=$FILE bs=1M
     mv $FILE $TARGET
 fi
 
