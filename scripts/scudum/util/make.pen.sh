@@ -56,9 +56,9 @@ else
 fi
 
 if [ "$WINDOWS" == "1" ]; then
-    (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo t; echo c; echo w) | fdisk -H 64 -S 32 $PEN_NAME
+    (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo t; echo c; echo w) | fdisk -H 255 -S 63 $PEN_NAME
 else
-    (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk -H 64 -S 32 $PEN_NAME
+    (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk -H 255 -S 63 $PEN_NAME
 fi
 sleep $SLEEP_TIME
 
