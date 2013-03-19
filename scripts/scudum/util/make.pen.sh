@@ -84,14 +84,9 @@ else
     mount -vt proc proc $SCUDUM_PEN/proc
     mount -vt sysfs sysfs $SCUDUM_PEN/sys
 
-    chroot $SCUDUM_PEN /usr/bin/env -i\
-        HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-        DEV_NAME=$PEN_NAME dd if=/usr/lib/syslinux/mbr.bin\
-        conv=notrunc bs=440 count=1 of=$PEN_NAME
-
-    chroot $SCUDUM_PEN /usr/bin/env -i\
-        HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
-        DEV_NAME=$PEN_NAME extlinux --install /boot
+    dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
+        bs=440 count=1 of=$PEN_NAME
+    extlinux --install $SCUDUM_PEN/boot
 
     sync
     umount -v $SCUDUM_PEN/sys
