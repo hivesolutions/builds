@@ -8,8 +8,8 @@ losetup /dev/loop1 ramdisk
 mke2fs /dev/loop1
 mkdir -pv /mnt/loop1
 
-mount /dev/loop1 /mnt/loop1 
-rm -rf /mnt/loop1/lost+found 
+mount /dev/loop1 /mnt/loop1
+rm -rf /mnt/loop1/lost+found
 cp -dpR $SCUDUM/initrd/* /mnt/loop1/
 
 sync
