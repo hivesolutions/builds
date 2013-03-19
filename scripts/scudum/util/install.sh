@@ -9,8 +9,8 @@ SCUDUM=${SCUDUM-/tmp/scudum}
 
 if [ $DEV_ROOT == $DEV_BOOT ]; then BOOT_FS=$ROOT_FS; fi
 
-if [ $DEV_BOOT != /dev/null ]; then mkfs.$BOOT_FS $DEV_BOOT && rm -rf $BOOT_FS/lost+found fi
-if [ $DEV_ROOT != /dev/null ]; then mkfs.$ROOT_FS $DEV_ROOT && rm -rf $ROOT_FS/lost+found fi
+if [ $DEV_BOOT != /dev/null ]; then mkfs.$BOOT_FS $DEV_BOOT && rm -rf $BOOT_FS/lost+found; fi
+if [ $DEV_ROOT != /dev/null ]; then mkfs.$ROOT_FS $DEV_ROOT && rm -rf $ROOT_FS/lost+found; fi
 if [ $DEV_SWAP != /dev/null ]; then mkswap $DEV_SWAP; fi
 
 eval $(blkid -o export $DEV_BOOT)
