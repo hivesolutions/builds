@@ -53,7 +53,7 @@ fi
 mkisofs -r -J -R -U -joliet -joliet-long -o $FILE\
     -b isolinux/isolinux.bin -c isolinux/boot.cat\
     -no-emul-boot -boot-load-size 4 -boot-info-tabl\
-    -V scudum $ISO_DIR
+    -V $NAME $ISO_DIR
 
 if [ "$SQUASH" == "1" ]; then
     rm -rf $ISO_DIR
