@@ -4,10 +4,19 @@ DEV_ROOT=${DEV_ROOT-"$DEV_NAME"3}
 SCUDUM=${SCUDUM-/mnt/scudum}
 VERSION=${VERSION-0.0.0}
 FILE=${FILE-scudum-$VERSION.tar.gz}
+SAFE=${SAFE-1}
 
 BASE=$(pwd)
 
 rm -fv $FILE
+
+if [ "$SAFE" == "1" ]; then
+    mountpoint $SCUDUM
+    if [ "$?" == "0" ]; then
+        echo "Target moutpoint $SCUDUM is mounted, skipping build"
+        exit 1
+    fi
+fi
 
 mkdir -pv $SCUDUM
 mount -v $DEV_ROOT $SCUDUM
