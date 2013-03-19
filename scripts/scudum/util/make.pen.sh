@@ -23,7 +23,7 @@ CUR=$(pwd)
 DIR=$(dirname $(readlink -f $0))
 
 if [ "$REBUILD" == "1" ]; then
-    dd if=/dev/zero of=$DEV_NAME bs=1M
+    dd if=/dev/zero of=$DEV_NAME count=1
 
     DEV_NAME=$DEV_NAME BOOT_SIZE=$BOOT_SIZE SWAP_SIZE=$SWAP_SIZE\
         SCUDUM=$SCUDUM LOADER=$LOADER $DIR/install.dev.sh
@@ -95,8 +95,9 @@ else
     umount -v $SCUDUM_PEN/proc
     umount -v $SCUDUM_PEN/dev/pts
     umount -v $SCUDUM_PEN/dev
-    umount -v $SCUDUM_PEN
 fi
+
+umount -v $SCUDUM_PEN
 
 dd if=$PEN_NAME of=$FILE bs=1M
 
@@ -118,5 +119,5 @@ fi
 umount -v $SCUDUM && rm -rvf $SCUDUM
 
 if [ "$REBUILD" == "1" ]; then
-    dd if=/dev/zero of=$DEV_NAME bs=1M
+    dd if=/dev/zero of=$DEV_NAME count=1
 fi
