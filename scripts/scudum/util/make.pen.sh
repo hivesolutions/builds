@@ -99,7 +99,7 @@ else
     umount -v $SCUDUM_PEN/dev
 fi
 
-umount -v $SCUDUM_PEN
+umount -v $SCUDUM_PEN && rm -rvf $SCUDUM_PEN
 
 if [ "$SQUASH" == "1" ]; then
     rm -rf $ISO_DIR
