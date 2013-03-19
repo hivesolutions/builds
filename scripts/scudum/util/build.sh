@@ -53,7 +53,7 @@ rm -f $SCUDUM/boot/grub/grub.cfg
 rm -f $SCUDUM/etc/fstab
 cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
 
-echo "" > $SCUDUM/etc/resolv.conf
+> $SCUDUM/etc/resolv.conf
 
 find $SCUDUM/{,usr/,initrd/}{bin,lib,sbin} -type f -exec strip --strip-debug "{}" ";"
 
