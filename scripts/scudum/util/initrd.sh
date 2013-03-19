@@ -12,6 +12,7 @@ mount /dev/loop1 /mnt/loop1
 rm -rf /mnt/loop1/lost+found 
 cp -dpR $SCUDUM/initrd/* /mnt/loop1/
 
+sync
 umount /mnt/loop1
 losetup -d /dev/loop1
 
