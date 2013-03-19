@@ -65,7 +65,7 @@ fi
 sleep $SLEEP_TIME
 
 if [ "$WINDOWS" == "1" ]; then
-    mkfs.vfat -F 32 -n viriatum $PEN_ROOT
+    mkfs.vfat -F 32 -n scudum $PEN_ROOT
 else
     mkfs.ext4 $PEN_ROOT
 fi
