@@ -27,6 +27,7 @@ for point in $SCUDUM{/sys,/proc,/dev/pts,/dev}; do
     mountpoint $point
     if [ "$?" != "0" ]; then continue; fi
 
+    sync
     umount -v $point
     if [ "$?" == "0" ]; then continue; fi
 
@@ -61,5 +62,6 @@ tar -zcvf $BASE/$FILE *
 
 cd $BASE
 
+sync
 umount -v $SCUDUM/boot && rm -rvf $SCUDUM/boot
 umount -v $SCUDUM && rm -rvf $SCUDUM

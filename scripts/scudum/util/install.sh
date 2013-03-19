@@ -72,6 +72,7 @@ esac
 
 cd /
 
+sync
 umount -v $SCUDUM/sys
 umount -v $SCUDUM/proc
 umount -v $SCUDUM/dev/pts

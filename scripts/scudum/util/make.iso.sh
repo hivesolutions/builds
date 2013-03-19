@@ -68,6 +68,7 @@ rm -v $SCUDUM/images/root.tar.gz
 rm -v $SCUDUM/images/dev.tar.gz
 rm -v $SCUDUM/images/etc.tar.gz
 
+sync
 if [ $DEV_ROOT != $DEV_BOOT ]; then
     umount -v $SCUDUM/boot && rm -rvf $SCUDUM/boot
 fi

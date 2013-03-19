@@ -18,6 +18,7 @@ chroot $SCUDUM /usr/bin/env -i\
     PATH=/bin:/usr/bin:/sbin:/usr/sbin\
     /bin/bash --login
 
+sync
 umount -v $SCUDUM/sys
 umount -v $SCUDUM/proc
 umount -v $SCUDUM/dev/pts

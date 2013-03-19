@@ -93,12 +93,14 @@ else
         HOME=/root PATH=/bin:/usr/bin:/sbin:/usr/sbin\
         DEV_NAME=$PEN_NAME extlinux --install /boot
 
+    sync
     umount -v $SCUDUM_PEN/sys
     umount -v $SCUDUM_PEN/proc
     umount -v $SCUDUM_PEN/dev/pts
     umount -v $SCUDUM_PEN/dev
 fi
 
+sync
 umount -v $SCUDUM_PEN && rm -rvf $SCUDUM_PEN
 
 if [ "$SQUASH" == "1" ]; then
@@ -115,6 +117,7 @@ rm -v $SCUDUM/images/root.tar.gz
 rm -v $SCUDUM/images/dev.tar.gz
 rm -v $SCUDUM/images/etc.tar.gz
 
+sync
 if [ $DEV_ROOT != $DEV_BOOT ]; then
     umount -v $SCUDUM/boot && rm -rvf $SCUDUM/boot
 fi
