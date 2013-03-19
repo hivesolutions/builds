@@ -14,6 +14,17 @@ mount -v $DEV_ROOT $SCUDUM
 mkdir -pv $SCUDUM/boot
 mount -v $DEV_BOOT $SCUDUM/boot
 
+for point in $SCUDUM{/sys,/proc,/dev/pts,/dev}; do
+    mountpoint $point
+    if [ "$?" != "0" ]; then continue; fi
+
+    umount -v $point
+    if [ "$?" == "0" ]; then continue; fi
+
+    echo "Problem while umounting $point, skipping build"
+    exit 1
+done
+
 cd $SCUDUM/root
 rm -rf .[^.] .??* *
 
