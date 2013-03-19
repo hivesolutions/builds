@@ -24,6 +24,8 @@ cd $SCUDUM/images
 rm -rf .[^.] .??* *
 
 rm -rf $SCUDUM/sources
+rm -f $SCUDUM/boot/initrd.img
+rm -f $SCUDUM/isolinux/initrd.img
 rm -f $SCUDUM/grub/grub.cfg
 rm -f $SCUDUM/etc/fstab
 cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
