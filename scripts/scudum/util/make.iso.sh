@@ -44,7 +44,7 @@ if [ "$SQUASH" == "1" ]; then
 
     mksquashfs $SCUDUM $NAME.sqfs
     mkdir -pv $ISO_DIR
-    cp -rp $SCUDUM/boot $SCUDUM/isolinux $ISO_DIR
+    cp -rp $SCUDUM/isolinux $ISO_DIR
     mv $NAME.sqfs $ISO_DIR
 else
     ISO_DIR=$SCUDUM
