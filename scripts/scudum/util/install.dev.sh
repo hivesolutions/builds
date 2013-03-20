@@ -1,3 +1,6 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+
 DEV_NAME=${DEV_NAME-/dev/null}
 BOOT_SIZE=${BOOT_SIZE-+1G}
 SWAP_SIZE=${SWAP_SIZE-+2G}

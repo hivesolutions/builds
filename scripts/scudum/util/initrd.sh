@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # -*- coding: utf-8 -*-
 
 SCUDUM=${SCUDUM-/tmp/scudum}
