@@ -1,3 +1,6 @@
+#!/bin/sh
+# -*- coding: utf-8 -*-
+
 FILE=${FILE-scudum.img}
 SIZE=${SIZE-2147483648}
 OFFSET=${OFFSET-1048576}

@@ -1,3 +1,6 @@
+#!/bin/sh
+# -*- coding: utf-8 -*-
+
 SCUDUM=${SCUDUM-/tmp/scudum}
 TARGET=${TARGET-/}
 

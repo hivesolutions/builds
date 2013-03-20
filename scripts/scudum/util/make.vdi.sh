@@ -1,3 +1,6 @@
+#!/bin/sh
+# -*- coding: utf-8 -*-
+
 FILE_IN=${FILE_IN-scudum.img}
 FILE_OUT=${FILE_IN-scudum.vdi}
 DEV_NAME=${DEV_NAME-/dev/null}

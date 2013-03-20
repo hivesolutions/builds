@@ -1,3 +1,6 @@
+#!/bin/sh
+# -*- coding: utf-8 -*-
+
 DEV_NAME=${DEV_NAME-/dev/null}
 DEV_BOOT=${DEV_BOOT-/dev/null}
 DEV_SWAP=${DEV_SWAP-/dev/null}
