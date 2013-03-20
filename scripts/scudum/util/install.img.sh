@@ -18,11 +18,11 @@ DIR=$(dirname $(readlink -f $0))
 dd if=/dev/zero of=$FILE bs=$BLOCK_SIZE count=$SIZE_B
 
 (echo n; echo p; echo 1; echo ; echo $BOOT_SIZE_F; echo a; echo 1; echo w) | fdisk -H 255 -S 63 $FILE
-sleep $SLEEP_TIME
+sleep $SLEEP_TIME && sync
 (echo n; echo p; echo 2; echo ; echo $SWAP_SIZE_F; echo t; echo 2; echo 82; echo w) | fdisk -H 255 -S 63 $FILE
-sleep $SLEEP_TIME
+sleep $SLEEP_TIME && sync
 (echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk -H 255 -S 63 $FILE
-sleep $SLEEP_TIME
+sleep $SLEEP_TIME && sync
 
 DEV_NAME=$(losetup -f --show $FILE)
 DEV_INDEX=${DEV_NAME:${#DEV_NAME} - 1}

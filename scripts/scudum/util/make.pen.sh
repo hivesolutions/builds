@@ -70,7 +70,7 @@ if [ "$WINDOWS" == "1" ]; then
 else
     (echo n; echo p; echo 1; echo ; echo ; echo a; echo 1; echo w) | fdisk -H 255 -S 63 $PEN_NAME
 fi
-sleep $SLEEP_TIME
+sleep $SLEEP_TIME && sync
 
 if [ "$WINDOWS" == "1" ]; then
     mkfs.vfat -F 32 -n $NAME $PEN_ROOT && rm -rf $PEN_ROOT/lost+found
