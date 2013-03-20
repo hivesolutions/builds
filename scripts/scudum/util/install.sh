@@ -69,7 +69,7 @@ case $LOADER in
     extlinux|isolinux)
         dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
             bs=440 count=1 of=$DEV_NAME
-        extlinux --install $SCUDUM/boot && sync
+        extlinux --heads=255 --sectors=63 --install $SCUDUM/boot && sync
         ;;
 esac
 

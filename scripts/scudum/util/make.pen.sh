@@ -89,7 +89,7 @@ if [ "$WINDOWS" == "1" ]; then
 else
     dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
         bs=440 count=1 of=$PEN_NAME
-    extlinux --install $SCUDUM_PEN/boot && sync
+    extlinux --heads=255 --sectors=63 --install $SCUDUM_PEN/boot && sync
 fi
 
 sync
