@@ -18,7 +18,7 @@ dd if=/dev/zero of=$FILE bs=$BLOCK_SIZE count=$SIZE_B
 sleep $SLEEP_TIME
 (echo n; echo p; echo 2; echo ; echo $SWAP_SIZE_F; echo t; echo 2; echo 82; echo w) | fdisk -H 255 -S 63 $FILE
 sleep $SLEEP_TIME
-(echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk $FILE
+(echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk -H 255 -S 63 $FILE
 sleep $SLEEP_TIME
 
 DEV_NAME=$(losetup -f --show $FILE)
