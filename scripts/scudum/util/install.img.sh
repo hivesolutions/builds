@@ -24,9 +24,9 @@ sleep $SLEEP_TIME && sync
 
 DEV_NAME=$(losetup -f --show $FILE)
 DEV_INDEX=${DEV_NAME:${#DEV_NAME} - 1}
-DEV_BOOT=/dev/mapper/loop$DEV_INDEXp1
-DEV_SWAP=/dev/mapper/loop$DEV_INDEXp2
-DEV_ROOT=/dev/mapper/loop$DEV_INDEXp3
+DEV_BOOT="/dev/mapper/loop"$DEV_INDEX"p1"
+DEV_SWAP="/dev/mapper/loop"$DEV_INDEX"p2"
+DEV_ROOT="/dev/mapper/loop"$DEV_INDEX"p3"
 
 kpartx -a $DEV_NAME
 
