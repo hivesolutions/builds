@@ -13,8 +13,8 @@ SCUDUM=${SCUDUM-/tmp/scudum}
 
 if [ $DEV_ROOT == $DEV_BOOT ]; then BOOT_FS=$ROOT_FS; fi
 
-if [ $DEV_BOOT != /dev/null ]; then mkfs.$BOOT_FS $DEV_BOOT && rm -rf $BOOT_FS/lost+found; fi
-if [ $DEV_ROOT != /dev/null ]; then mkfs.$ROOT_FS $DEV_ROOT && rm -rf $ROOT_FS/lost+found; fi
+if [ $DEV_BOOT != /dev/null ]; then mkfs.$BOOT_FS $DEV_BOOT; fi
+if [ $DEV_ROOT != /dev/null ]; then mkfs.$ROOT_FS $DEV_ROOT; fi
 if [ $DEV_SWAP != /dev/null ]; then mkswap $DEV_SWAP; fi
 
 eval $(blkid -o export $DEV_BOOT)
@@ -30,6 +30,9 @@ if [ $DEV_ROOT != $DEV_BOOT ]; then
     mkdir -pv $SCUDUM/boot
     mount -v $DEV_BOOT $SCUDUM/boot
 fi
+
+rm -rf $SCUDUM/lost+found
+rm -rf $SCUDUM/boot/lost+found
 
 cd $SCUDUM
 
