@@ -8,6 +8,11 @@ REBUILD=${REBUILD-0}
 
 DIR=$(dirname $(readlink -f $0))
 
+if [ "$DEV_NAME" == "/dev/null" ]; then
+    echo "DEV_NAME not specified, it's required"
+    exit 1
+fi
+
 FILE=$FILE_IN DEV_NAME=$DEV_NAME BOOT_SIZE=$BOOT_SIZE\
     SWAP_SIZE=$SWAP_SIZE LOADER=$LOADER REBUILD=$REBUILD $DIR/make.img.sh
 
