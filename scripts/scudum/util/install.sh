@@ -61,7 +61,7 @@ case $LOADER in
         echo "tmpfs / tmpfs defaults 0 0" >> $SCUDUM/etc/fstab
 
         dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
-            bs=440 count=1 of=$PEN_NAME
+            bs=440 count=1 of=$DEV_NAME
         extlinux --install $SCUDUM/boot
         ;;
 esac
