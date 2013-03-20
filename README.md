@@ -26,6 +26,10 @@ In order to create a Virtual Box compatible image (VDI) issue the command:
 
     DEV_NAME=/dev/sdb make.vdi.sh
 
+To create an img file of an hard drive and then install it on a device use:
+
+    install.img.sh && sleep 10 && dd if=scudum.img of=/dev/sdb bs=1M
+
 ### Links
 
 Initramfs on LFS http://www.linuxfromscratch.org/blfs/view/svn/postlfs/initramfs.html
