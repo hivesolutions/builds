@@ -3,12 +3,9 @@
 
 FILE=${FILE-scudum.img}
 SIZE=${SIZE-2147483648}
-OFFSET=${OFFSET-1048576}
 BLOCK_SIZE=${BLOCK_SIZE-4096}
-BOOT_SIZE=${BOOT_SIZE-536870912}
-SWAP_SIZE=${SWAP_SIZE-67108864}
-BOOT_SIZE_F=${BOOT_SIZE_F-+512M}
-SWAP_SIZE_F=${SWAP_SIZE_F-+64M}
+BOOT_SIZE=${BOOT_SIZE_F-+512M}
+SWAP_SIZE=${SWAP_SIZE_F-+64M}
 SCHEMA=${SCHEMA-stored}
 LOADER=${LOADER-grub}
 SLEEP_TIME=3
@@ -18,9 +15,9 @@ DIR=$(dirname $(readlink -f $0))
 
 dd if=/dev/zero of=$FILE bs=$BLOCK_SIZE count=$SIZE_B
 
-(echo n; echo p; echo 1; echo ; echo $BOOT_SIZE_F; echo a; echo 1; echo w) | fdisk -H 255 -S 63 $FILE
+(echo n; echo p; echo 1; echo ; echo $BOOT_SIZE; echo a; echo 1; echo w) | fdisk -H 255 -S 63 $FILE
 sleep $SLEEP_TIME && sync
-(echo n; echo p; echo 2; echo ; echo $SWAP_SIZE_F; echo t; echo 2; echo 82; echo w) | fdisk -H 255 -S 63 $FILE
+(echo n; echo p; echo 2; echo ; echo $SWAP_SIZE; echo t; echo 2; echo 82; echo w) | fdisk -H 255 -S 63 $FILE
 sleep $SLEEP_TIME && sync
 (echo n; echo p; echo 3; echo ; echo ; echo w) | fdisk -H 255 -S 63 $FILE
 sleep $SLEEP_TIME && sync
