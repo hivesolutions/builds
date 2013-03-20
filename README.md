@@ -26,7 +26,8 @@ In order to create a Virtual Box compatible image (VDI) issue the command:
 
     DEV_NAME=/dev/sdb make.vdi.sh
 
-To create an img file of an hard drive and then install it on a device use:
+To create an img file of an hard drive and then install it on a device use (this command must
+be used with care as support for /dev/loop and write is limited and experimental):
 
     install.img.sh && sleep 10 && dd if=scudum.img of=/dev/sdb bs=1M
 
