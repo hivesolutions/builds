@@ -85,11 +85,11 @@ cp -rp $ISO_DIR/* $SCUDUM_PEN
 if [ "$WINDOWS" == "1" ]; then
     dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
         bs=440 count=1 of=$PEN_NAME
-    syslinux --stupid --directory /boot $PEN_ROOT
+    syslinux --stupid --directory /boot $PEN_ROOT && sync
 else
     dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
         bs=440 count=1 of=$PEN_NAME
-    extlinux --install $SCUDUM_PEN/boot
+    extlinux --install $SCUDUM_PEN/boot && sync
 fi
 
 sync

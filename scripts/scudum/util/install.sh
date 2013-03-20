@@ -63,13 +63,13 @@ case $LOADER in
         cat $SCUDUM/boot/grub/grub.cfg.tpl | sed -e "s/\${BOOT_FS}/$BOOT_FS/"\
             -e "s/\${ROOT_UUID}/$ROOT_UUID/" > $SCUDUM/boot/grub/grub.cfg
 
-        grub-install --root-directory=$SCUDUM/boot/grub $DEV_NAME
+        grub-install --root-directory=$SCUDUM/boot/grub $DEV_NAME && sync
         ;;
 
     extlinux|isolinux)
         dd if=/usr/lib/syslinux/mbr.bin conv=notrunc\
             bs=440 count=1 of=$DEV_NAME
-        extlinux --install $SCUDUM/boot
+        extlinux --install $SCUDUM/boot && sync
         ;;
 esac
 
