@@ -15,8 +15,8 @@ scudum customization.
 
 To enter into the current scudum development environment located under `/dev/sdb` use the following command:
 
-    DEV_NAME=/dev/sdb chroot.sh
-    
+    chroot.sh
+
 To crate an ISO image of the Scudum distrubtion running using the [ISOLINUX](http://www.syslinux.org) boot loader use the following command
 taking note that the disk contents should be located at `/dev/sdb`:
 
