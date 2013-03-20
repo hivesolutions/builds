@@ -16,7 +16,6 @@ if [ $DEV_ROOT == $DEV_BOOT ]; then BOOT_FS=$ROOT_FS; fi
 if [ $DEV_BOOT != /dev/null ]; then mkfs.$BOOT_FS $DEV_BOOT; fi
 if [ $DEV_ROOT != /dev/null ]; then mkfs.$ROOT_FS $DEV_ROOT; fi
 if [ $DEV_SWAP != /dev/null ]; then mkswap $DEV_SWAP; fi
-sync
 
 eval $(blkid -o export $DEV_BOOT)
 BOOT_UUID=$UUID
@@ -42,8 +41,6 @@ tar -zxf scudum-latest.tar.gz
 rm -v scudum-latest.tar.gz
 
 cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
-
-sync
 
 mount -v --bind /dev $SCUDUM/dev
 mount -vt devpts devpts $SCUDUM/dev/pts
