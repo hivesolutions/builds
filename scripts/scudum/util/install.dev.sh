@@ -6,6 +6,8 @@ SLEEP_TIME=3
 
 DIR=$(dirname $(readlink -f $0))
 
+dd if=/dev/zero of=$DEV_NAME count=1
+
 (echo n; echo p; echo 1; echo ; echo $BOOT_SIZE; echo a; echo 1; echo w) | fdisk -H 255 -S 63 $DEV_NAME
 sleep $SLEEP_TIME
 (echo n; echo p; echo 2; echo ; echo $SWAP_SIZE; echo t; echo 2; echo 82; echo w) | fdisk -H 255 -S 63 $DEV_NAME
