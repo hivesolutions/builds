@@ -43,12 +43,12 @@ losetup --offset $ROOT_OFFSET $DEV_ROOT $DEV_NAME
 DEV_NAME=$DEV_NAME DEV_BOOT=$DEV_BOOT DEV_SWAP=$DEV_SWAP\
     DEV_ROOT=$DEV_ROOT SCHEMA=$SCHEMA LOADER=$LOADER $DIR/install.sh
 
-sync
+sleep $SLEEP_TIME && sync
 losetup -d $DEV_ROOT
 losetup -d $DEV_SWAP
 losetup -d $DEV_BOOT
 
-sync
+sleep $SLEEP_TIME && sync
 kpartx -d $DEV_NAME
 losetup -d $DEV_NAME
 sync
