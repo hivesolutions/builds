@@ -27,24 +27,16 @@ sleep $SLEEP_TIME && sync
 
 DEV_NAME=$(losetup -f --show $FILE)
 DEV_INDEX=${DEV_NAME:${#DEV_NAME} - 1}
-DEV_BOOT=/dev/loop$(expr $DEV_INDEX + 1)
-DEV_SWAP=/dev/loop$(expr $DEV_INDEX + 2)
-DEV_ROOT=/dev/loop$(expr $DEV_INDEX + 3)
+DEV_BOOT=/dev/mapper/loop$DEV_INDEXp1
+DEV_SWAP=/dev/mapper/loop$DEV_INDEXp2
+DEV_ROOT=/dev/mapper/loop$DEV_INDEXp3
 
-BOOT_OFFSET=$(expr $OFFSET)
-SWAP_OFFSET=$(expr $BOOT_OFFSET + $BOOT_SIZE)
-ROOT_OFFSET=$(expr $SWAP_OFFSET + $SWAP_SIZE)
-
-losetup --offset $BOOT_OFFSET $DEV_BOOT $DEV_NAME
-losetup --offset $SWAP_OFFSET $DEV_SWAP $DEV_NAME
-losetup --offset $ROOT_OFFSET $DEV_ROOT $DEV_NAME
+kpartx -a $DEV_NAME
 
 DEV_NAME=$DEV_NAME DEV_BOOT=$DEV_BOOT DEV_SWAP=$DEV_SWAP\
     DEV_ROOT=$DEV_ROOT SCHEMA=$SCHEMA LOADER=$LOADER $DIR/install.sh
 
 sync
-losetup -d $DEV_ROOT
-losetup -d $DEV_SWAP
-losetup -d $DEV_BOOT
+kpartx -d $DEV_NAME
 losetup -d $DEV_NAME
 sync
