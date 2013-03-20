@@ -10,7 +10,7 @@ SWAP_SIZE=${SWAP_SIZE-67108864}
 BOOT_SIZE_F=${BOOT_SIZE_F-+512M}
 SWAP_SIZE_F=${SWAP_SIZE_F-+64M}
 SCHEMA=${SCHEMA-stored}
-LOADER=${LOADER-extlinux}
+LOADER=${LOADER-grub}
 SLEEP_TIME=3
 
 SIZE_B=$(expr $SIZE / $BLOCK_SIZE)
@@ -47,3 +47,4 @@ losetup -d $DEV_ROOT
 losetup -d $DEV_SWAP
 losetup -d $DEV_BOOT
 losetup -d $DEV_NAME
+sync
