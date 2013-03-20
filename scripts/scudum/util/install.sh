@@ -39,6 +39,8 @@ rm -v scudum-latest.tar.gz
 
 cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
 
+sync
+
 mount -v --bind /dev $SCUDUM/dev
 mount -vt devpts devpts $SCUDUM/dev/pts
 mount -vt proc proc $SCUDUM/proc
