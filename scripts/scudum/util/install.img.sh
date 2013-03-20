@@ -42,11 +42,8 @@ losetup --verbose --offset $ROOT_OFFSET $DEV_ROOT $DEV_NAME
 DEV_NAME=$DEV_NAME DEV_BOOT=$DEV_BOOT DEV_SWAP=$DEV_SWAP\
     DEV_ROOT=$DEV_ROOT SCHEMA=$SCHEMA LOADER=$LOADER $DIR/install.sh
 
-sleep $SLEEP_TIME && sync
 losetup -dv $DEV_ROOT
 losetup -dv $DEV_SWAP
 losetup -dv $DEV_BOOT
-
-sleep $SLEEP_TIME && sync
 losetup -dv $DEV_NAME
 sync
