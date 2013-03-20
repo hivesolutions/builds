@@ -35,13 +35,9 @@ BOOT_OFFSET=$(expr $OFFSET)
 SWAP_OFFSET=$(expr $BOOT_OFFSET + $BOOT_SIZE)
 ROOT_OFFSET=$(expr $SWAP_OFFSET + $SWAP_SIZE)
 
-losetup --offset $BOOT_OFFSET $DEV_BOOT $DEV_NAME
-losetup --offset $SWAP_OFFSET $DEV_SWAP $DEV_NAME
-losetup --offset $ROOT_OFFSET $DEV_ROOT $DEV_NAME
-
-echo "losetup --offset $BOOT_OFFSET $DEV_BOOT $DEV_NAME"
-echo "losetup --offset $SWAP_OFFSET $DEV_SWAP $DEV_NAME"
-echo "losetup --offset $ROOT_OFFSET $DEV_ROOT $DEV_NAME"
+losetup --offset $BOOT_OFFSET $DEV_BOOT $FILE
+losetup --offset $SWAP_OFFSET $DEV_SWAP $FILE
+losetup --offset $ROOT_OFFSET $DEV_ROOT $FILE
 
 DEV_NAME=$DEV_NAME DEV_BOOT=$DEV_BOOT DEV_SWAP=$DEV_SWAP\
     DEV_ROOT=$DEV_ROOT SCHEMA=$SCHEMA LOADER=$LOADER $DIR/install.sh
