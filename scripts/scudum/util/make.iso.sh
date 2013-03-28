@@ -12,6 +12,7 @@ LOADER=${LOADER-isolinux}
 REBUILD=${REBUILD-0}
 DEPLOY=${DEPLOY-1}
 SQUASH=${SQUASH-1}
+AUTORUN=${AUTORUN-1}
 
 DEV_BOOT="$DEV_NAME"1
 DEV_SWAP="$DEV_NAME"2
@@ -58,10 +59,20 @@ else
     ISO_DIR=$SCUDUM
 fi
 
+if [ "$AUTORUN" == "1" ]; then
+    cp $ISO_DIR/isolinux/autorun.inf $ISO_DIR
+    cp $ISO_DIR/isolinux/scudum.ico $ISO_DIR
+fi
+
 mkisofs -r -J -R -U -joliet -joliet-long -o $FILE\
     -b isolinux/isolinux.bin -c isolinux/boot.cat\
     -no-emul-boot -boot-load-size 4 -boot-info-tabl\
     -V $NAME $ISO_DIR
+
+if [ "$AUTORUN" == "1" ]; then
+    rm $ISO_DIR/autorun.inf
+    rm $ISO_DIR/scudum.ico
+fi
 
 if [ "$SQUASH" == "1" ]; then
     rm -rf $ISO_DIR
