@@ -25,6 +25,10 @@ taking note that the disk contents should be located at `/dev/sdb`:
 In order to create a Virtual Box compatible image (VDI) issue the command:
 
     DEV_NAME=/dev/sdb make.vdi.sh
+    
+To deploy a new version of the Scudum distrubtion to the rpository use:
+
+    VERSION=/dev/sdb deploy.sh
 
 To create an img file of an hard drive and then install it on a device use (experimental):
 
