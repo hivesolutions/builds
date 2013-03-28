@@ -28,7 +28,7 @@ In order to create a Virtual Box compatible image (VDI) issue the command:
     
 To deploy a new version of the Scudum distrubtion to the rpository use:
 
-    VERSION=/dev/sdb deploy.sh
+    VERSION=v1 deploy.sh
 
 To create an img file of an hard drive and then install it on a device use (experimental):
 
