@@ -70,8 +70,8 @@ mkisofs -r -J -R -U -joliet -joliet-long -o $FILE\
     -V $NAME $ISO_DIR
 
 if [ "$AUTORUN" == "1" ]; then
-    rm $ISO_DIR/autorun.inf
-    rm $ISO_DIR/scudum.ico
+    rm -v $ISO_DIR/autorun.inf
+    rm -v $ISO_DIR/scudum.ico
 fi
 
 if [ "$SQUASH" == "1" ]; then
