@@ -5,3 +5,4 @@ cd build
 source ../base.sh
 
 ../pcre.sh
+../libxml2.sh
