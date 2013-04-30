@@ -5,7 +5,7 @@ tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
 
-wget -q "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub" "--output-document=config.sub"
+wget -q "https://raw.github.com/hivesolutions/patches/master/config/config.sub"
 export PATH=$PREFIX/bin:$PATH
 export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/lib\
