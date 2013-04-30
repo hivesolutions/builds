@@ -5,21 +5,17 @@ tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
 
+wget -q "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub" "--output-document=config.sub"
 export PATH=$PREFIX/bin:$PATH
 export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/lib\
-    -R$PREFIX/lib\
     -L$PREFIX/usr/lib\
-    -R$PREFIX/usr/lib\
-    -L$PREFIX/$HOST/sysroot/usr/lib\
-    -R$PREFIX/$HOST/sysroot/usr/lib"
-cd ext/mysqlnd
-mv config9.m4 config.m4
-sed -ie "s{<ext/mysqlnd/php_mysqlnd_config.h>{\"config.h\"{" mysqlnd_portability.h
+    -L$PREFIX/$HOST/sysroot/usr/lib"
 phpize
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
 cd -
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --enable-embed=static --enable-bcmath --enable-sockets --disable-phar\
-    --without-pear --without-iconv --with-config-file-path=/usr/lib
+    --disable-posix --without-pear --without-iconv --with-libxml-dir=$PREFIX\
+    --with-config-file-path=/usr/lib
 make && make install
