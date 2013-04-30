@@ -20,6 +20,6 @@ phpize
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
 cd -
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
-    --enable-embed=static --enable-bcmath--enable-sockets --disable-phar\
+    --enable-embed=static --enable-bcmath --enable-sockets --disable-phar\
     --without-pear --without-iconv --with-config-file-path=/usr/lib
 make && make install
