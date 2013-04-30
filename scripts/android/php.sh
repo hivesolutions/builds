@@ -11,9 +11,6 @@ export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/lib\
     -L$PREFIX/usr/lib\
     -L$PREFIX/$HOST/sysroot/usr/lib"
-phpize
-./configure --host=$HOST --build=$BUILD --prefix=$PREFIX
-cd -
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --enable-embed=static --enable-bcmath --enable-sockets --disable-phar\
     --disable-posix --without-pear --without-iconv --with-libxml-dir=$PREFIX\
