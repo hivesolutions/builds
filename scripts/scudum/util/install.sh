@@ -36,7 +36,7 @@ rm -rf $SCUDUM/boot/lost+found
 
 cd $SCUDUM
 
-wget "http://hole1.hive:9090/drop/scudum/scudum-latest.tar.gz"
+wget "http://hole1.hive:9090/builds/scudum/scudum-latest.tar.gz"
 tar -zxf scudum-latest.tar.gz
 rm -v scudum-latest.tar.gz
 
