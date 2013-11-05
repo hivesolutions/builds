@@ -11,6 +11,7 @@ SCUDUM=${SCUDUM-/tmp/scudum}
 SCUDUM_PEN=${SCUDUM_PEN-/tmp/scudum-pen}
 TARGET=${TARGET-/mnt/drop/$NAME}
 LOADER=${LOADER-isolinux}
+VERSION=${VERSION-latest}
 REBUILD=${REBUILD-0}
 DEPLOY=${DEPLOY-1}
 SQUASH=${SQUASH-1}
@@ -34,7 +35,7 @@ if [ "$REBUILD" == "1" ]; then
     dd if=/dev/zero of=$DEV_NAME count=1
 
     DEV_NAME=$DEV_NAME BOOT_SIZE=$BOOT_SIZE SWAP_SIZE=$SWAP_SIZE\
-        SCUDUM=$SCUDUM LOADER=$LOADER $DIR/install.dev.sh
+        SCUDUM=$SCUDUM LOADER=$LOADER VERSION=$VERSION $DIR/install.dev.sh
 fi
 
 mkdir -pv $SCUDUM
