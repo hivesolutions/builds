@@ -32,6 +32,11 @@ is going to use the `/mnt/builds/scudum` path by default but may be changed usin
 
     VERSION=v1 deploy.sh
 
+In order to work (change the scudum base system) you need to deploy the latest version into a local drive
+(typically `/dev/sdb`) in order to do that use:
+
+    DEV_NAME=/dev/sdb install.dev.sh
+
 To create an img file of an hard drive and then install it on a device use (experimental):
 
     install.img.sh && sleep 10 && dd if=scudum.img of=/dev/sdb bs=1M
