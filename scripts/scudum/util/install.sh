@@ -10,6 +10,7 @@ ROOT_FS=${ROOT_FS-ext3}
 SCHEMA=${SCHEMA-stored}
 LOADER=${LOADER-grub}
 SCUDUM=${SCUDUM-/tmp/scudum}
+NAME=${NAME-scudum}
 VERSION=${VERSION-latest}
 REPO=${REPO-http://hole1.hive:9090/builds/scudum}
 
@@ -38,9 +39,9 @@ rm -rf $SCUDUM/boot/lost+found
 
 cd $SCUDUM
 
-wget "$REPO/scudum-$VERSION.tar.gz"
-tar -zxf scudum-$VERSION.tar.gz
-rm -v scudum-$VERSION.tar.gz
+wget "$REPO/$NAME-$VERSION.tar.gz"
+tar -zxf $NAME-$VERSION.tar.gz
+rm -v $NAME-$VERSION.tar.gz
 
 cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
 
