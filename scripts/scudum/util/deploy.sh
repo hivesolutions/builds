@@ -7,7 +7,7 @@ DEV_ROOT=${DEV_ROOT-"$DEV_NAME"3}
 NAME=${NAME-scudum}
 VERSION=${VERSION-0.0.0}
 FILE=${FILE-$NAME-$VERSION.tar.gz}
-TARGET=${TARGET-/mnt/drop/$NAME}
+TARGET=${TARGET-/mnt/builds/$NAME}
 
 LATEST=$NAME-latest.tar.gz
 DIR=$(dirname $(readlink -f $0))
