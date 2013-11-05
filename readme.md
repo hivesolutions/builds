@@ -22,6 +22,11 @@ To create an ISO image of the Scudum distrubtion running using the [ISOLINUX](ht
 loader use the following command taking note that the disk contents should be located at `/dev/sdb`:
 
     DEV_NAME=/dev/sdb make.iso.sh
+    
+Note that because the fstab file for the ISO version is different a rebuild operation should be performed
+first to avoid problems, to do that use:
+
+    DEV_NAME=/dev/sdb REBUILD=1 make.iso.sh
   
 In order to create a Virtual Box compatible image (VDI) issue the command:
 
