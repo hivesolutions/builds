@@ -36,6 +36,8 @@ In order to work (change the scudum base system) you need to deploy the latest v
 (typically `/dev/sdb`) in order to do that use:
 
     DEV_NAME=/dev/sdb install.dev.sh
+    
+Please be aware that `/dev/sdb` drive will be completely erased during this operation.
 
 To create an img file of an hard drive and then install it on a device use (experimental):
 
