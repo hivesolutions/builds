@@ -10,6 +10,7 @@ ROOT_FS=${ROOT_FS-ext3}
 SCHEMA=${SCHEMA-stored}
 LOADER=${LOADER-grub}
 SCUDUM=${SCUDUM-/tmp/scudum}
+VERSION=${VERSION-latest}
 
 if [ $DEV_ROOT == $DEV_BOOT ]; then BOOT_FS=$ROOT_FS; fi
 
@@ -36,7 +37,7 @@ rm -rf $SCUDUM/boot/lost+found
 
 cd $SCUDUM
 
-wget "http://hole1.hive:9090/builds/scudum/scudum-latest.tar.gz"
+wget "http://hole1.hive:9090/builds/scudum/scudum-$VERSION.tar.gz"
 tar -zxf scudum-latest.tar.gz
 rm -v scudum-latest.tar.gz
 
