@@ -35,7 +35,7 @@ is going to use the `/mnt/builds/scudum` path by default but may be changed usin
 In order to work (change the scudum base system) you need to deploy the latest version into a local drive
 (typically `/dev/sdb`) in order to do that use:
 
-    DEV_NAME=/dev/sdb install.dev.sh
+    DEV_NAME=/dev/sdb VERSION=latest install.dev.sh
     
 Please be aware that `/dev/sdb` drive will be completely erased during this operation.
 
