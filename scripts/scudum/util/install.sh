@@ -50,7 +50,7 @@ mount -vt devpts devpts $SCUDUM/dev/pts
 mount -vt proc proc $SCUDUM/proc
 mount -vt sysfs sysfs $SCUDUM/sys
 
-echo "$VERSION" >> $SCUDUM/lib/scudum/VERSION
+echo "$VERSION" > $SCUDUM/lib/scudum/VERSION
 
 case $SCHEMA in
     stored)
