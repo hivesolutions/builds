@@ -3,7 +3,7 @@
 
 DEV_NAME=${DEV_NAME-/dev/sda}
 DEV_BOOT=${DEV_BOOT-"$DEV_NAME"1}
-DEV_ROOT=${DEV_ROOT-"$DEV_NAME"3}
+DEV_ROOT=${DEV_ROOT-"$DEV_NAME"5}
 SCUDUM=${SCUDUM-/mnt/scudum}
 
 mkdir -pv $SCUDUM
