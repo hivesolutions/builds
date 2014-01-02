@@ -18,7 +18,7 @@ To enter into the current scudum development environment located under `/dev/sdb
 
     chroot.sh
 
-To create an ISO image of the Scudum distrubtion running using the [ISOLINUX](http://www.syslinux.org) boot
+To create an ISO image of the Scudum distribution running using the [ISOLINUX](http://www.syslinux.org) boot
 loader use the following command taking note that the disk contents should be located at `/dev/sdb`:
 
     DEV_NAME=/dev/sdb make.iso.sh
