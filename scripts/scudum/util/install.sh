@@ -50,6 +50,8 @@ mount -vt devpts devpts $SCUDUM/dev/pts
 mount -vt proc proc $SCUDUM/proc
 mount -vt sysfs sysfs $SCUDUM/sys
 
+echo "$VERSION" >> $SCUDUM/lib/scudum/VERSION
+
 case $SCHEMA in
     stored)
         echo "UUID=$ROOT_UUID / $ROOT_FS defaults,noatime 0 1" >> $SCUDUM/etc/fstab
