@@ -58,6 +58,10 @@ cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
 
 > $SCUDUM/etc/resolv.conf
 
+echo "$VERSION" > $SCUDUM/lib/scudum/VERSION
+
+find $SCUDUM -name "*.pyc" -delete
+
 find $SCUDUM/{,usr/,initrd/}{bin,lib,sbin} -type f -exec strip --strip-debug "{}" ";"
 
 cd $SCUDUM
