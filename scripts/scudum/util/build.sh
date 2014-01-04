@@ -39,7 +39,7 @@ for point in $SCUDUM{/sys,/proc,/dev/pts,/dev}; do
 done
 
 git clone https://github.com/hivesolutions/scudum.git $BASE/scudum.git
-find $BASE/scudum.git/system -name "*.sh" -exec rename -v 's/\.txt$/\/i' {} \;
+find $BASE/scudum.git/system -name "*.sh" -exec rename -v "s/\.txt$//i" {} \;
 cp -rpv $BASE/scudum.git/system/* $SCUDUM
 rm -rf $BASE/scudum.git
 
