@@ -38,6 +38,10 @@ for point in $SCUDUM{/sys,/proc,/dev/pts,/dev}; do
     exit 1
 done
 
+git clone https://github.com/hivesolutions/scudum.git $BASE/scudum.git
+cp -rpv $BASE/scudum.git/system/* $SCUDUM
+rm -rf $BASE/scudum.git
+
 cd $SCUDUM/root
 rm -rf .[^.] .??* *
 
