@@ -52,7 +52,10 @@ rm -rf .[^.] .??* *
 cd $SCUDUM/images
 rm -rf .[^.] .??* *
 
+rm -rf $SCUDUM/source
+rm -rf $SCUDUM/extra
 rm -rf $SCUDUM/sources
+rm -rf $SCUDUM/extras
 rm -rf $SCUDUM/lost+found
 rm -rf $SCUDUM/boot/lost+found
 rm -f $SCUDUM/boot/initrd.img
