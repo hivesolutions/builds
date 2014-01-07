@@ -60,7 +60,7 @@ rm -f $SCUDUM/isolinux/initrd.img
 rm -f $SCUDUM/boot/grub/grub.cfg
 rm -f $SCUDUM/etc/fstab
 cp -p $SCUDUM/etc/fstab.orig $SCUDUM/etc/fstab
-rm -f $SCUDUM/etc/ssh/ssh_host_dsa_key
+rm -f $SCUDUM/etc/ssh/ssh_host_*
 
 > $SCUDUM/etc/resolv.conf
 
