@@ -44,9 +44,14 @@ In order to work (change the scudum base system) you need to deploy the latest v
     
 Please be aware that `/dev/sdb` drive will be completely erased during this operation.
 
-To create an img file of an hard drive and then install it on a device use (experimental):
+To create an `img` file of an hard drive and then install it on a device use (experimental):
 
     install.img.sh && sleep 10 && dd if=scudum.img of=/dev/sdb bs=1M
+
+To restore the hard drive to the original (empty) state run the following command, note that this will
+remove the scudum files from it.
+
+    dd if=/dev/zero of=/dev/sdb bs=4096
 
 ### Links
 
