@@ -52,6 +52,10 @@ To restore the hard drive to the original (empty) state run the following comman
 remove the scudum files from it.
 
     dd if=/dev/zero of=/dev/sdb bs=4096
+    
+As an alternative you may only remove the `MBR` from it as it's a faster operation.
+
+    dd if=/dev/zero of=/dev/sdb bs=446 count=1
 
 ### Links
 
