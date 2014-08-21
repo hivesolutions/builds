@@ -1,4 +1,4 @@
-VERSION=${VERSION-5.4.12}
+VERSION=${VERSION-5.4.20}
 
 wget -q "http://downloads.php.net/stas/php-$VERSION.tar.gz" "--output-document=php-$VERSION.tar.gz"
 tar -zxf "php-$VERSION.tar.gz"
