@@ -13,7 +13,7 @@ export PREFIX=/tools
 # a root user may configure all the packages
 export FORCE_UNSAFE_CONFIGURE=1
 
-# allows compialtion using two threads at a give
+# allows compialtion using four threads at a given
 # time, shoould perform faster on multi core based
 # processors (required for fast compilation)
-export MAKEFLAGS="-j 2"
+export MAKEFLAGS="-j 4"
