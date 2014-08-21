@@ -13,6 +13,12 @@ export CFLAGS="$CFLAGS -I$PREFIX/include\
     -R$PREFIX/usr/lib\
     -L$PREFIX/$HOST/sysroot/usr/lib\
     -R$PREFIX/$HOST/sysroot/usr/lib"
+export LDFLAGS="$LDFLAGS -L$PREFIX/lib\
+    -R$PREFIX/lib\
+    -L$PREFIX/usr/lib\
+    -R$PREFIX/usr/lib\
+    -L$PREFIX/$HOST/sysroot/usr/lib\
+    -R$PREFIX/$HOST/sysroot/usr/lib"
 cd ext/mysqlnd
 mv config9.m4 config.m4
 sed -ie "s{<ext/mysqlnd/php_mysqlnd_config.h>{\"config.h\"{" mysqlnd_portability.h
