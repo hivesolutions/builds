@@ -14,6 +14,6 @@ export PREFIX=/tools
 export FORCE_UNSAFE_CONFIGURE=1
 
 # allows compialtion using four threads at a given
-# time, shoould perform faster on multi core based
+# time, should perform faster on multi core based
 # processors (required for fast compilation)
 export MAKEFLAGS="-j 4"
