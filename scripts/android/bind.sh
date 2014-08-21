@@ -1,4 +1,4 @@
-VERSION=${VERSION-9.6.3}
+VERSION=${VERSION-9.5.2}
 
 wget -q "http://ftp.isc.org/isc/bind9/$VERSION/bind-$VERSION.tar.gz"
 tar -zxf "bind-$VERSION.tar.gz"
