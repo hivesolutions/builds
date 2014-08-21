@@ -1,4 +1,4 @@
-VERSION="5.4.12"
+VERSION=${VERSION-5.4.12}
 
 wget -q "http://www.php.net/get/php-$VERSION.tar.gz/from/this/mirror" "--output-document=php-$VERSION.tar.gz"
 tar -zxf "php-$VERSION.tar.gz"
