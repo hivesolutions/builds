@@ -6,7 +6,7 @@ rm -f "binutils-$VERSION.tar.bz2"
 cd binutils-$VERSION
 
 ./configure --prefix=/tools --with-sysroot=$SCUDUM --with-lib-path=/tools/lib \
-    --target=$SUCUDUM_TARGET --disable-nls --disable-werror
+    --target=$SCUDUM_TARGET --disable-nls --disable-werror
 
 make
 case $(uname -m) in
