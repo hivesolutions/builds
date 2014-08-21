@@ -9,5 +9,5 @@ wget -q "https://raw.github.com/hivesolutions/patches/master/libxml2/libxml2-$VE
 patch -p1 < libxml2-$VERSION.android.patch
 export PATH=$PREFIX/bin:$PATH
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
-    --disable-shared --with-python=$PREFIX
+    --disable-shared --without-python
 make && make install
