@@ -1,3 +1,9 @@
+# removes any previously existing build directory
+# and re-constructs the directory changing into it
+rm -rf build
+mkdir build
+cd build
+
 # loads the complete set of environment variables
 # that are going to be used in the build process
 source base.sh
@@ -15,4 +21,4 @@ umask 022
 
 # runs the complete set of package specific scripts
 # in order to build their source code properly
-tools/binutils.sh
+../tools/binutils.sh
