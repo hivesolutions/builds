@@ -4,6 +4,8 @@ rm -rf build
 mkdir build
 cd build
 
+export CNAME=rasp
+
 ../deps.sh
 ../cross.sh
 

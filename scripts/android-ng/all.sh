@@ -4,6 +4,8 @@ rm -rf build
 mkdir build
 cd build
 
+export CNAME=android-ng
+
 ../../rasp/deps.sh
 ../../rasp/cross.sh
 
