@@ -6,7 +6,7 @@ rm -f "curl-$VERSION.tar.gz"
 cd curl-$VERSION
 
 export PATH=$PREFIX/bin:$PATH
-export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
+export CFLAGS="-O3"
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib\
     -R$PREFIX/lib"
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
