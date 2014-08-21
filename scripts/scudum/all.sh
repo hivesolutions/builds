@@ -6,7 +6,7 @@ cd build
 
 # loads the complete set of environment variables
 # that are going to be used in the build process
-source base.sh
+source ../base.sh
 
 # creates the proper tools directory where the
 # build toolchain is going to be set and sets
