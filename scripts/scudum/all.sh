@@ -12,7 +12,7 @@ source base.sh
 # build toolchain is going to be set and sets
 # it as the root directory of the system
 mkdir -pv $SCUDUM/tools
-ln -sv $SUCUDUM/tools /
+ln -sv $SCUDUM/tools /
 
 # changes the default remembering option and the
 # creation mask for the current user
