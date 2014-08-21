@@ -1,4 +1,4 @@
-VERSION=${VERSION-5.4.28}
+VERSION=${VERSION-5.4.12}
 
 wget -q "http://downloads.php.net/stas/php-$VERSION.tar.gz" "--output-document=php-$VERSION.tar.gz"
 tar -zxf "php-$VERSION.tar.gz"
@@ -13,6 +13,6 @@ export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/$HOST/sysroot/usr/lib"
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --enable-embed=static --enable-bcmath --enable-sockets --disable-phar\
-    --disable-posix --without-pear --without-iconv --without-pgsql\
-    --with-libxml-dir=$PREFIX --with-config-file-path=/usr/lib
+    --disable-posix --without-pear --without-iconv --with-libxml-dir=$PREFIX\
+    --with-config-file-path=/usr/lib
 make && make install
