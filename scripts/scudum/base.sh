@@ -1,6 +1,6 @@
 # exports a series of environment variables that
 # are going to be used through the build process
-export SCUDUM=${SCUDUM-/mnt/scudum}
+export SCUDUM=${SCUDUM-/scudum}
 export SCUDUM_TARGET=$(uname -m)-scudum-linux-gnu
 
 # exposes the various build specific values so that

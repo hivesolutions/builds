@@ -11,7 +11,7 @@ mkswap /dev/sdb2
 # creates the proper tools directory where the
 # build toolchain is going to be set and sets
 # it as the root directory of the system
-mkdir -v $SCUDUM/tools
+mkdir -pv $SCUDUM/tools
 ln -sv $SUCUDUM/tools /
 
 # changes the default remembering option and the
