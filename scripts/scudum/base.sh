@@ -2,7 +2,7 @@
 # are going to be used through the build process
 export SCUDUM=${SCUDUM-/mnt/scudum}
 export LC_ALL=POSIX
-export SCUDUM_TARGET=$(uname -m)-lfs-linux-gnu
+export SCUDUM_TARGET=$(uname -m)-scudum-linux-gnu
 export PATH=/tools/bin:/bin:/usr/bin
 export PREFIX=/tools
 
