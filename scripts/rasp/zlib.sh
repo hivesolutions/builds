@@ -7,5 +7,5 @@ cd zlib-$VERSION
 
 export PATH=$PREFIX/bin:$PATH
 export CC=$HOST-gcc
-./configure --prefix=$PREFIX --static
+./configure --prefix=$PREFIX --static --shared
 make && make install
