@@ -6,6 +6,7 @@ rm -f "bind-$VERSION.tar.gz"
 cd bind-$VERSION
 
 export PATH=$PREFIX/bin:$PATH
-./configure --enable-static --disable-shared --enable-libbind\
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
+    --enable-static --disable-shared --enable-libbind\
     --disable-atomic --disable-linux-caps --enable-threads
 make && make install
