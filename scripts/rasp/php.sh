@@ -1,6 +1,6 @@
 VERSION=${VERSION-5.4.12}
 
-wget -q "http://downloads.php.net/stas/php-$VERSION.tar.gz/from/a/mirror" "--output-document=php-$VERSION.tar.gz"
+wget -q "http://downloads.php.net/stas/php-$VERSION.tar.gz" "--output-document=php-$VERSION.tar.gz"
 tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
