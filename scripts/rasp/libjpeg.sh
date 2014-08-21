@@ -1,4 +1,4 @@
-VERSION="8d"
+VERSION=${VERSION-8d}
 
 wget -q "http://www.ijg.org/files/jpegsrc.v$VERSION.tar.gz"
 tar -zxf "jpegsrc.v$VERSION.tar.gz"

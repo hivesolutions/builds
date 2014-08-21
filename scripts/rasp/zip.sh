@@ -1,4 +1,4 @@
-VERSION="0.10.1"
+VERSION=${VERSION-0.10.1}
 
 wget -q "http://www.nih.at/libzip/libzip-$VERSION.tar.gz"
 tar -zxf "libzip-$VERSION.tar.gz"

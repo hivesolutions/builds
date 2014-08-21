@@ -1,4 +1,4 @@
-VERSION="1.0.1e"
+VERSION=${VERSION-1.0.1e}
 
 wget -q "http://www.openssl.org/source/openssl-$VERSION.tar.gz"
 tar -zxf "openssl-$VERSION.tar.gz"

@@ -1,4 +1,4 @@
-VERSION="1.2.7"
+VERSION=${VERSION-1.2.7}
 
 wget -q "http://zlib.net/zlib-$VERSION.tar.gz"
 tar -zxf "zlib-$VERSION.tar.gz"
