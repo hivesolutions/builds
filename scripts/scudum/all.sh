@@ -2,12 +2,6 @@
 # that are going to be used in the build process
 source base.sh
 
-# creates the complete set of partitions
-# that are going to be used for the system
-mkfs.ext2 /dev/sdb1
-mkfs.ext3 /dev/sdb3
-mkswap /dev/sdb2
-
 # creates the proper tools directory where the
 # build toolchain is going to be set and sets
 # it as the root directory of the system
