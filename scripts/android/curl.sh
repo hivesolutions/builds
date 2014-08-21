@@ -7,6 +7,7 @@ cd curl-$VERSION
 
 export PATH=$PREFIX/bin:$PATH
 export CFLAGS="-O3"
+export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib\
     -R$PREFIX/lib"
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
