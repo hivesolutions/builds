@@ -3,3 +3,4 @@ export HOST="arm-rasp-linux-gnueabi"
 export CROSS="arm-rasp-linux-"
 export BUILD="arm"
 export PREFIX=/opt/$HOST
+export MAKEFLAGS="-j 4"
