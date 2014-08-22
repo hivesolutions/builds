@@ -16,6 +16,7 @@ source ../base.sh
 # build toolchain is going to be set and sets
 # it as the root directory of the system
 rm -rf $SCUDUM/tools
+rm -rf /tools
 mkdir -pv $SCUDUM/tools
 ln -sv $SCUDUM/tools /
 
