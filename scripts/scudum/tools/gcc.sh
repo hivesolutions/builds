@@ -1,11 +1,15 @@
-VERSION=${VERSION-4.8.2}
+VERSION=${VERSION-4.7.2}
 
 wget -q "http://ftp.gnu.org/gnu/gcc/gcc-$VERSION/gcc-$VERSION.tar.bz2"
 tar -jxf "gcc-$VERSION.tar.bz2"
 rm -f "gcc-$VERSION.tar.bz2"
 cd gcc-$VERSION
 
-for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
+# downloads all the requirements for the current gcc builds
+# should as required by the current build system strategy
+./contrib/download_prerequisites
+
+for file in $(find config -name linux64.h -o -name linux.h -o -name sysv4.h)
 do
     cp -uv $file{,.orig}
     sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g'\
@@ -18,7 +22,8 @@ do
     touch $file.orig
 done
 
-sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
+sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' configure
+sed -i 's/BUILD_INFO=info/BUILD_INFO=/' configure
 
 cd ..
 mkdir gcc-build
