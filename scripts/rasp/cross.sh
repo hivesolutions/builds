@@ -11,5 +11,5 @@ make && make install
 mkdir config
 cd config
 wget -q "https://raw.github.com/hivesolutions/builds/master/scripts/$CNAME/defconfig"
-ct-ng defconfig
+ct-ng olddefconfig
 ct-ng build
