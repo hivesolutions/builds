@@ -1,4 +1,4 @@
-set +e
+set -e
 
 rm -rf build
 mkdir build

@@ -1,6 +1,6 @@
 # sets the execution break on error so that if any
 # of the commands fails the execution is broken
-set +e
+set -e
 
 # removes any previously existing build directory
 # and re-constructs the directory changing into it
