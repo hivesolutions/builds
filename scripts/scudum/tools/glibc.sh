@@ -5,11 +5,6 @@ tar -Jxf "glibc-$VERSION.tar.xz"
 rm -f "glibc-$VERSION.tar.xz"
 cd glibc-$VERSION
 
-if [ ! -r /usr/include/rpc/types.h ]; then
-    su -c 'mkdir -p /usr/include/rpc'
-    su -c 'cp -v sunrpc/rpc/*.h /usr/include/rpc'
-fi
-
 cd ..
 mkdir glibc-build
 cd glibc-build
