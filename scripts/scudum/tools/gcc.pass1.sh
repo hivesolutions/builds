@@ -9,7 +9,7 @@ cd gcc-$VERSION
 # should as required by the current build system strategy
 ./contrib/download_prerequisites
 
-for file in $(find config -name linux64.h -o -name linux.h -o -name sysv4.h)
+for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
 do
     cp -uv $file{,.orig}
     sed -e 's@/lib\(64\)\?\(32\)\?/ld@/tools&@g'\
