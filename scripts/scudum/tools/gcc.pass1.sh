@@ -41,7 +41,6 @@ cd gcc-build
     --disable-multilib\
     --disable-decimal-float\
     --disable-threads\
-    --disable-libatomic\
     --disable-libmudflap\
     --disable-libssp\
     --disable-libgomp\
