@@ -6,7 +6,7 @@ cd build
 
 source ../base.sh
 
-../include.h
+../include.sh
 ../pcre.sh
 ../libxml2.sh
 ../php.sh
