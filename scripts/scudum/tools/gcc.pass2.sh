@@ -9,11 +9,11 @@ cd gcc-$VERSION
 # should as required by the current build system strategy
 ./contrib/download_prerequisites
 
-cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h >\
   `dirname $($SCUDUM_TARGET-gcc -print-libgcc-file-name)`/include-fixed/limits.h
 
 cp -v gcc/Makefile.in{,.tmp}
-sed 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in.tmp \
+sed 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in.tmp\
   > gcc/Makefile.in
 
 for file in $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
