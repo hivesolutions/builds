@@ -28,3 +28,4 @@ source ../base.sh
 ../../rasp/lua.sh
 ../../rasp/libxml2.sh
 ../../rasp/php.sh
+../include.sh
