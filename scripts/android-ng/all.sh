@@ -11,6 +11,8 @@ export CNAME=android-ng
 
 source ../base.sh
 
+../include.sh
+../lib.sh
 ../../rasp/bin.sh
 ../../rasp/openssl.sh
 ../../rasp/pcre.sh
@@ -28,4 +30,3 @@ source ../base.sh
 ../../rasp/lua.sh
 ../../rasp/libxml2.sh
 ../../rasp/php.sh
-../include.sh
