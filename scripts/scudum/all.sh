@@ -24,6 +24,10 @@ ln -sv $SCUDUM/tools /
 set +h
 umask 022
 
+# installs the dependencies for the various operations
+# that are going to be performed in the next steps
+../deps.sh
+
 # runs the complete set of package specific scripts
 # in order to build their source code properly
 ../tools/binutils.pass1.sh
