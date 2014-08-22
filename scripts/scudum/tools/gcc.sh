@@ -30,7 +30,7 @@ cd gcc-build
 
 ../gcc-$VERSION/configure\
     --target=$SCUDUM_TARGET \
-    --prefix=/tools \
+    --prefix=/tools\
     --with-sysroot=$SCUDUM\
     --with-newlib\
     --without-headers\
@@ -41,11 +41,15 @@ cd gcc-build
     --disable-multilib\
     --disable-decimal-float\
     --disable-threads\
-    --disable-libmudflap\
-    --disable-libssp\
+    --disable-libatomic\
     --disable-libgomp\
+    --disable-libitm\
+    --disable-libmudflap\
     --disable-libquadmath\
-    --enable-languages=c
+    --disable-libsanitizer\
+    --disable-libssp\
+    --disable-libstdc++-v3\
+    --enable-languages=c,c++
 
 make && make install
 ln -sv libgcc.a `$SCUDUM_TARGET-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh/'`
