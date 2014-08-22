@@ -29,3 +29,4 @@ umask 022
 ../tools/gcc.pass1.sh
 ../tools/linux-headers.sh
 ../tools/glibc.sh
+../tools/binutils.pass2.sh
