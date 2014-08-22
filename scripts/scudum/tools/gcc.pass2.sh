@@ -10,7 +10,7 @@ cd gcc-$VERSION
 ./contrib/download_prerequisites
 
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include-fixed/limits.h
+  `dirname $($SCUDUM_TARGET-gcc -print-libgcc-file-name)`/include-fixed/limits.h
 
 cp -v gcc/Makefile.in{,.tmp}
 sed 's/^T_CFLAGS =$/& -fomit-frame-pointer/' gcc/Makefile.in.tmp \
@@ -35,7 +35,7 @@ cd ..
 mkdir gcc-build
 cd gcc-build
 
-CC=$LFS_TGT-gcc AR=$LFS_TGT-ar RANLIB=$LFS_TGT-ranlib ../gcc-$VERSION/configure\
+CC=$SCUDUM_TARGET-gcc AR=$SCUDUM_TARGET-ar RANLIB=$SCUDUM_TARGET-ranlib ../gcc-$VERSION/configure\
     --prefix=/tools\
     --with-local-prefix=/tools\
     --with-native-system-header-dir=/tools/include\
