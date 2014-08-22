@@ -1,6 +1,5 @@
 CT_PREFIX_DIR="/opt/${CT_TARGET}"
 CT_ARCH_arm=y
 CT_TARGET_VENDOR="rasp"
-CT_TARGET_ALIAS="arm-rasp-linux-raspeabi"
 CT_KERNEL_linux=y
 CT_CC_LANG_CXX=y
