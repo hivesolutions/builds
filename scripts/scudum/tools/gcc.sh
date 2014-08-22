@@ -1,4 +1,4 @@
-VERSION=${VERSION-5.7.2}
+VERSION=${VERSION-4.7.2}
 
 wget -q "http://ftp.gnu.org/gnu/gcc/gcc-$VERSION/gcc-$VERSION.tar.bz2"
 tar -jxf "gcc-$VERSION.tar.bz2"
