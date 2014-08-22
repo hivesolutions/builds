@@ -5,8 +5,6 @@ tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
 
-wget -q "https://raw.github.com/hivesolutions/patches/master/php/php-$VERSION.android.patch"
-patch -p1 < php-$VERSION.android.patch
 wget -q "https://raw.github.com/hivesolutions/patches/master/config/config.sub" "--output-document=config.sub"
 export PATH=$PREFIX/bin:$PATH
 export CFLAGS="$CFLAGS -I$PREFIX/include\
