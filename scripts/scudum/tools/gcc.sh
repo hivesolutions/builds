@@ -32,7 +32,7 @@ cd gcc-build
 ../gcc-$VERSION/configure\
     --target=$SCUDUM_TARGET \
     --prefix=/tools \
-    --with-sysroot=$SCUDUM_TARGET\
+    --with-sysroot=$SCUDUM\
     --with-newlib\
     --without-headers\
     --with-local-prefix=/tools\
