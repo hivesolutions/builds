@@ -23,7 +23,6 @@ do
 done
 
 sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' configure
-sed -i 's/BUILD_INFO=info/BUILD_INFO=/' configure
 
 cd ..
 mkdir gcc-build
