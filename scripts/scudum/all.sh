@@ -27,3 +27,4 @@ umask 022
 # in order to build their source code properly
 ../tools/binutils.sh
 ../tools/gcc.sh
+../tools/linux-headers.sh
