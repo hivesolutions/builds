@@ -1,6 +1,6 @@
 CT_PREFIX_DIR="/opt/${CT_TARGET}"
 CT_ARCH_arm=y
+CT_TARGET="arm-android-linux-androideabi"
 CT_TARGET_VENDOR="android"
-CT_HOST="arm-android-linux-androideabi"
 CT_KERNEL_linux=y
 CT_CC_LANG_CXX=y
