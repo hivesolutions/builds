@@ -6,6 +6,7 @@ rm -f "glibc-$VERSION.tar.xz"
 cd glibc-$VERSION
 
 cd ..
+rm -rf glibc-build
 mkdir glibc-build
 cd glibc-build
 

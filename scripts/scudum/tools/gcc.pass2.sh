@@ -32,6 +32,7 @@ done
 sed -i 's/BUILD_INFO=info/BUILD_INFO=/' gcc/configure
 
 cd ..
+rm -rf gcc-build
 mkdir gcc-build
 cd gcc-build
 
