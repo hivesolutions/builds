@@ -25,7 +25,7 @@ umask 022
 
 # runs the complete set of package specific scripts
 # in order to build their source code properly
-../tools/binutils.sh
+../tools/binutils.pass1.sh
 ../tools/gcc.pass1.sh
 ../tools/linux-headers.sh
 ../tools/glibc.sh
