@@ -1,4 +1,4 @@
-VERSION=${VERSION-4.7.4}
+VERSION=${VERSION-4.8.2}
 
 wget -q "http://ftp.gnu.org/gnu/gcc/gcc-$VERSION/gcc-$VERSION.tar.bz2"
 tar -jxf "gcc-$VERSION.tar.bz2"
@@ -22,7 +22,7 @@ do
     touch $file.orig
 done
 
-sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' configure
+sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
 
 cd ..
 mkdir gcc-build
