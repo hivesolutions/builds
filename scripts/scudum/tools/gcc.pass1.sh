@@ -1,7 +1,7 @@
 VERSION=${VERSION-4.7.4}
 
 wget -q "http://ftp.gnu.org/gnu/gcc/gcc-$VERSION/gcc-$VERSION.tar.bz2"
-tar -jxf "gcc-$VERSION.tar.bz2"
+rm -rf gcc-$VERSION && tar -jxf "gcc-$VERSION.tar.bz2"
 rm -f "gcc-$VERSION.tar.bz2"
 cd gcc-$VERSION
 
@@ -50,3 +50,5 @@ cd gcc-build
 
 make && make install
 ln -sv libgcc.a `$SCUDUM_TARGET-gcc -print-libgcc-file-name | sed 's/libgcc/&_eh/'`
+
+rm -rf gcc-$VERSION
