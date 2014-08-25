@@ -59,3 +59,4 @@ umask 022
 ../tools/make.sh
 ../tools/patch.sh
 ../tools/perl.sh
+../tools/sed.sh
