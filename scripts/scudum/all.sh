@@ -45,3 +45,4 @@ umask 022
 ../tools/bash.sh
 ../tools/bzip2.sh
 ../tools/coreutils.sh
+../tools/diffutils.sh
