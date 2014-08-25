@@ -69,4 +69,8 @@ umask 022
 # and the unneeded symbols from the libraries
 ../tools/strip.sh
 
+# updates the permissions of the tools directory and starts
+# the chroot operation in it so that a different execution
+# set is started from "now on" (as expected)
 chown -R root:root $SCUDUM/tools
+../chroot.sh

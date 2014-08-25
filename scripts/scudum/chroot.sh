@@ -20,7 +20,7 @@ else
     mount -vt tmpfs shm $SCUDUM/dev/shm
 fi
 
-chroot "$SCUDUM" /tools/bin/env -i\
+chroot $SCUDUM /tools/bin/env -i\
     HOME=/root\
     TERM="$TERM"\
     PS1='\u:\w\$ '\
