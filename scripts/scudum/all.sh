@@ -68,3 +68,5 @@ umask 022
 # so that some disk space is spared by removing the debug
 # and the unneeded symbols from the libraries
 ../tools/strip.sh
+
+chown -R root:root $SCUDUM/tools
