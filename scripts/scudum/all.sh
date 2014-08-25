@@ -51,3 +51,4 @@ umask 022
 ../tools/diffutils.sh
 ../tools/file.sh
 ../tools/findutils.sh
+../tools/gawk.sh
