@@ -44,3 +44,4 @@ umask 022
 ../tools/ncurses.sh
 ../tools/bash.sh
 ../tools/bzip2.sh
+../tools/coreutils.sh
