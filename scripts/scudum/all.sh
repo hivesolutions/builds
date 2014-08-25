@@ -50,3 +50,4 @@ umask 022
 ../tools/coreutils.sh
 ../tools/diffutils.sh
 ../tools/file.sh
+../tools/findutils.sh
