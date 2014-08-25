@@ -75,5 +75,6 @@ umask 022
 chown -R root:root $SCUDUM/tools
 ../chroot.sh
 
-
+# runs the building part of the system, this is considered
+# to be the main stage of the process
 ../system/tree.sh
