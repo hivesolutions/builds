@@ -54,3 +54,4 @@ umask 022
 ../tools/gawk.sh
 ../tools/gettext.sh
 ../tools/grep.sh
+../tools/gzip.sh
