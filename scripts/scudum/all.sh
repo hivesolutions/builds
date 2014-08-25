@@ -39,3 +39,4 @@ umask 022
 ../tools/gcc.pass2.sh
 ../tools/tcl.sh
 ../tools/expect.sh
+../tools/dejagnu.sh
