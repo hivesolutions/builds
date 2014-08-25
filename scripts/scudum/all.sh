@@ -38,3 +38,4 @@ umask 022
 ../tools/binutils.pass2.sh
 ../tools/gcc.pass2.sh
 ../tools/tcl.sh
+../tools/expect.sh
