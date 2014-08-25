@@ -41,3 +41,4 @@ umask 022
 ../tools/expect.sh
 ../tools/dejagnu.sh
 ../tools/check.sh
+../tools/ncurses.sh
