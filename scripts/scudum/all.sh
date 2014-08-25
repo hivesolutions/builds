@@ -1,3 +1,6 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+
 # sets the execution break on error so that if any
 # of the commands fails the execution is broken
 set -e
