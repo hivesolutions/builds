@@ -55,3 +55,4 @@ umask 022
 ../tools/gettext.sh
 ../tools/grep.sh
 ../tools/gzip.sh
+../tools/m4.sh
