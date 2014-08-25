@@ -53,3 +53,4 @@ umask 022
 ../tools/findutils.sh
 ../tools/gawk.sh
 ../tools/gettext.sh
+../tools/grep.sh
