@@ -5,6 +5,10 @@
 # of the commands fails the execution is broken
 set -e
 
+# installs the dependencies for the various operations
+# that are going to be performed in the next steps
+../deps.sh
+
 # removes any previously existing build directory
 # and re-constructs the directory changing into it
 rm -rf build
@@ -27,10 +31,6 @@ ln -sv $SCUDUM/tools /
 # creation mask for the current user
 set +h
 umask 022
-
-# installs the dependencies for the various operations
-# that are going to be performed in the next steps
-../deps.sh
 
 # runs the complete set of package specific scripts
 # in order to build their source code properly
