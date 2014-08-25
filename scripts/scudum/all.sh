@@ -42,3 +42,4 @@ umask 022
 ../tools/dejagnu.sh
 ../tools/check.sh
 ../tools/ncurses.sh
+../tools/bash.sh
