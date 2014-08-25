@@ -58,3 +58,4 @@ umask 022
 ../tools/m4.sh
 ../tools/make.sh
 ../tools/patch.sh
+../tools/perl.sh
