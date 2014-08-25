@@ -49,3 +49,4 @@ umask 022
 ../tools/bzip2.sh
 ../tools/coreutils.sh
 ../tools/diffutils.sh
+../tools/file.sh
