@@ -1,4 +1,4 @@
-VERSION="8.6.0"
+VERSION=${VERSION-8.6.0}
 
 wget -q "http://prdownloads.sourceforge.net/tcl/tcl$VERSION-src.tar.gz"
 tar -zxf "tcl$VERSION-src.tar.gz"
