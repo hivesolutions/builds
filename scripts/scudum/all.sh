@@ -40,3 +40,4 @@ umask 022
 ../tools/tcl.sh
 ../tools/expect.sh
 ../tools/dejagnu.sh
+../tools/check.sh
