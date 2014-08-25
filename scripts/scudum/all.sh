@@ -74,3 +74,6 @@ umask 022
 # set is started from "now on" (as expected)
 chown -R root:root $SCUDUM/tools
 ../chroot.sh
+
+
+../system/tree.sh
