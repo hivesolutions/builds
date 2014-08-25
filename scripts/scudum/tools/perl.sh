@@ -1,4 +1,4 @@
-VERSION=${VERSION-2.16.2}
+VERSION=${VERSION-5.16.2}
 VERSION_MAJOR=${VERSION_MAJOR-5.0}
 
 wget -q "http://www.cpan.org/src/$VERSION_MAJOR/perl-$VERSION.tar.bz2"
