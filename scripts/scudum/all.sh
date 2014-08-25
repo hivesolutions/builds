@@ -5,15 +5,15 @@
 # of the commands fails the execution is broken
 set -e
 
-# installs the dependencies for the various operations
-# that are going to be performed in the next steps
-../deps.sh
-
 # removes any previously existing build directory
 # and re-constructs the directory changing into it
 rm -rf build
 mkdir build
 cd build
+
+# installs the dependencies for the various operations
+# that are going to be performed in the next steps
+../deps.sh
 
 # loads the complete set of environment variables
 # that are going to be used in the build process
