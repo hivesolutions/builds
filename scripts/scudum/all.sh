@@ -74,7 +74,3 @@ umask 022
 # set is started from "now on" (as expected)
 chown -R root:root $SCUDUM/tools
 ../chroot.sh
-
-# runs the building part of the system, this is considered
-# to be the main stage of the process
-../system/tree.sh

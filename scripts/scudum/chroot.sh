@@ -20,9 +20,11 @@ else
     mount -vt tmpfs shm $SCUDUM/dev/shm
 fi
 
+cp -rp $(readlink  -f "../../scudum") /tools/scripts
+
 chroot $SCUDUM /tools/bin/env -i\
     HOME=/root\
     TERM="$TERM"\
     PS1='\u:\w\$ '\
     PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin\
-    /tools/bin/bash --login +h
+    /tools/bin/bash /tools/scripts/system.sh --login +h
