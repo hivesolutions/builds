@@ -62,3 +62,4 @@ umask 022
 ../tools/sed.sh
 ../tools/tar.sh
 ../tools/texinfo.sh
+../tools/xz.sh
