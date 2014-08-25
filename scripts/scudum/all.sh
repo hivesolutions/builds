@@ -56,3 +56,4 @@ umask 022
 ../tools/grep.sh
 ../tools/gzip.sh
 ../tools/m4.sh
+../tools/make.sh
