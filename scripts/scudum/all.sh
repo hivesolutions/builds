@@ -57,3 +57,4 @@ umask 022
 ../tools/gzip.sh
 ../tools/m4.sh
 ../tools/make.sh
+../tools/patch.sh
