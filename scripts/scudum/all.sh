@@ -37,3 +37,4 @@ umask 022
 ../tools/glibc.sh
 ../tools/binutils.pass2.sh
 ../tools/gcc.pass2.sh
+../tools/tcl.sh
