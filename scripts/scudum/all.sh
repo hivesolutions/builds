@@ -61,3 +61,4 @@ umask 022
 ../tools/perl.sh
 ../tools/sed.sh
 ../tools/tar.sh
+../tools/texinfo.sh
