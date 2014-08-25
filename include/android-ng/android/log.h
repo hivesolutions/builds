@@ -114,7 +114,7 @@ int __android_log_vprint(int prio, const char *tag,
  * to inspect it, if a debugger is attached. This uses the FATAL priority.
  */
 void __android_log_assert(const char *cond, const char *tag,
-			  const char *fmt, ...)    
+              const char *fmt, ...)
 #if defined(__GNUC__)
     __attribute__ ((noreturn))
     __attribute__ ((format(printf, 3, 4)))
