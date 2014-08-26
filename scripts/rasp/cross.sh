@@ -1,5 +1,7 @@
 VERSION=${VERSION-1.17.0}
 
+set -e
+
 wget -q "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-$VERSION.tar.bz2"
 tar -jxf "crosstool-ng-$VERSION.tar.bz2"
 rm -f "crosstool-ng-$VERSION.tar.bz2"

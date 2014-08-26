@@ -1,5 +1,7 @@
 VERSION=${VERSION-2.9.0}
 
+set -e
+
 wget -q "http://xmlsoft.org/sources/libxml2-$VERSION.tar.gz"
 tar -zxf "libxml2-$VERSION.tar.gz"
 rm -f "libxml2-$VERSION.tar.gz"

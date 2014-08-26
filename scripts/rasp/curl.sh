@@ -1,5 +1,7 @@
 VERSION=${VERSION-7.29.0}
 
+set -e
+
 wget -q "http://curl.haxx.se/download/curl-$VERSION.tar.gz"
 tar -zxf "curl-$VERSION.tar.gz"
 rm -f "curl-$VERSION.tar.gz"

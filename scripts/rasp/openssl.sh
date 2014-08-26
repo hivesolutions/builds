@@ -1,5 +1,7 @@
 VERSION=${VERSION-1.0.1i}
 
+set -e
+
 wget -q "http://www.openssl.org/source/openssl-$VERSION.tar.gz"
 tar -zxf "openssl-$VERSION.tar.gz"
 rm -f "openssl-$VERSION.tar.gz"

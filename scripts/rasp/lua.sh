@@ -1,5 +1,7 @@
 VERSION=${VERSION-5.1.5}
 
+set -e
+
 wget -q "http://www.lua.org/ftp/lua-$VERSION.tar.gz"
 tar -zxf "lua-$VERSION.tar.gz"
 rm -f "lua-$VERSION.tar.gz"

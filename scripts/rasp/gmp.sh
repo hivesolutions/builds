@@ -1,5 +1,7 @@
 VERSION=${VERSION-5.1.1}
 
+set -e
+
 wget -q "ftp://ftp.gmplib.org/pub/gmp-$VERSION/gmp-$VERSION.tar.bz2"
 tar -jxf "gmp-$VERSION.tar.bz2"
 rm -f "gmp-$VERSION.tar.bz2"

@@ -1,3 +1,5 @@
+set -e
+
 git clone git://github.com/hivesolutions/builds.git
 cd builds/bin/rasp
 
