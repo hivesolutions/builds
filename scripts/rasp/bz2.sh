@@ -1,6 +1,6 @@
 VERSION=${VERSION-1.0.6}
 
-set -e
+set -e +h
 
 wget -q "http://www.bzip.org/$VERSION/bzip2-$VERSION.tar.gz"
 tar -zxf "bzip2-$VERSION.tar.gz"

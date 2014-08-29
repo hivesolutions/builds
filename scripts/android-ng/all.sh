@@ -1,7 +1,7 @@
 #!/bin/bash
 # -*- coding: utf-8 -*-
 
-set -e
+set -e +h
 
 rm -rf build
 mkdir build

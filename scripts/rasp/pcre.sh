@@ -1,6 +1,6 @@
 VERSION=${VERSION-8.35}
 
-set -e
+set -e +h
 
 wget -q "ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-$VERSION.tar.gz"
 tar -zxf "pcre-$VERSION.tar.gz"

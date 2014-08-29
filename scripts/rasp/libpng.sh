@@ -1,6 +1,6 @@
 VERSION=${VERSION-1.5.14}
 
-set -e
+set -e +h
 
 wget -q "http://prdownloads.sourceforge.net/libpng/libpng-$VERSION.tar.gz?download" "--output-document=libpng-$VERSION.tar.gz"
 tar -zxf "libpng-$VERSION.tar.gz"

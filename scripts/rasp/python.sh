@@ -1,6 +1,6 @@
 VERSION=${VERSION-2.7.3}
 
-set -e
+set -e +h
 
 wget -q "http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
 tar -zxf "Python-$VERSION.tgz"

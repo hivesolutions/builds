@@ -1,6 +1,6 @@
 VERSION=${VERSION-2.4.11}
 
-set -e
+set -e +h
 
 wget -q "http://download.savannah.gnu.org/releases/freetype/freetype-$VERSION.tar.gz"
 tar -zxf "freetype-$VERSION.tar.gz"

@@ -1,6 +1,6 @@
 VERSION=${VERSION-1.2.7.3}
 
-set -e
+set -e +h
 
 wget -q "http://zlib.net/fossils/zlib-$VERSION.tar.gz"
 tar -zxf "zlib-$VERSION.tar.gz"
