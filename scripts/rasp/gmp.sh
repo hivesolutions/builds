@@ -2,7 +2,7 @@ VERSION=${VERSION-5.1.1}
 
 set -e +h
 
-wget -q "ftp://ftp.gmplib.org/pub/gmp-$VERSION/gmp-$VERSION.tar.bz2"
+wget "ftp://ftp.gmplib.org/pub/gmp-$VERSION/gmp-$VERSION.tar.bz2"
 tar -jxf "gmp-$VERSION.tar.bz2"
 rm -f "gmp-$VERSION.tar.bz2"
 cd gmp-$VERSION

@@ -2,12 +2,12 @@ VERSION=${VERSION-5.1.5}
 
 set -e +h
 
-wget -q "http://www.lua.org/ftp/lua-$VERSION.tar.gz"
+wget "http://www.lua.org/ftp/lua-$VERSION.tar.gz"
 tar -zxf "lua-$VERSION.tar.gz"
 rm -f "lua-$VERSION.tar.gz"
 cd lua-$VERSION
 
-wget -q "https://raw.github.com/hivesolutions/patches/master/lua/lua-$VERSION-xcompile.patch"
+wget "https://raw.github.com/hivesolutions/patches/master/lua/lua-$VERSION-xcompile.patch"
 patch -p1 < lua-$VERSION-xcompile.patch
 rm -f "lua-$VERSION-xcompile.patch"
 

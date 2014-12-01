@@ -2,7 +2,7 @@ VERSION=${VERSION-0.10.1}
 
 set -e +h
 
-wget -q "http://www.nih.at/libzip/libzip-$VERSION.tar.gz"
+wget "http://www.nih.at/libzip/libzip-$VERSION.tar.gz"
 tar -zxf "libzip-$VERSION.tar.gz"
 rm -f "libzip-$VERSION.tar.gz"
 cd libzip-$VERSION

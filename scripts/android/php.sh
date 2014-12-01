@@ -2,12 +2,12 @@ VERSION=${VERSION-5.4.15}
 
 set -e +h
 
-wget -q "http://downloads.php.net/stas/php-$VERSION.tar.gz" "--output-document=php-$VERSION.tar.gz"
+wget "http://downloads.php.net/stas/php-$VERSION.tar.gz" "--output-document=php-$VERSION.tar.gz"
 tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
 
-wget -q "https://raw.github.com/hivesolutions/patches/master/config/config.sub" "--output-document=config.sub"
+wget "https://raw.github.com/hivesolutions/patches/master/config/config.sub" "--output-document=config.sub"
 export PATH=$PREFIX/bin:$PATH
 export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/lib\

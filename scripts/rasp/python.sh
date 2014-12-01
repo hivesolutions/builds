@@ -2,7 +2,7 @@ VERSION=${VERSION-2.7.3}
 
 set -e +h
 
-wget -q "http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
+wget "http://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
 tar -zxf "Python-$VERSION.tgz"
 rm -f "Python-$VERSION.tgz"
 cd Python-$VERSION
@@ -14,7 +14,7 @@ mv python hostpython
 mv Parser/pgen Parser/hostpgen
 make distclean
 
-wget -q "https://raw.github.com/hivesolutions/patches/master/python/Python-$VERSION-xcompile.patch"
+wget "https://raw.github.com/hivesolutions/patches/master/python/Python-$VERSION-xcompile.patch"
 patch -p1 < Python-$VERSION-xcompile.patch
 rm -f "Python-$VERSION-xcompile.patch"
 

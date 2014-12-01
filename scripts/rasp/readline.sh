@@ -2,7 +2,7 @@ VERSION=${VERSION-6.2}
 
 set -e +h
 
-wget -q "ftp://ftp.cwru.edu/pub/bash/readline-$VERSION.tar.gz"
+wget "ftp://ftp.cwru.edu/pub/bash/readline-$VERSION.tar.gz"
 tar -zxf "readline-$VERSION.tar.gz"
 rm -f "readline-$VERSION.tar.gz"
 cd readline-$VERSION

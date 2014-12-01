@@ -2,7 +2,7 @@ VERSION=${VERSION-1.2.7.3}
 
 set -e +h
 
-wget -q "http://zlib.net/fossils/zlib-$VERSION.tar.gz"
+wget "http://zlib.net/fossils/zlib-$VERSION.tar.gz"
 tar -zxf "zlib-$VERSION.tar.gz"
 rm -f "zlib-$VERSION.tar.gz"
 cd zlib-$VERSION

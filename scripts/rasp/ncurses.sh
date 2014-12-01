@@ -2,7 +2,7 @@ VERSION=${VERSION-5.9}
 
 set -e +h
 
-wget -q "http://ftp.gnu.org/pub/gnu/ncurses/ncurses-$VERSION.tar.gz"
+wget "http://ftp.gnu.org/pub/gnu/ncurses/ncurses-$VERSION.tar.gz"
 tar -zxf "ncurses-$VERSION.tar.gz"
 rm -f "ncurses-$VERSION.tar.gz"
 cd ncurses-$VERSION

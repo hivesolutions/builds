@@ -2,7 +2,7 @@ VERSION=${VERSION-8d}
 
 set -e +h
 
-wget -q "http://www.ijg.org/files/jpegsrc.v$VERSION.tar.gz"
+wget "http://www.ijg.org/files/jpegsrc.v$VERSION.tar.gz"
 tar -zxf "jpegsrc.v$VERSION.tar.gz"
 rm -f "jpegsrc.v$VERSION.tar.gz"
 cd jpeg-$VERSION
