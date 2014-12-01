@@ -10,6 +10,8 @@ cd crosstool-ng-$VERSION
 ./configure
 make && make install
 
+cd ..
+
 mkdir config
 cd config
 wget -q "https://raw.github.com/hivesolutions/builds/master/scripts/$CNAME/defconfig"
