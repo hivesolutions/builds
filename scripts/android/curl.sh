@@ -7,9 +7,8 @@ tar -zxf "curl-$VERSION.tar.gz"
 rm -f "curl-$VERSION.tar.gz"
 cd curl-$VERSION
 
-unset CFLAGS
-
 wget "https://raw.github.com/hivesolutions/patches/master/config/config.sub" "--output-document=config.sub"
+unset CFLAGS
 export PATH=$PATH:$PREFIX/bin
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib\
