@@ -16,6 +16,6 @@ export CFLAGS="$CFLAGS -I$PREFIX/include\
 export EXTRA_CFLAGS="-lresolv"
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --enable-embed=static --enable-bcmath --disable-sockets --disable-phar\
-    --without-pear --without-iconv --with-libxml-dir=$PREFIX\
+    --disable-posix --without-pear --without-iconv --with-libxml-dir=$PREFIX\
     --with-config-file-path=/usr/lib
 make && make install
