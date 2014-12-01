@@ -1,8 +1,8 @@
-VERSION=${VERSION-5.4.33}
+VERSION=${VERSION-5.4.12}
 
 set -e +h
 
-wget "http://php.net/get/php-$VERSION.tar.gz/from/this/mirror" "--output-document=php-$VERSION.tar.gz"
+wget "http://museum.php.net/php5/php-$VERSION.tar.bz2"
 tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
