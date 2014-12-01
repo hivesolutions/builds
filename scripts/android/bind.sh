@@ -10,5 +10,5 @@ cd bind-$VERSION
 wget "https://raw.github.com/hivesolutions/patches/master/config/config.sub" "--output-document=config.sub"
 export PATH=$PATH:$PREFIX/bin
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
-    --disable-shared --enable-static
+    --disable-shared --enable-static --without-gssapi
 make && make install
