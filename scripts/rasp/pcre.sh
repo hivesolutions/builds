@@ -7,8 +7,6 @@ tar -zxf "pcre-$VERSION.tar.gz"
 rm -f "pcre-$VERSION.tar.gz"
 cd pcre-$VERSION
 
-unset CFLAGS
-
 export PATH=$PREFIX/bin:$PATH
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --disable-shared --enable-static --disable-cpp
