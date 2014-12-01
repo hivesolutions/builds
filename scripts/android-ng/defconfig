@@ -1,4 +1,6 @@
 CT_PREFIX_DIR="/opt/${CT_TARGET}"
+CT_ARCH_FPU="vfp"
+CT_ARCH_FLOAT_HW=y
 CT_ARCH_arm=y
 CT_TARGET_VENDOR="android"
 CT_KERNEL_linux=y
