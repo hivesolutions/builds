@@ -7,7 +7,8 @@ tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
 
-export PATH=$PREFIX/bin:$PATH
+wget "https://raw.github.com/hivesolutions/patches/master/config/config.sub" "--output-document=config.sub"
+export PATH=$PATH:$PREFIX/bin
 export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/lib\
     -R$PREFIX/lib\
