@@ -10,6 +10,7 @@ cd php-$VERSION
 wget "https://raw.github.com/hivesolutions/patches/master/config/config.sub" "--output-document=config.sub"
 export PATH=$PATH:$PREFIX/bin
 export CFLAGS="$CFLAGS -I$PREFIX/include\
+    -I$PREFIX/bind/include\
     -L$PREFIX/lib\
     -L$PREFIX/usr/lib\
     -L$PREFIX/$HOST/sysroot/usr/lib"
