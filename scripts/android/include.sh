@@ -1,6 +1,6 @@
 set -e +h
 
-git clone git://github.com/hivesolutions/builds.git
+git clone --depth 1 git://github.com/hivesolutions/builds.git
 cd builds/include/android
 
 mkdir -p $PREFIX/include
