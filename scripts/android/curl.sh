@@ -12,11 +12,8 @@ unset CFLAGS
 export PATH=$PATH:$PREFIX/bin
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib\
-    -R$PREFIX/lib\
     -L$PREFIX/usr/lib\
-    -R$PREFIX/usr/lib\
-    -L$PREFIX/$HOST/sysroot/usr/lib\
-    -R$PREFIX/$HOST/sysroot/usr/lib"
+    -L$PREFIX/$HOST/sysroot/usr/lib"
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --disable-shared --enable-ipv6 --with-ssl --with-zlib
 make && make install
