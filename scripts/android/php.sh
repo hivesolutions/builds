@@ -2,7 +2,7 @@ VERSION=${VERSION-5.4.12}
 
 set -e +h
 
-wget "http://museum.php.net/php5/php-$VERSION.tar.bz2"
+wget "http://museum.php.net/php5/php-$VERSION.tar.gz"
 tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
