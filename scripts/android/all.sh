@@ -13,4 +13,3 @@ source ../base.sh
 ../pcre.sh
 ../libxml2.sh
 ../curl.sh
-../lua.sh
