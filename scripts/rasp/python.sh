@@ -8,7 +8,7 @@ rm -f "Python-$VERSION.tgz"
 cd Python-$VERSION
 
 CFLAGS="-O2" ./configure
-#mkdir Parser
+mkdir -p Parser
 make python Parser/pgen
 mv python hostpython
 mv Parser/pgen Parser/hostpgen
