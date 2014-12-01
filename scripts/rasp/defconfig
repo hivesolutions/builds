@@ -3,3 +3,5 @@ CT_ARCH_arm=y
 CT_TARGET_VENDOR="rasp"
 CT_KERNEL_linux=y
 CT_CC_LANG_CXX=y
+CT_CC="gcc"
+CT_CC_VERSION="4.8.3"
