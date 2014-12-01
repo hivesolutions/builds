@@ -13,7 +13,7 @@ rm -f "lua-$VERSION-xcompile.patch"
 
 export PATH=$PATH:$PREFIX/bin
 make linux CC="$HOST-gcc" AR="$HOST-ar rcu" RANLIB="$HOST-ranlib"\
-    CFLAGS="-I$PREFIX/include -L$PREFIX/lib -R$PREFIX/lib $CFLAGS"
+    CFLAGS="-I$PREFIX/include -L$PREFIX/lib $CFLAGS"
 make install INSTALL_TOP=$PREFIX
 ln -sf liblua5.1.so.0.0.0 $PREFIX/lib/liblua5.1.so.0
 ln -sf liblua5.1.so.0 $PREFIX/lib/liblua5.1.so
