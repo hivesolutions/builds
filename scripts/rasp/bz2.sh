@@ -7,6 +7,6 @@ tar -zxf "bzip2-$VERSION.tar.gz"
 rm -f "bzip2-$VERSION.tar.gz"
 cd bzip2-$VERSION
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 make bzip2 bzip2recover CC=$HOST-gcc CFLAGS="$CFLAGS"
 make install PREFIX=$PREFIX

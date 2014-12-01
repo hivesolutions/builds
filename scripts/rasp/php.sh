@@ -7,7 +7,7 @@ tar -zxf "php-$VERSION.tar.gz"
 rm -f "php-$VERSION.tar.gz"
 cd php-$VERSION
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/lib\
     -R$PREFIX/lib\

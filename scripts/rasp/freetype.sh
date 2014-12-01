@@ -7,6 +7,6 @@ tar -zxf "freetype-$VERSION.tar.gz"
 rm -f "freetype-$VERSION.tar.gz"
 cd freetype-$VERSION
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX --disable-shared
 make && make install

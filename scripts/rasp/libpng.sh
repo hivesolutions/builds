@@ -7,7 +7,7 @@ tar -zxf "libpng-$VERSION.tar.gz"
 rm -f "libpng-$VERSION.tar.gz"
 cd libpng-$VERSION
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/lib\
     -R$PREFIX/lib\

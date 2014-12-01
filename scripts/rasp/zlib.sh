@@ -7,7 +7,7 @@ tar -zxf "zlib-$VERSION.tar.gz"
 rm -f "zlib-$VERSION.tar.gz"
 cd zlib-$VERSION
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 export CC=$HOST-gcc
 ./configure --prefix=$PREFIX --static
 make && make install

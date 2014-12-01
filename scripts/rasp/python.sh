@@ -18,7 +18,7 @@ wget "https://raw.github.com/hivesolutions/patches/master/python/Python-$VERSION
 patch -p1 < Python-$VERSION-xcompile.patch
 rm -f "Python-$VERSION-xcompile.patch"
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 
 CC=$HOST-gcc CXX=$HOST-g++ AR=$HOST-ar RANLIB=$HOST-ranlib\
     ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX --enable-shared

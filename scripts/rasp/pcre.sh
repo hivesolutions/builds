@@ -7,7 +7,7 @@ tar -zxf "pcre-$VERSION.tar.gz"
 rm -f "pcre-$VERSION.tar.gz"
 cd pcre-$VERSION
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --disable-shared --enable-static --disable-cpp
 make && make install

@@ -11,7 +11,7 @@ wget "https://raw.github.com/hivesolutions/patches/master/lua/lua-$VERSION-xcomp
 patch -p1 < lua-$VERSION-xcompile.patch
 rm -f "lua-$VERSION-xcompile.patch"
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 make linux CC="$HOST-gcc" AR="$HOST-ar rcu" RANLIB="$HOST-ranlib"\
     CFLAGS="-I$PREFIX/include -L$PREFIX/lib -R$PREFIX/lib $CFLAGS"
 make install INSTALL_TOP=$PREFIX

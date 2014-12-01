@@ -7,7 +7,7 @@ tar -zxf "jpegsrc.v$VERSION.tar.gz"
 rm -f "jpegsrc.v$VERSION.tar.gz"
 cd jpeg-$VERSION
 
-export PATH=$PREFIX/bin:$PATH
+export PATH=$PATH:$PREFIX/bin
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --disable-shared
 make && make install
