@@ -8,6 +8,6 @@ rm -f "pcre-$VERSION.tar.gz"
 cd pcre-$VERSION
 
 export PATH=$PREFIX/bin:$PATH
-./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
+./configure --host=$HOST --build=$BUILD --prefix=$PREFIX \
     --disable-shared --enable-static --disable-cpp
 make && make install
