@@ -15,5 +15,5 @@ cd ..
 mkdir config
 cd config
 wget "https://raw.github.com/hivesolutions/builds/master/scripts/$CNAME/defconfig"
-ct-ng olddefconfig
-ct-ng build
+ct-ng oldconfig
+CT_ALLOW_BUILD_AS_ROOT_SURE=1 ct-ng build
