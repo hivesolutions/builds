@@ -7,7 +7,7 @@ tar -zxf "pcre-$VERSION.tar.gz"
 rm -f "pcre-$VERSION.tar.gz"
 cd pcre-$VERSION
 
-echo "./configure --host=$HOST --build=$BUILD --prefix=$PREFIX"
+unset CFLAGS
 
 export PATH=$PREFIX/bin:$PATH
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
