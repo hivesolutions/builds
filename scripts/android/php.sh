@@ -13,6 +13,7 @@ export CFLAGS="$CFLAGS -I$PREFIX/include\
     -L$PREFIX/lib\
     -L$PREFIX/usr/lib\
     -L$PREFIX/$HOST/sysroot/usr/lib"
+export EXTRA_CFLAGS="-lresolv"
 ./configure --host=$HOST --build=$BUILD --prefix=$PREFIX\
     --enable-embed=static --enable-bcmath --disable-sockets --disable-phar\
     --without-pear --without-iconv --with-libxml-dir=$PREFIX\
