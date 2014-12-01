@@ -12,6 +12,5 @@ source ../base.sh
 ../include.sh
 ../pcre.sh
 ../libxml2.sh
-../bind.sh
 ../curl.sh
-../php.sh
+
